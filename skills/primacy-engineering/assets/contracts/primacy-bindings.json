@@ -1,0 +1,11 @@
+{
+  "revision": "3cd98c5dc022c7ff5dbf83f5be726dfb43493032",
+  "sha256": {
+    "pi_erp_agentic_ai/static/src/js/page_context.js": "adcae7c0d2c806cc15afad758eabfe06fd637347ff3ce7ce2a381a3476df9fa1",
+    "token_api_gateway/server/task-classifier.js": "d83c42fbadd43dd401e11aae02346ff60e4a8a71cb800223f59c88dc0122c14e",
+    "pi_erp_agentic_ai/models/ai_execution.py": "800a064f27abf235733654347c7c3e25c79014ac6c601aeaa46b0716fdc737f6",
+    "pi_erp_agentic_ai/models/ai_functional_engine.py": "baeedcb70cb247021a7863f0b03776dbff8e88d27fbd54c332863e1b25ed945b",
+    "scripts/evaluate_odoo_workflow_guidance.py": "d5264320611557860ea81db8cdad38b35aceca2fb2e0dffa212337576c3a3e6a",
+    "pi_erp_agentic_ai/controllers/chat.py": "82874f407736d14fb4220c5cf3effd42536a3039f7b9e16d6a8288b1e4a69dfa"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "odoo_capture_page",
+  "description": "Capture a screenshot of an Odoo view/page on the running server and check for visual or JS console errors.\n\n    Automates browser navigation, logs in if needed, waits for OWL/webclient rendering,\n    captures full-page screenshot to disk, and inspects for crash dialogs and JS console errors.\n\n    Args:\n        url: Base Odoo server URL (e.g. http://localhost:8069).\n        login: User login (default: admin).\n        password: User password (default: admin).\n        database: Optional Odoo database name (if multiple DBs exist).\n        action_url: Target URL path or action hash (e.g. '/web#action=crm.crm_lead_all_leads' or '/odoo/action-123').\n        output_path: Destination path for the screenshot .png. Defaults to ~/.gemini/antigravity/screenshots/odoo_<timestamp>.png.\n        wait_time_ms: Milliseconds to wait after page load for OWL rendering and animations (default: 3000).\n        full_page: Whether to take a full page screenshot (default: True).\n        viewport_width: Browser viewport width (default: 1440).\n        viewport_height: Browser viewport height (default: 900).\n\n    Returns:\n        Structured report with screenshot path, HTTP status, detected JS console errors, and any visible crash modals.\n    ",
+  "parameters": {
+    "properties": {
+      "url": {
+        "default": "http://localhost:8069",
+        "title": "Url",
+        "type": "string"
+      },
+      "login": {
+        "default": "admin",
+        "title": "Login",
+        "type": "string"
+      },
+      "password": {
+        "default": "admin",
+        "title": "Password",
+        "type": "string"
+      },
+      "database": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Database"
+      },
+      "action_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Action Url"
+      },
+      "output_path": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Output Path"
+      },
+      "wait_time_ms": {
+        "default": 3000,
+        "title": "Wait Time Ms",
+        "type": "integer"
+      },
+      "full_page": {
+        "default": true,
+        "title": "Full Page",
+        "type": "boolean"
+      },
+      "viewport_width": {
+        "default": 1440,
+        "title": "Viewport Width",
+        "type": "integer"
+      },
+      "viewport_height": {
+        "default": 900,
+        "title": "Viewport Height",
+        "type": "integer"
+      }
+    },
+    "title": "odoo_capture_pageArguments",
+    "type": "object"
+  }
+}

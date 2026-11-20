@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""
+Odoo AI Developer CLI Utility
+Command-line assistant for linting, validating, and inspecting Odoo modules.
+"""
+
+import argparse
+import sys
+import os
+
+# Import tool functions from MCP server
+sys.path.insert(0, os.path.expanduser("~/.gemini/config/plugins/odoo-dev"))
+import mcp_server
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="odoo-dev",
+        description="Odoo AI Developer Utility: Linting, XML verification, manifest checking, and RPC inspection."
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # 1. lint
+    p_lint = subparsers.add_parser("lint", help="Run pylint-odoo on a module or file")
+    p_lint.add_argument("path", help="Path to Python file or addon folder")
+
+    # 2. validate-manifest
+    p_manifest = subparsers.add_parser("validate-manifest", help="Validate __manifest__.py structure and file paths")
+    p_manifest.add_argument("path", help="Path to __manifest__.py or addon folder")
+
+    # 3. validate-xml
+    p_xml = subparsers.add_parser("validate-xml", help="Validate XML views and XPaths")
+    p_xml.add_argument("path", help="Path to XML file or folder")
+
+    # 4. check-compat
+    p_compat = subparsers.add_parser("check-compat", help="Check cross-version deprecations and syntax")
+    p_compat.add_argument("path", help="Path to addon folder or file")
+    p_compat.add_argument("--target-version", default="18.0", help="Target Odoo version (e.g. 17.0, 18.0, 19.0, 20.0)")
+
+    # 5. ping
+    p_ping = subparsers.add_parser("ping", help="Ping a running Odoo instance via RPC")
+    p_ping.add_argument("--host", default="localhost", help="Odoo host (default: localhost)")
+    p_ping.add_argument("--port", type=int, default=8069, help="Odoo port (default: 8069)")
+    p_ping.add_argument("--protocol", default="jsonrpc", help="Protocol (jsonrpc or jsonrpc+ssl)")
+
+    # 6. inspect-model
+    p_inspect = subparsers.add_parser("inspect-model", help="Inspect model fields on a running Odoo database")
+    p_inspect.add_argument("model", help="Model name (e.g. sale.order, res.partner)")
+    p_inspect.add_argument("--db", required=True, help="Database name")
+    p_inspect.add_argument("--host", default="localhost", help="Host (default: localhost)")
+    p_inspect.add_argument("--port", type=int, default=8069, help="Port (default: 8069)")
+    p_inspect.add_argument("--user", default="admin", help="User (default: admin)")
+    p_inspect.add_argument("--password", default="admin", help="Password (default: admin)")
+
+    # 7. read
+    p_read = subparsers.add_parser("read", help="Read/parse business files (PDF specs, Excel sheets, Word docs, CSVs, image metadata)")
+    p_read.add_argument("file", help="Path to file to read")
+    p_read.add_argument("--max-rows", type=int, default=20, help="Max rows for tables (default: 20)")
+    p_read.add_argument("--max-pages", type=int, default=15, help="Max pages for PDFs (default: 15)")
+
+    # 8. scaffold
+    p_scaffold = subparsers.add_parser("scaffold", help="Scaffold a production-grade Odoo 19/20 addon module")
+    p_scaffold.add_argument("name", help="Technical module name (e.g. custom_maintenance)")
+    p_scaffold.add_argument("--target-dir", default=".", help="Target directory (default: current directory)")
+    p_scaffold.add_argument("--version", default="19.0", help="Target Odoo version ('18.0', '19.0', '20.0', default: 19.0)")
+    p_scaffold.add_argument("--model", default="", help="Primary technical model name (e.g. custom.maintenance)")
+
+    # 9. screenshot
+    p_shot = subparsers.add_parser("screenshot", help="Capture full-page screenshot of an Odoo page and check for crashes")
+    p_shot.add_argument("--url", default="http://localhost:8069", help="Base URL (default: http://localhost:8069)")
+    p_shot.add_argument("--login", default="admin", help="Login (default: admin)")
+    p_shot.add_argument("--password", default="admin", help="Password (default: admin)")
+    p_shot.add_argument("--db", default=None, help="Database name")
+    p_shot.add_argument("--action-url", default=None, help="Target action path or hash (e.g. /web#action=...)")
+    p_shot.add_argument("--output", default=None, help="Screenshot destination path")
+    p_shot.add_argument("--wait", type=int, default=3000, help="Wait time in ms after load (default: 3000)")
+
+    # 10. file-audit
+    p_fa = subparsers.add_parser("file-audit", help="Perform deep AST and security inspection of a file")
+    p_fa.add_argument("file", help="Path to Python, XML, or CSV file to audit")
+
+    # 11. folder-audit
+    p_fo = subparsers.add_parser("folder-audit", help="Audit module directory for unregistered ghost files and cascade imports")
+    p_fo.add_argument("path", default=".", nargs="?", help="Path to module or addons directory (default: current directory)")
+
+    # 12. db-audit
+    p_db = subparsers.add_parser("db-audit", help="Audit PostgreSQL database for unindexed FKs, orphaned IDs, and balances")
+    p_db.add_argument("db", help="Database name")
+    p_db.add_argument("--host", default="localhost", help="Host (default: localhost)")
+    p_db.add_argument("--port", type=int, default=5432, help="PostgreSQL port (default: 5432)")
+    p_db.add_argument("--user", default="odoo", help="PostgreSQL user (default: odoo)")
+    p_db.add_argument("--password", default=None, help="PostgreSQL password")
+    p_db.add_argument("--rpc-port", type=int, default=8069, help="Odoo JSON-RPC port (default: 8069)")
+
+    # 13. pre-upgrade
+    p_pu = subparsers.add_parser("pre-upgrade", help="Run Stage 1 Pre-Upgrade Safety Gate static risk audit on a module")
+    p_pu.add_argument("path", default=".", nargs="?", help="Path to addon module folder (default: current directory)")
+
+    # 14. blueprint
+    p_bp = subparsers.add_parser("blueprint", help="Generate an Architectural Pre-Flight Blueprint template for a model")
+    p_bp.add_argument("model", help="Technical model name (e.g. custom.maintenance or sale.order)")
+
+    args = parser.parse_args()
+
+    if args.command == "lint":
+        print(mcp_server.odoo_pylint(os.path.abspath(args.path)))
+    elif args.command == "validate-manifest":
+        manifest_path = args.path
+        if os.path.isdir(manifest_path):
+            manifest_path = os.path.join(manifest_path, "__manifest__.py")
+        print(mcp_server.odoo_validate_manifest(os.path.abspath(manifest_path)))
+    elif args.command == "validate-xml":
+        print(mcp_server.odoo_validate_xml(os.path.abspath(args.path)))
+    elif args.command == "check-compat":
+        print(mcp_server.odoo_version_compat_check(os.path.abspath(args.path), args.target_version))
+    elif args.command == "ping":
+        print(mcp_server.odoo_rpc_ping(args.host, args.port, args.protocol))
+    elif args.command == "inspect-model":
+        print(mcp_server.odoo_model_inspect(args.model, args.db, args.host, args.port, args.user, args.password))
+    elif args.command == "read":
+        print(mcp_server.odoo_read_file(os.path.abspath(args.file), args.max_rows, args.max_pages))
+    elif args.command == "scaffold":
+        print(mcp_server.odoo_scaffold_module(args.name, args.target_dir, args.version, args.model))
+    elif args.command == "screenshot":
+        print(mcp_server.odoo_capture_page(args.url, args.login, args.password, args.db, args.action_url, args.output, args.wait))
+    elif args.command == "file-audit":
+        print(mcp_server.odoo_audit_file(os.path.abspath(args.file)))
+    elif args.command == "folder-audit":
+        print(mcp_server.odoo_audit_module_folder(os.path.abspath(args.path)))
+    elif args.command == "db-audit":
+        print(mcp_server.odoo_audit_database(args.db, args.host, args.port, args.user, args.password, args.rpc_port))
+    elif args.command == "pre-upgrade":
+        res = mcp_server.odoo_pre_upgrade_audit(os.path.abspath(args.path))
+        print(res)
+        if "⛔ PRE-UPGRADE VERDICT: BLOCKED" in res:
+            sys.exit(1)
+    elif args.command == "blueprint":
+        model_raw = args.model
+        clean_model = model_raw.replace('.', '_')
+        class_name = "".join(part.capitalize() for part in model_raw.split("."))
+        print(f"""# Architectural Pre-Flight Blueprint: {model_raw}
+
+## 1. State Machine & Lifecycle Transitions
+```mermaid
+stateDiagram-v2
+    [*] --> draft: Record Created
+    draft --> confirmed: action_confirm() [Validates Lines]
+    confirmed --> in_progress: action_start() [Allocates Stock]
+    in_progress --> done: action_done() [Posts Journal Entries]
+    draft --> cancel: action_cancel()
+    confirmed --> cancel: action_cancel() [Releases Locks]
+    done --> [*]
+    cancel --> draft: action_draft() [Reset]
+```
+
+## 2. Entity-Relationship Data Model
+```mermaid
+erDiagram
+    RES_COMPANY ||--o{{ {clean_model.upper()} : operates
+    RES_PARTNER ||--o{{ {clean_model.upper()} : partner
+    {clean_model.upper()} ||--|{{ {clean_model.upper()}_LINE : contains
+
+    {clean_model.upper()} {{{{
+        int id PK
+        string name "Sequence Code"
+        string state "draft/confirmed/done"
+        many2one company_id "check_company=True"
+        many2one partner_id "Customer/Vendor"
+    }}}}
+
+    {clean_model.upper()}_LINE {{{{
+        int id PK
+        many2one {clean_model}_id FK "ondelete=cascade"
+        many2one product_id FK "index=True"
+        float quantity
+        float unit_cost
+    }}}}
+```
+
+## 3. Financial & Stock Accounting Impact Matrix
+- **Journal Entries (`account.move`)**: Posted on `action_done()` with strict `debit == credit`.
+- **Stock Valuation Layer (`stock.valuation.layer`)**: Generated upon physical quant transfer.
+
+## 4. Interactive Button & Action Traceability Matrix
+| UI Button / Action | Method Name | Required Group | Invisible Condition | Side Effects |
+| :--- | :--- | :--- | :--- | :--- |
+| **Confirm** | `action_confirm()` | Standard User | `state != 'draft'` | Validates required lines |
+| **Start** | `action_start()` | Technician | `state != 'confirmed'` | Sets user ID, starts timer |
+| **Mark Done** | `action_done()` | Manager | `state != 'in_progress'` | Posts journal entries |
+| **Cancel** | `action_cancel()` | Standard User | `state in ('done', 'cancel')` | Releases locks & stock |
+""")
+
+if __name__ == "__main__":
+    main()
+
+
+

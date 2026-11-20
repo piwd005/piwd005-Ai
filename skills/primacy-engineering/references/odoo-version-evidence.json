@@ -1,0 +1,122 @@
+{
+  "reviewed_at": "2026-11-15",
+  "status": "STATIC_REVIEWED",
+  "native_runtime": "NOT_RUN",
+  "source_bodies_vendored": false,
+  "evidence": [
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/orm/models.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/orm/models.py",
+      "sha256": "6ab1737680d60c2b06f573777f0144e756fedab9e0192605afa346ddee07709b"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/orm/decorators.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/orm/decorators.py",
+      "sha256": "e1f8c6ad91fac7478a3fac119126e088f3821239089ae38fd8d1b8832fd2abf8"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/orm/table_objects.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/orm/table_objects.py",
+      "sha256": "901d0442fa0e7c80f0625211c8b086292047dca0e91fb7e27da693b88058cf08"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/tests/common.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/tests/common.py",
+      "sha256": "d28bb1c7f076bf2f8267a8e8b5f3f93b9bf2de193565375c89447d8ad6b5db1d"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/orm/models.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/orm/models.py",
+      "sha256": "61c63aacf0848c9e3a0a3e32750ddfded4f078974ed433558f2ae226f49bed12"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/orm/decorators.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/orm/decorators.py",
+      "sha256": "c03349d08454da15eae8d8f7f81bc7f0050affb6f513020f9033258429afb865"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/orm/table_objects.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/orm/table_objects.py",
+      "sha256": "23a9c603efd16cd4bae080ff88c02bd0f05df193dc473c9e6886051e5eb7d7a1"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/tests/common.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/tests/common.py",
+      "sha256": "a4371b4b0a12d8bee6621bcdf629b405cbc8796e2ef1e1bcd2f15748823f1a29"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/http.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/http.py",
+      "sha256": "b26ac891442ddd42dbfc0d8858b07d12afef318f9e2233999f9045efa10cb33a"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "addons/web/static/lib/owl/owl.js",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/addons/web/static/lib/owl/owl.js",
+      "sha256": "284adc93a9d044e338897b73e1e57250829f1dce4fb97842bb59b28b5c4d4b4e"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/http/__init__.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/http/__init__.py",
+      "sha256": "d4793295bfbf94dd1562c338c6ad471a97f61935d981a743935700e62587668a"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "skills/odoo-guidelines/SKILL.md",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-guidelines/SKILL.md",
+      "sha256": "46992d0d80274b789fd75b654ada273d1f6fa804ed30c5785c76c2edaea37f41"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "skills/odoo-web-guidelines/SKILL.md",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-web-guidelines/SKILL.md",
+      "sha256": "5fecb36b1a3ead76abac3b49c9d2dec1e423d3041959f3850ad6b5cd953436d0"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "skills/odoo-guidelines/guidelines/orm.md",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-guidelines/guidelines/orm.md",
+      "sha256": "c79bdfb650885dbb46bff45676eb0ec4905fc2ff08139d69bf6072f8b8baadbf"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "skills/odoo-guidelines/guidelines/controllers.md",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-guidelines/guidelines/controllers.md",
+      "sha256": "5f1248321ee0b6ca3d032aeb57be91c67671fa18c3e92e43e70ab339177d9cf5"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "skills/odoo-web-guidelines/guidelines/javascript.md",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-web-guidelines/guidelines/javascript.md",
+      "sha256": "68ee778961a9a3797f49c4c503bcc92fd7bd78097ee75c99b1feae8db4a6381f"
+    },
+    {
+      "revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "path": "odoo/models/__init__.py",
+      "url": "https://github.com/odoo/odoo/blob/a157617c921669c5c036509b341be6a07ad1069d/odoo/models/__init__.py",
+      "sha256": "978bfdb4efe2cdabddef731bb635f420a43b6cc196ed48cf0cea076d4c0b1f97"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/models/__init__.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/models/__init__.py",
+      "sha256": "487a1457a7783840993c3a8b79643c9951367da41ee9b724220622b01c9bb0a5"
+    },
+    {
+      "revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "path": "odoo/http/routing_map.py",
+      "url": "https://github.com/odoo/odoo/blob/d032c6dc504a24de4084783d8abb1b95896f1eda/odoo/http/routing_map.py",
+      "sha256": "b29b9dbffe10b3e47b452fea15b6b9c6bf0301ad82259549bc60a694c5dc4473"
+    }
+  ]
+}

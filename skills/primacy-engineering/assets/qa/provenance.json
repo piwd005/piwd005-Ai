@@ -1,0 +1,665 @@
+{
+  "platform": "macOS arm64 CPython 3.12",
+  "source": "https://pypi.org/simple",
+  "installation": "Isolated QA environment only. Core imports remain standard-library only.",
+  "distributions": [
+    {
+      "name": "astroid",
+      "version": "4.0.4",
+      "filename": "astroid-4.0.4-py3-none-any.whl",
+      "sha256": "52f39653876c7dec3e3afd4c2696920e05c83832b9737afc21928f2d2eb7a753",
+      "license": "LGPL-2.1-or-later",
+      "requires": [
+        "typing-extensions>=4; python_version < \"3.11\""
+      ]
+    },
+    {
+      "name": "boolean.py",
+      "version": "5.0",
+      "filename": "boolean_py-5.0-py3-none-any.whl",
+      "sha256": "ef28a70bd43115208441b53a045d1549e2f0ec6e3d08a9d142cbc41c1938e8d9",
+      "license": "BSD-2-Clause",
+      "requires": [
+        "pytest!=7.0.0,>=6; extra == \"testing\"",
+        "pytest-xdist>=2; extra == \"testing\"",
+        "twine; extra == \"dev\"",
+        "build; extra == \"dev\"",
+        "black; extra == \"linting\"",
+        "isort; extra == \"linting\"",
+        "pycodestyle; extra == \"linting\"",
+        "Sphinx>=3.3.1; extra == \"docs\"",
+        "sphinx-rtd-theme>=0.5.0; extra == \"docs\"",
+        "doc8>=0.8.1; extra == \"docs\"",
+        "sphinxcontrib-apidoc>=0.3.0; extra == \"docs\""
+      ]
+    },
+    {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "filename": "cachecontrol-0.14.4-py3-none-any.whl",
+      "sha256": "b7ac014ff72ee199b5f8af1de29d60239954f223e948196fa3d84adaffc71d2b",
+      "license": "Apache-2.0",
+      "requires": [
+        "requests>=2.16.0",
+        "msgpack>=0.5.2,<2.0.0",
+        "cachecontrol[filecache,redis] ; extra == 'dev'",
+        "cherrypy ; extra == 'dev'",
+        "cheroot>=11.1.2 ; extra == 'dev'",
+        "codespell ; extra == 'dev'",
+        "furo ; extra == 'dev'",
+        "mypy ; extra == 'dev'",
+        "pytest ; extra == 'dev'",
+        "pytest-cov ; extra == 'dev'",
+        "ruff ; extra == 'dev'",
+        "sphinx ; extra == 'dev'",
+        "sphinx-copybutton ; extra == 'dev'",
+        "types-redis ; extra == 'dev'",
+        "types-requests ; extra == 'dev'",
+        "filelock>=3.8.0 ; extra == 'filecache'",
+        "redis>=2.10.5 ; extra == 'redis'"
+      ]
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "filename": "certifi-2026.10.23-py3-none-any.whl",
+      "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "license": "MPL-2.0",
+      "requires": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "filename": "charset_normalizer-3.5.2-cp312-cp312-macosx_10_13_universal2.whl",
+      "sha256": "ed2a239c0ea213acc1908150a3037257083c7c083128f1a4cec2ec4b97dca491",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "click",
+      "version": "8.1.8",
+      "filename": "click-8.1.8-py3-none-any.whl",
+      "sha256": "63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2",
+      "license": "See distribution license files",
+      "requires": [
+        "colorama; platform_system == 'Windows'",
+        "importlib-metadata; python_version < '3.8'"
+      ]
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "license": "See distribution license files",
+      "requires": []
+    },
+    {
+      "name": "cyclonedx-python-lib",
+      "version": "11.12.0",
+      "filename": "cyclonedx_python_lib-11.12.0-py3-none-any.whl",
+      "sha256": "0e807521a921a5c3cb8ce1153f8a61d29eedfe76a46aac2796b7c6b573391a54",
+      "license": "Apache-2.0",
+      "requires": [
+        "jsonschema[format-nongpl] (>=4.25,<5.0) ; extra == \"validation\" or extra == \"json-validation\"",
+        "license-expression (>=30,<31)",
+        "lxml (>=4,<7) ; extra == \"validation\" or extra == \"xml-validation\"",
+        "packageurl-python (>=0.11,<2)",
+        "py-serializable (>=2.1.0,<3.0.0)",
+        "referencing (>=0.28.4) ; extra == \"validation\" or extra == \"json-validation\"",
+        "sortedcontainers (>=2.4.0,<3.0.0)",
+        "typing_extensions (>=4.6,<5.0) ; python_version < \"3.13\""
+      ]
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "filename": "defusedxml-0.7.1-py2.py3-none-any.whl",
+      "sha256": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+      "license": "PSFL",
+      "requires": []
+    },
+    {
+      "name": "dill",
+      "version": "0.4.1",
+      "filename": "dill-0.4.1-py3-none-any.whl",
+      "sha256": "1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d",
+      "license": "BSD-3-Clause",
+      "requires": [
+        "objgraph>=1.7.2; extra == \"graph\"",
+        "gprof2dot>=2022.7.29; extra == \"profile\""
+      ]
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.10",
+      "filename": "filelock-4.2.10-py3-none-any.whl",
+      "sha256": "9479aaeb4db20b5a53e3da28493edd24720b66b8a0b84030aa56ccdf243d6857",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "fixit",
+      "version": "2.2.1",
+      "filename": "fixit-2.2.1-py3-none-any.whl",
+      "sha256": "943e9cdf96194b4c6dc230680dffe65035eb8fd3e7485ca99f8b417b6b5c56e4",
+      "license": "MIT License\n        \n        Copyright (c) Facebook, Inc. and its affiliates.\n        \n        Permission is hereby granted, free of charge, to any person obtaining a copy\n        of this software and associated documentation files (the \"Software\"), to deal\n        in the Software without restriction, including without limitation the rights\n        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n        copies of the Software, and to permit persons to whom the Software is\n        furnished to do so, subject to the following conditions:\n        \n        The above copyright notice and this permission notice shall be included in all\n        copies or substantial portions of the Software.\n        \n        THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n        SOFTWARE.\n        \n        -------------------------------------------------------------------------------\n        \n        PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2\n        \n        1. This LICENSE AGREEMENT is between the Python Software Foundation\n        (\"PSF\"), and the Individual or Organization (\"Licensee\") accessing and\n        otherwise using this software (\"Python\") in source or binary form and\n        its associated documentation.\n        \n        2. Subject to the terms and conditions of this License Agreement, PSF hereby\n        grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,\n        analyze, test, perform and/or display publicly, prepare derivative works,\n        distribute, and otherwise use Python alone or in any derivative version,\n        provided, however, that PSF's License Agreement and PSF's notice of copyright,\n        i.e., \"Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,\n        2011, 2012, 2013, 2014, 2015 Python Software Foundation; All Rights Reserved\"\n        are retained in Python alone or in any derivative version prepared by Licensee.\n        \n        3. In the event Licensee prepares a derivative work that is based on\n        or incorporates Python or any part thereof, and wants to make\n        the derivative work available to others as provided herein, then\n        Licensee hereby agrees to include in any such work a brief summary of\n        the changes made to Python.\n        \n        4. PSF is making Python available to Licensee on an \"AS IS\"\n        basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR\n        IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND\n        DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS\n        FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT\n        INFRINGE ANY THIRD PARTY RIGHTS.\n        \n        5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON\n        FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS\n        A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,\n        OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.\n        \n        6. This License Agreement will automatically terminate upon a material\n        breach of its terms and conditions.\n        \n        7. Nothing in this License Agreement shall be deemed to create any\n        relationship of agency, partnership, or joint venture between PSF and\n        Licensee.  This License Agreement does not grant permission to use PSF\n        trademarks or trade name in a trademark sense to endorse or promote\n        products or services of Licensee, or any third party.\n        \n        8. By copying, installing or otherwise using Python, Licensee\n        agrees to be bound by the terms and conditions of this License\n        Agreement.\n        \n        -------------------------------------------------------------------------------\n        \n        APACHE LICENSE, VERSION 2.0\n        \n        http://www.apache.org/licenses/LICENSE-2.0",
+      "requires": [
+        "click<8.2,>=8.0",
+        "libcst>=0.3.18",
+        "moreorless>=0.4.0",
+        "packaging>=21",
+        "tomli>=2.0; python_version < '3.11'",
+        "trailrunner>=1.2",
+        "attribution==1.8.0; extra == 'dev'",
+        "black==25.9.0; extra == 'dev'",
+        "build>1; extra == 'dev'",
+        "flake8-bugbear==24.12.12; extra == 'dev'",
+        "flake8==7.3.0; extra == 'dev'",
+        "mypy==1.18.2; extra == 'dev'",
+        "pyrefly==0.39.4; extra == 'dev'",
+        "ufmt==2.8.0; extra == 'dev'",
+        "usort==1.0.8.post1; extra == 'dev'",
+        "jinja2==3.1.6; extra == 'docs'",
+        "sphinx-mdinclude==0.6.2; extra == 'docs'",
+        "sphinx==8.0.2; extra == 'docs'",
+        "pygls[ws]~=2.0.0; extra == 'lsp'",
+        "rich>=12.6.0; extra == 'pretty'"
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "filename": "idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "license": "BSD-3-Clause",
+      "requires": [
+        "ruff >= 0.16.0 ; extra == \"all\"",
+        "mypy >= 1.11.2 ; extra == \"all\"",
+        "ty >= 0.0.37 ; extra == \"all\"",
+        "pytest >= 8.3.2 ; extra == \"all\"",
+        "hypothesis >= 6.141.1 ; extra == \"all\"",
+        "coverage >= 7.10.0 ; extra == \"all\""
+      ]
+    },
+    {
+      "name": "isort",
+      "version": "9.0.2",
+      "filename": "isort-9.0.2-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "a05dc63cb6ae2a8e62ec4184153f424b1650593e00a24e6138184c46193891e9",
+      "license": "MIT",
+      "requires": [
+        "mypy-extensions>=1.1.0",
+        "colorama; extra == 'colors'"
+      ]
+    },
+    {
+      "name": "libcst",
+      "version": "1.9.0",
+      "filename": "libcst-1.9.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "cd1a3500c41784075c4946a995d5ad89f68fa0d226b63ff3c4d78f6ea6dd23e5",
+      "license": "All contributions towards LibCST are MIT licensed.\n        \n        Some Python files have been derived from the standard library and are therefore\n        PSF licensed. Modifications on these files are dual licensed (both MIT and\n        PSF). These files are:\n        \n        - libcst/_parser/base_parser.py\n        - libcst/_parser/parso/utils.py\n        - libcst/_parser/parso/pgen2/generator.py\n        - libcst/_parser/parso/pgen2/grammar_parser.py\n        - libcst/_parser/parso/python/py_token.py\n        - libcst/_parser/parso/python/tokenize.py\n        - libcst/_parser/parso/tests/test_fstring.py\n        - libcst/_parser/parso/tests/test_tokenize.py\n        - libcst/_parser/parso/tests/test_utils.py\n        - native/libcst/src/tokenizer/core/mod.rs\n        - native/libcst/src/tokenizer/core/string_types.rs\n        \n        Some Python files have been taken from dataclasses and are therefore Apache\n        licensed. Modifications on these files are licensed under Apache 2.0 license.\n        These files are:\n        \n        - libcst/_add_slots.py\n        \n        -------------------------------------------------------------------------------\n        \n        MIT License\n        \n        Copyright (c) Meta Platforms, Inc. and affiliates.\n        \n        Permission is hereby granted, free of charge, to any person obtaining a copy\n        of this software and associated documentation files (the \"Software\"), to deal\n        in the Software without restriction, including without limitation the rights\n        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n        copies of the Software, and to permit persons to whom the Software is\n        furnished to do so, subject to the following conditions:\n        \n        The above copyright notice and this permission notice shall be included in all\n        copies or substantial portions of the Software.\n        \n        THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n        SOFTWARE.\n        \n        -------------------------------------------------------------------------------\n        \n        PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2\n        \n        1. This LICENSE AGREEMENT is between the Python Software Foundation\n        (\"PSF\"), and the Individual or Organization (\"Licensee\") accessing and\n        otherwise using this software (\"Python\") in source or binary form and\n        its associated documentation.\n        \n        2. Subject to the terms and conditions of this License Agreement, PSF hereby\n        grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,\n        analyze, test, perform and/or display publicly, prepare derivative works,\n        distribute, and otherwise use Python alone or in any derivative version,\n        provided, however, that PSF's License Agreement and PSF's notice of copyright,\n        i.e., \"Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,\n        2011, 2012, 2013, 2014, 2015 Python Software Foundation; All Rights Reserved\"\n        are retained in Python alone or in any derivative version prepared by Licensee.\n        \n        3. In the event Licensee prepares a derivative work that is based on\n        or incorporates Python or any part thereof, and wants to make\n        the derivative work available to others as provided herein, then\n        Licensee hereby agrees to include in any such work a brief summary of\n        the changes made to Python.\n        \n        4. PSF is making Python available to Licensee on an \"AS IS\"\n        basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR\n        IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND\n        DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS\n        FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT\n        INFRINGE ANY THIRD PARTY RIGHTS.\n        \n        5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON\n        FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS\n        A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,\n        OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.\n        \n        6. This License Agreement will automatically terminate upon a material\n        breach of its terms and conditions.\n        \n        7. Nothing in this License Agreement shall be deemed to create any\n        relationship of agency, partnership, or joint venture between PSF and\n        Licensee.  This License Agreement does not grant permission to use PSF\n        trademarks or trade name in a trademark sense to endorse or promote\n        products or services of Licensee, or any third party.\n        \n        8. By copying, installing or otherwise using Python, Licensee\n        agrees to be bound by the terms and conditions of this License\n        Agreement.\n        \n        -------------------------------------------------------------------------------\n        \n        APACHE LICENSE, VERSION 2.0\n        \n        http://www.apache.org/licenses/LICENSE-2.0\n        ",
+      "requires": [
+        "pyyaml>=5.2; python_version < \"3.13\"",
+        "pyyaml-ft>=8.0.0; python_version == \"3.13\"",
+        "pyyaml>=6.0.3; python_version >= \"3.14\"",
+        "typing-extensions; python_version < \"3.10\""
+      ]
+    },
+    {
+      "name": "license-expression",
+      "version": "30.4.4",
+      "filename": "license_expression-30.4.4-py3-none-any.whl",
+      "sha256": "421788fdcadb41f049d2dc934ce666626265aeccefddd25e162a26f23bcbf8a4",
+      "license": "Apache-2.0",
+      "requires": [
+        "boolean.py>=4.0",
+        "pytest>=7.0.1; extra == \"dev\"",
+        "pytest-xdist>=2; extra == \"dev\"",
+        "twine; extra == \"dev\"",
+        "ruff; extra == \"dev\"",
+        "Sphinx>=5.0.2; extra == \"dev\"",
+        "sphinx-rtd-theme>=1.0.0; extra == \"dev\"",
+        "sphinxcontrib-apidoc>=0.4.0; extra == \"dev\"",
+        "sphinx-reredirects>=0.1.2; extra == \"dev\"",
+        "doc8>=0.11.2; extra == \"dev\"",
+        "sphinx-autobuild; extra == \"dev\"",
+        "sphinx-rtd-dark-mode>=1.3.0; extra == \"dev\"",
+        "sphinx-copybutton; extra == \"dev\""
+      ]
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "filename": "lxml-6.1.3-cp312-cp312-macosx_10_13_universal2.whl",
+      "sha256": "0c0710ac085a157b593c38fbcacd950f15c4afa8e2057527185875ab302752bc",
+      "license": "BSD-3-Clause",
+      "requires": [
+        "cssselect>=0.7; extra == \"cssselect\"",
+        "html5lib; extra == \"html5\"",
+        "BeautifulSoup4; extra == \"htmlsoup\"",
+        "lxml_html_clean; extra == \"html-clean\""
+      ]
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.3.0",
+      "filename": "markdown_it_py-4.3.0-py3-none-any.whl",
+      "sha256": "7aa1511a46c39138de78d9eba92ce47e63124d8003fc98b3a351909e04239efa",
+      "license": "See distribution license files",
+      "requires": [
+        "mdurl~=0.1",
+        "psutil ; extra == \"benchmarking\"",
+        "pytest ; extra == \"benchmarking\"",
+        "pytest-benchmark ; extra == \"benchmarking\"",
+        "markdown~=3.4 ; extra == \"compare\"",
+        "mistletoe~=1.0 ; extra == \"compare\"",
+        "mistune~=3.0 ; extra == \"compare\"",
+        "panflute~=2.3 ; extra == \"compare\"",
+        "markdown-it-pyrs ; extra == \"compare\"",
+        "coverage ; extra == \"coverage\"",
+        "pytest-cov ; extra == \"coverage\"",
+        "linkify-it-py>=1,<3 ; extra == \"linkify\"",
+        "mdit-py-plugins>=0.5.0 ; extra == \"plugins\"",
+        "gprof2dot ; extra == \"profiling\"",
+        "mdit-py-plugins>=0.5.0 ; extra == \"rtd\"",
+        "myst-parser ; extra == \"rtd\"",
+        "pyyaml ; extra == \"rtd\"",
+        "sphinx ; extra == \"rtd\"",
+        "sphinx-copybutton ; extra == \"rtd\"",
+        "sphinx-design ; extra == \"rtd\"",
+        "sphinx-book-theme~=1.0 ; extra == \"rtd\"",
+        "jupyter_sphinx ; extra == \"rtd\"",
+        "ipykernel ; extra == \"rtd\"",
+        "flit_core>=3.4,<5 ; extra == \"testing\"",
+        "pytest ; extra == \"testing\"",
+        "pytest-regressions ; extra == \"testing\"",
+        "pytest-timeout ; extra == \"testing\"",
+        "requests ; extra == \"testing\""
+      ]
+    },
+    {
+      "name": "mccabe",
+      "version": "0.7.0",
+      "filename": "mccabe-0.7.0-py2.py3-none-any.whl",
+      "sha256": "6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e",
+      "license": "Expat license",
+      "requires": []
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "filename": "mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "license": "See distribution license files",
+      "requires": []
+    },
+    {
+      "name": "moreorless",
+      "version": "0.6.0",
+      "filename": "moreorless-0.6.0-py3-none-any.whl",
+      "sha256": "b00997fee924ab86f2e135ba08e4d70d3295a7226d3d083a5c69ec4e2a9e9e83",
+      "license": "MIT",
+      "requires": [
+        "click; extra == \"cli\"",
+        "checkdeps==0.9.0; python_version >= \"3.10\" and extra == \"dev\"",
+        "mypy==1.19.1; extra == \"dev\"",
+        "ruff==0.15.6; extra == \"dev\"",
+        "tox==4.50.0; extra == \"dev\"",
+        "tox-uv==1.33.4; extra == \"dev\"",
+        "coverage>=6; extra == \"test\"",
+        "pytest>=8; extra == \"test\"",
+        "click; extra == \"test\""
+      ]
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.4",
+      "filename": "msgpack-1.2.4-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "112933726919f4239646cca9572e2c2fa5626358c670da8440aac09403100a48",
+      "license": "Apache-2.0",
+      "requires": []
+    },
+    {
+      "name": "mypy_extensions",
+      "version": "1.2.0",
+      "filename": "mypy_extensions-1.2.0-py3-none-any.whl",
+      "sha256": "993e7a20aa5671eb41a7132cf555af30062da99729601601b9a8382b11cae768",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "oca-odoo-pre-commit-hooks",
+      "version": "0.2.27",
+      "filename": "oca_odoo_pre_commit_hooks-0.2.27-py3-none-any.whl",
+      "sha256": "f68f63a95704ae1ed5dbeb52f8eead982942c4f85efea5af24584593b0fee37e",
+      "license": "LGPL-3.0-or-later",
+      "requires": [
+        "colorama",
+        "fixit==2.2.1",
+        "lxml>=4.2.3",
+        "packaging",
+        "polib==1.2.*"
+      ]
+    },
+    {
+      "name": "packageurl-python",
+      "version": "0.17.6",
+      "filename": "packageurl_python-0.17.6-py3-none-any.whl",
+      "sha256": "31a85c2717bc41dd818f3c62908685ff9eebcb68588213745b14a6ee9e7df7c9",
+      "license": "MIT",
+      "requires": [
+        "isort; extra == \"lint\"",
+        "black; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "pytest; extra == \"test\"",
+        "setuptools; extra == \"build\"",
+        "wheel; extra == \"build\"",
+        "sqlalchemy>=2.0.0; extra == \"sqlalchemy\""
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "license": "Apache-2.0 OR BSD-2-Clause",
+      "requires": []
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "filename": "pathspec-1.1.1-py3-none-any.whl",
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "license": "See distribution license files",
+      "requires": [
+        "hyperscan >=0.7 ; extra == \"hyperscan\"",
+        "typing-extensions >=4 ; extra == \"optional\"",
+        "google-re2 >=1.1 ; extra == \"re2\""
+      ]
+    },
+    {
+      "name": "pip",
+      "version": "26.3",
+      "filename": "pip-26.3-py3-none-any.whl",
+      "sha256": "f3b60b20ffaadd4415ed7957212a38ac63fa4c5fa375bd0f4a797777940fad13",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "pip_api",
+      "version": "0.0.35",
+      "filename": "pip_api-0.0.35-py3-none-any.whl",
+      "sha256": "66990d0da25378555cbb538db79384bab92d4617c6350dfd7a2126ba2a3a9894",
+      "license": "Apache License\n                                Version 2.0, January 2004\n                             https://www.apache.org/licenses/\n        \n        TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n        \n        1. Definitions.\n        \n           \"License\" shall mean the terms and conditions for use, reproduction,\n           and distribution as defined by Sections 1 through 9 of this document.\n        \n           \"Licensor\" shall mean the copyright owner or entity authorized by\n           the copyright owner that is granting the License.\n        \n           \"Legal Entity\" shall mean the union of the acting entity and all\n           other entities that control, are controlled by, or are under common\n           control with that entity. For the purposes of this definition,\n           \"control\" means (i) the power, direct or indirect, to cause the\n           direction or management of such entity, whether by contract or\n           otherwise, or (ii) ownership of fifty percent (50%) or more of the\n           outstanding shares, or (iii) beneficial ownership of such entity.\n        \n           \"You\" (or \"Your\") shall mean an individual or Legal Entity\n           exercising permissions granted by this License.\n        \n           \"Source\" form shall mean the preferred form for making modifications,\n           including but not limited to software source code, documentation\n           source, and configuration files.\n        \n           \"Object\" form shall mean any form resulting from mechanical\n           transformation or translation of a Source form, including but\n           not limited to compiled object code, generated documentation,\n           and conversions to other media types.\n        \n           \"Work\" shall mean the work of authorship, whether in Source or\n           Object form, made available under the License, as indicated by a\n           copyright notice that is included in or attached to the work\n           (an example is provided in the Appendix below).\n        \n           \"Derivative Works\" shall mean any work, whether in Source or Object\n           form, that is based on (or derived from) the Work and for which the\n           editorial revisions, annotations, elaborations, or other modifications\n           represent, as a whole, an original work of authorship. For the purposes\n           of this License, Derivative Works shall not include works that remain\n           separable from, or merely link (or bind by name) to the interfaces of,\n           the Work and Derivative Works thereof.\n        \n           \"Contribution\" shall mean any work of authorship, including\n           the original version of the Work and any modifications or additions\n           to that Work or Derivative Works thereof, that is intentionally\n           submitted to Licensor for inclusion in the Work by the copyright owner\n           or by an individual or Legal Entity authorized to submit on behalf of\n           the copyright owner. For the purposes of this definition, \"submitted\"\n           means any form of electronic, verbal, or written communication sent\n           to the Licensor or its representatives, including but not limited to\n           communication on electronic mailing lists, source code control systems,\n           and issue tracking systems that are managed by, or on behalf of, the\n           Licensor for the purpose of discussing and improving the Work, but\n           excluding communication that is conspicuously marked or otherwise\n           designated in writing by the copyright owner as \"Not a Contribution.\"\n        \n           \"Contributor\" shall mean Licensor and any individual or Legal Entity\n           on behalf of whom a Contribution has been received by Licensor and\n           subsequently incorporated within the Work.\n        \n        2. Grant of Copyright License. Subject to the terms and conditions of\n           this License, each Contributor hereby grants to You a perpetual,\n           worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n           copyright license to reproduce, prepare Derivative Works of,\n           publicly display, publicly perform, sublicense, and distribute the\n           Work and such Derivative Works in Source or Object form.\n        \n        3. Grant of Patent License. Subject to the terms and conditions of\n           this License, each Contributor hereby grants to You a perpetual,\n           worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n           (except as stated in this section) patent license to make, have made,\n           use, offer to sell, sell, import, and otherwise transfer the Work,\n           where such license applies only to those patent claims licensable\n           by such Contributor that are necessarily infringed by their\n           Contribution(s) alone or by combination of their Contribution(s)\n           with the Work to which such Contribution(s) was submitted. If You\n           institute patent litigation against any entity (including a\n           cross-claim or counterclaim in a lawsuit) alleging that the Work\n           or a Contribution incorporated within the Work constitutes direct\n           or contributory patent infringement, then any patent licenses\n           granted to You under this License for that Work shall terminate\n           as of the date such litigation is filed.\n        \n        4. Redistribution. You may reproduce and distribute copies of the\n           Work or Derivative Works thereof in any medium, with or without\n           modifications, and in Source or Object form, provided that You\n           meet the following conditions:\n        \n           (a) You must give any other recipients of the Work or\n               Derivative Works a copy of this License; and\n        \n           (b) You must cause any modified files to carry prominent notices\n               stating that You changed the files; and\n        \n           (c) You must retain, in the Source form of any Derivative Works\n               that You distribute, all copyright, patent, trademark, and\n               attribution notices from the Source form of the Work,\n               excluding those notices that do not pertain to any part of\n               the Derivative Works; and\n        \n           (d) If the Work includes a \"NOTICE\" text file as part of its\n               distribution, then any Derivative Works that You distribute must\n               include a readable copy of the attribution notices contained\n               within such NOTICE file, excluding those notices that do not\n               pertain to any part of the Derivative Works, in at least one\n               of the following places: within a NOTICE text file distributed\n               as part of the Derivative Works; within the Source form or\n               documentation, if provided along with the Derivative Works; or,\n               within a display generated by the Derivative Works, if and\n               wherever such third-party notices normally appear. The contents\n               of the NOTICE file are for informational purposes only and\n               do not modify the License. You may add Your own attribution\n               notices within Derivative Works that You distribute, alongside\n               or as an addendum to the NOTICE text from the Work, provided\n               that such additional attribution notices cannot be construed\n               as modifying the License.\n        \n           You may add Your own copyright statement to Your modifications and\n           may provide additional or different license terms and conditions\n           for use, reproduction, or distribution of Your modifications, or\n           for any such Derivative Works as a whole, provided Your use,\n           reproduction, and distribution of the Work otherwise complies with\n           the conditions stated in this License.\n        \n        5. Submission of Contributions. Unless You explicitly state otherwise,\n           any Contribution intentionally submitted for inclusion in the Work\n           by You to the Licensor shall be under the terms and conditions of\n           this License, without any additional terms or conditions.\n           Notwithstanding the above, nothing herein shall supersede or modify\n           the terms of any separate license agreement you may have executed\n           with Licensor regarding such Contributions.\n        \n        6. Trademarks. This License does not grant permission to use the trade\n           names, trademarks, service marks, or product names of the Licensor,\n           except as required for reasonable and customary use in describing the\n           origin of the Work and reproducing the content of the NOTICE file.\n        \n        7. Disclaimer of Warranty. Unless required by applicable law or\n           agreed to in writing, Licensor provides the Work (and each\n           Contributor provides its Contributions) on an \"AS IS\" BASIS,\n           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n           implied, including, without limitation, any warranties or conditions\n           of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n           PARTICULAR PURPOSE. You are solely responsible for determining the\n           appropriateness of using or redistributing the Work and assume any\n           risks associated with Your exercise of permissions under this License.\n        \n        8. Limitation of Liability. In no event and under no legal theory,\n           whether in tort (including negligence), contract, or otherwise,\n           unless required by applicable law (such as deliberate and grossly\n           negligent acts) or agreed to in writing, shall any Contributor be\n           liable to You for damages, including any direct, indirect, special,\n           incidental, or consequential damages of any character arising as a\n           result of this License or out of the use or inability to use the\n           Work (including but not limited to damages for loss of goodwill,\n           work stoppage, computer failure or malfunction, or any and all\n           other commercial damages or losses), even if such Contributor\n           has been advised of the possibility of such damages.\n        \n        9. Accepting Warranty or Additional Liability. While redistributing\n           the Work or Derivative Works thereof, You may choose to offer,\n           and charge a fee for, acceptance of support, warranty, indemnity,\n           or other liability obligations and/or rights consistent with this\n           License. However, in accepting such obligations, You may act only\n           on Your own behalf and on Your sole responsibility, not on behalf\n           of any other Contributor, and only if You agree to indemnify,\n           defend, and hold each Contributor harmless for any liability\n           incurred by, or claims asserted against, such Contributor by reason\n           of your accepting any such warranty or additional liability.\n        ",
+      "requires": [
+        "pip"
+      ]
+    },
+    {
+      "name": "pip_audit",
+      "version": "2.10.1",
+      "filename": "pip_audit-2.10.1-py3-none-any.whl",
+      "sha256": "99ef3f600a317c1945f1e89e227ef26e1c2d618429b8bd3fa6f4f7c440c4611a",
+      "license": "See distribution license files",
+      "requires": [
+        "CacheControl[filecache] >= 0.13.0",
+        "cyclonedx-python-lib >= 5,< 12",
+        "packaging>=23.0.0",
+        "pip-api>=0.0.28",
+        "pip-requirements-parser>=32.0.0",
+        "requests >= 2.31.0",
+        "rich >= 12.4",
+        "tomli >= 2.2.1",
+        "tomli-w >= 1.2.0",
+        "platformdirs >= 4.2.0",
+        "coverage[toml] ~= 7.0, != 7.3.3 ; extra == \"cov\"",
+        "build ; extra == \"dev\"",
+        "pip-audit[doc, test, lint] ; extra == \"dev\"",
+        "pdoc ; extra == \"doc\"",
+        "ruff >= 0.14 ; extra == \"lint\"",
+        "interrogate ~= 1.6 ; extra == \"lint\"",
+        "mypy ; extra == \"lint\"",
+        "types-requests ; extra == \"lint\"",
+        "types-toml ; extra == \"lint\"",
+        "typos ; extra == \"lint\"",
+        "pretend ; extra == \"test\"",
+        "pytest ; extra == \"test\"",
+        "pip-audit[cov] ; extra == \"test\""
+      ]
+    },
+    {
+      "name": "pip-requirements-parser",
+      "version": "32.0.1",
+      "filename": "pip_requirements_parser-32.0.1-py3-none-any.whl",
+      "sha256": "4659bc2a667783e7a15d190f6fccf8b2486685b6dba4c19c3876314769c57526",
+      "license": "MIT",
+      "requires": [
+        "packaging",
+        "pyparsing",
+        "Sphinx (>=3.3.1) ; extra == 'docs'",
+        "sphinx-rtd-theme (>=0.5.0) ; extra == 'docs'",
+        "doc8 (>=0.8.1) ; extra == 'docs'",
+        "pytest (!=7.0.0,>=6) ; extra == 'testing'",
+        "pytest-xdist (>=2) ; extra == 'testing'",
+        "aboutcode-toolkit (>=6.0.0) ; extra == 'testing'",
+        "black ; extra == 'testing'"
+      ]
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.14.5",
+      "filename": "platformdirs-4.14.5-py3-none-any.whl",
+      "sha256": "8e778c6fa421516f4d3369449f8df3b0e1b72c0e0005fe88e3ec772d0a14e750",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "polib",
+      "version": "1.2.0",
+      "filename": "polib-1.2.0-py2.py3-none-any.whl",
+      "sha256": "1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "py-serializable",
+      "version": "2.2.0",
+      "filename": "py_serializable-2.2.0-py3-none-any.whl",
+      "sha256": "2cce775abc5aac12115f9ff572a145c7276d04a770090334bd4e51ed9c782415",
+      "license": "Apache-2.0",
+      "requires": [
+        "defusedxml (>=0.7.1,<0.8.0)"
+      ]
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "filename": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "license": "BSD-2-Clause",
+      "requires": [
+        "colorama>=0.4.6; extra == 'windows-terminal'"
+      ]
+    },
+    {
+      "name": "pylint",
+      "version": "4.0.10",
+      "filename": "pylint-4.0.10-py3-none-any.whl",
+      "sha256": "c259421f734e6262407b6a421a26f9513b13ac2c5ac2c160775c1658afb57fea",
+      "license": "GPL-2.0-or-later",
+      "requires": [
+        "astroid<=4.1.dev0,>=4.0.2",
+        "colorama>=0.4.5; sys_platform == \"win32\"",
+        "dill>=0.2; python_version < \"3.11\"",
+        "dill>=0.3.6; python_version >= \"3.11\"",
+        "dill>=0.3.7; python_version >= \"3.12\"",
+        "isort!=5.13,<10,>=5",
+        "mccabe<0.8,>=0.6",
+        "platformdirs>=2.2",
+        "tomli>=1.1; python_version < \"3.11\"",
+        "tomlkit>=0.10.1",
+        "typing-extensions>=3.10; python_version < \"3.10\"",
+        "pyenchant~=3.2; extra == \"spelling\"",
+        "gitpython>3; extra == \"testutils\""
+      ]
+    },
+    {
+      "name": "pylint-odoo",
+      "version": "10.0.12",
+      "filename": "pylint_odoo-10.0.12-py3-none-any.whl",
+      "sha256": "3a6dc1508769c310236e234125c7362c46d32ddcd3622982ea23e3ad71c75dd6",
+      "license": "APGL3",
+      "requires": [
+        "pylint-plugin-utils==0.9.*",
+        "pylint==4.0.*",
+        "dill>=0.4.1; python_version >= \"3.15\""
+      ]
+    },
+    {
+      "name": "pylint-plugin-utils",
+      "version": "0.9.0",
+      "filename": "pylint_plugin_utils-0.9.0-py3-none-any.whl",
+      "sha256": "16e9b84e5326ba893a319a0323fcc8b4bcc9c71fc654fcabba0605596c673818",
+      "license": "GPL-2.0-or-later",
+      "requires": [
+        "pylint (>=1.7)"
+      ]
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "filename": "pyparsing-3.3.3-py3-none-any.whl",
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "license": "MIT",
+      "requires": [
+        "railroad-diagrams ; extra == \"diagrams\"",
+        "jinja2 ; extra == \"diagrams\""
+      ]
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "filename": "pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "fc09d0aa354569bc501d4e787133afc08552722d3ab34836a80547331bb5d4a0",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "filename": "requests-2.34.2-py3-none-any.whl",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "license": "Apache-2.0",
+      "requires": [
+        "charset_normalizer<4,>=2",
+        "idna<4,>=2.5",
+        "urllib3<3,>=1.26",
+        "certifi>=2023.5.7",
+        "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+        "chardet<8,>=3.0.2; extra == \"use-chardet-on-py3\""
+      ]
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "filename": "rich-15.0.0-py3-none-any.whl",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "license": "MIT",
+      "requires": [
+        "ipywidgets (>=7.5.1,<9) ; extra == \"jupyter\"",
+        "markdown-it-py (>=2.2.0)",
+        "pygments (>=2.13.0,<3.0.0)"
+      ]
+    },
+    {
+      "name": "ruff",
+      "version": "0.17.5",
+      "filename": "ruff-0.17.5-py3-none-macosx_11_0_arm64.whl",
+      "sha256": "6f0db748508f04a04e3fbebcc636a5c8b3bd76274f8ed28f497c44d75c2ea2d7",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "filename": "sortedcontainers-2.4.0-py2.py3-none-any.whl",
+      "sha256": "a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0",
+      "license": "Apache 2.0",
+      "requires": []
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "filename": "tomli-2.5.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "sha256": "9ebf8d19b17bd0daeb7b7dec81a946a439b753942fd0210d6e96c532249eea6b",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "tomli_w",
+      "version": "1.2.0",
+      "filename": "tomli_w-1.2.0-py3-none-any.whl",
+      "sha256": "188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90",
+      "license": "See distribution license files",
+      "requires": []
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.15.2",
+      "filename": "tomlkit-0.15.2-py3-none-any.whl",
+      "sha256": "05562412163a3037b94497385fb7f9204c637bc605af7a48199e41cf2272f437",
+      "license": "MIT",
+      "requires": []
+    },
+    {
+      "name": "trailrunner",
+      "version": "1.4.0",
+      "filename": "trailrunner-1.4.0-py3-none-any.whl",
+      "sha256": "a286d39f2723f28d167347f41cf8f232832648709366e722f55cf5545772a48e",
+      "license": "See distribution license files",
+      "requires": [
+        "pathspec>=0.8.1",
+        "attribution==1.6.2 ; extra == \"dev\"",
+        "black==22.3.0 ; extra == \"dev\"",
+        "click==8.1.3 ; extra == \"dev\"",
+        "coverage==6.5 ; extra == \"dev\"",
+        "flit==3.7.1 ; extra == \"dev\"",
+        "flake8==4.0.1 ; extra == \"dev\"",
+        "flake8-bugbear==23.2.13 ; extra == \"dev\"",
+        "mypy==1.1.1 ; extra == \"dev\"",
+        "rich==13.3.2 ; extra == \"dev\"",
+        "ufmt==2.0.1 ; extra == \"dev\"",
+        "usort==1.0.5 ; extra == \"dev\"",
+        "sphinx==6.1.3 ; extra == \"docs\"",
+        "sphinx-mdinclude==0.5.3 ; extra == \"docs\""
+      ]
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "license": "PSF-2.0",
+      "requires": []
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "filename": "urllib3-2.8.0-py3-none-any.whl",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "license": "MIT",
+      "requires": [
+        "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+        "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+        "h2<5,>=4; extra == 'h2'",
+        "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+        "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+      ]
+    }
+  ],
+  "license_notes": {
+    "pylint-odoo": "Upstream pinned README declares AGPL-3.0. PyPI metadata spells APGL3 and the downloaded wheel lacks a license file. External CLI use only. No redistribution of tool code.",
+    "oca-odoo-pre-commit-hooks": "Downloaded wheel and repository LICENSE contain AGPL-3.0. Package metadata declares LGPL-3.0-or-later. Retain discrepancy for review before redistribution. External CLI only."
+  }
+}

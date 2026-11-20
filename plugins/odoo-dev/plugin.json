@@ -1,0 +1,25 @@
+{
+  "name": "odoo-dev",
+  "displayName": "Odoo AI Developer Kit",
+  "version": "1.0.0",
+  "description": "Comprehensive suite of AI tools, skills, linters, and checkers for professional Odoo addon development across versions 16, 17, 18, 19, and 20. Includes official Odoo guidelines, security auditor, OWL 2.0 component assistant, automated test generator, version migration assistant, and live RPC inspector.",
+  "keywords": [
+    "odoo",
+    "odoo16",
+    "odoo17",
+    "odoo18",
+    "odoo19",
+    "odoo20",
+    "owl",
+    "pylint-odoo",
+    "orm",
+    "qweb"
+  ],
+  "suggestedPrompts": [
+    "Scaffold a complete Odoo 18 module with models, views, security, and tests",
+    "Audit this Odoo module for security vulnerabilities and access control flaws",
+    "Migrate this Odoo 16 module to Odoo 18, converting tree views to list and attrs to invisible expressions",
+    "Build a reactive OWL 2.0 dashboard component with standard services in static/src/",
+    "Lint my Odoo addon with pylint-odoo and validate all XML views and manifests"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "odoo_pylint",
+  "description": "Run pylint with pylint-odoo plugin on a target Python file or module directory.\n\n    Args:\n        path: Absolute path to the python file or addon folder.\n\n    Returns:\n        Structured string report of lint issues, security warnings, and guideline violations.\n    ",
+  "parameters": {
+    "properties": {
+      "path": {
+        "title": "Path",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "title": "odoo_pylintArguments",
+    "type": "object"
+  }
+}

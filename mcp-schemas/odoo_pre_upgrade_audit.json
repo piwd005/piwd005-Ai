@@ -1,0 +1,17 @@
+{
+  "name": "odoo_pre_upgrade_audit",
+  "description": "Run the complete Pre-Upgrade Safety Gate (Stage 1) on an Odoo module.\n    \n    Audits manifest integrity, XML well-formedness and verified XPaths, directory ghost files,\n    Python cascade imports, AST security risks, N+1 query patterns, and pylint compliance.\n\n    Args:\n        path: Absolute path to the addon module folder.\n\n    Returns:\n        Structured Pre-Upgrade Safety Gate Report with PASS or BLOCKED verdict.\n    ",
+  "parameters": {
+    "properties": {
+      "path": {
+        "title": "Path",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "title": "odoo_pre_upgrade_auditArguments",
+    "type": "object"
+  }
+}

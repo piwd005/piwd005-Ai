@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "odoo-dev": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/home/suman/.gemini/config/plugins/odoo-dev/mcp_server.py"
+      ]
+    }
+  }
+}

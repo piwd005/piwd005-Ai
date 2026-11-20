@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Reviewed public SHA-256 of the historical python-api.md artifact, not an API credential"
+stopwords = ["e506f966db4b55af3ecb9ad32dbfe363b3abcab049dae5fa2788a7e96201faf8"]

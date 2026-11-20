@@ -1,0 +1,845 @@
+{
+  "format": 1,
+  "generated": true,
+  "routes": {
+    "requirements": [
+      "spec-kit",
+      "superpowers",
+      "psae-functional",
+      "omas-superpowers",
+      "atakh-odoo"
+    ],
+    "functional": [
+      "clawic-odoo",
+      "clawic-license",
+      "odoo-module",
+      "psae-functional"
+    ],
+    "odoo-backend": [
+      "odoo-module",
+      "odoo-security",
+      "odoo-json2",
+      "odoo-skills",
+      "odoo20-house",
+      "fhidalgo-odoo",
+      "atakh-odoo",
+      "odoo-boost",
+      "oca-pylint",
+      "oca-hooks"
+    ],
+    "odoo-ui": [
+      "odoo20-web-house",
+      "odoo-skills",
+      "odoo20-docs",
+      "playwright-cli"
+    ],
+    "migration": [
+      "oca-openupgrade",
+      "odoo20-docs",
+      "odoo-skills",
+      "odoo20-tests"
+    ],
+    "python-api": [
+      "ruff",
+      "pip-audit",
+      "uv",
+      "owasp-asvs"
+    ],
+    "ai-rag": [
+      "odoo-ai",
+      "odoo-ai-agents",
+      "agents-guardrails",
+      "pydantic-skills",
+      "pydantic-ai",
+      "promptfoo",
+      "context7"
+    ],
+    "mcp": [
+      "mcp-python",
+      "mcp-security",
+      "odoo-mcp-pro",
+      "anthropic-skills"
+    ],
+    "security": [
+      "odoo-security",
+      "odoo20-security-skill",
+      "owasp-asvs",
+      "owasp-agentic",
+      "trailofbits",
+      "gitleaks",
+      "semgrep",
+      "codex-security",
+      "pip-audit"
+    ],
+    "testing": [
+      "odoo-testing",
+      "odoo20-tests",
+      "playwright-cli",
+      "playwright-mcp",
+      "oca-hooks",
+      "oca-pylint",
+      "anthropic-skills",
+      "promptfoo",
+      "ruff"
+    ],
+    "debugging": [
+      "superpowers",
+      "ponytail",
+      "fhidalgo-odoo"
+    ],
+    "reference-analysis": [
+      "rea",
+      "rea-install",
+      "reverse-skill",
+      "playwright-mcp"
+    ],
+    "release": [
+      "gitleaks",
+      "pip-audit",
+      "uv"
+    ],
+    "project-delivery": [
+      "spec-kit",
+      "psae-functional"
+    ],
+    "knowledge": [
+      "context7",
+      "odoo20-docs",
+      "odoo-module"
+    ],
+    "optimization": [
+      "ponytail",
+      "promptfoo",
+      "ecc"
+    ],
+    "codebase-map": [
+      "fhidalgo-odoo",
+      "odoo-skills",
+      "odoo-boost"
+    ],
+    "reuse-first": [
+      "fhidalgo-odoo",
+      "odoo-skills",
+      "clawic-odoo"
+    ],
+    "sales-presales": [
+      "odoo-ai",
+      "odoo-ai-agents",
+      "clawic-odoo"
+    ],
+    "customer-support": [
+      "clawic-odoo",
+      "owasp-agentic"
+    ],
+    "training-docs": [
+      "odoo-module",
+      "odoo20-docs"
+    ],
+    "performance": [
+      "odoo20-house",
+      "odoo-skills"
+    ],
+    "skill-maintenance": [
+      "agent-skills",
+      "codex-skills",
+      "codex-customization",
+      "codex-security",
+      "antigravity-skills",
+      "claude-skills",
+      "openai-plugins",
+      "openai-skills-legacy",
+      "anthropic-skills",
+      "github-odoo-search",
+      "ecc",
+      "ponytail"
+    ],
+    "agent-product-evaluation": [
+      "pan-ai-pro",
+      "pan-ai-pro-license",
+      "pan-ai-pro-protocol",
+      "pan-ai-pro-architecture",
+      "odoo-mcp-pro",
+      "pydantic-ai",
+      "odoo-boost",
+      "odoo20-review-skill"
+    ]
+  },
+  "sources": {
+    "agent-skills": {
+      "id": "agent-skills",
+      "title": "Agent Skills specification",
+      "url": "https://agentskills.io/specification",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "codex-skills": {
+      "id": "codex-skills",
+      "title": "OpenAI: Build skills",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "codex-customization": {
+      "id": "codex-customization",
+      "title": "OpenAI: Customization",
+      "url": "https://learn.chatgpt.com/docs/customization/overview",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "codex-security": {
+      "id": "codex-security",
+      "title": "OpenAI: Agent approvals and security",
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "openai-plugins": {
+      "id": "openai-plugins",
+      "title": "OpenAI plugin examples",
+      "url": "https://github.com/openai/plugins",
+      "artifact_type": "plugin-examples",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "openai-skills-legacy": {
+      "id": "openai-skills-legacy",
+      "title": "OpenAI legacy skills catalog",
+      "url": "https://github.com/openai/skills",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "antigravity-skills": {
+      "id": "antigravity-skills",
+      "title": "Google Antigravity: Agent skills",
+      "url": "https://antigravity.google/docs/skills",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "claude-skills": {
+      "id": "claude-skills",
+      "title": "Claude Code: Skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "artifact_type": "documentation",
+      "admission_status": "REFERENCE_VERIFIED",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [],
+      "verification_scope": "Documentation retrieval and existing client adapter review. No runtime permission granted."
+    },
+    "anthropic-skills": {
+      "id": "anthropic-skills",
+      "title": "Anthropic skill examples",
+      "url": "https://github.com/anthropics/skills",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "odoo-security": {
+      "id": "odoo-security",
+      "title": "Odoo 19 security",
+      "url": "https://www.odoo.com/documentation/19.0/developer/reference/backend/security.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ]
+    },
+    "odoo-testing": {
+      "id": "odoo-testing",
+      "title": "Odoo 19 testing",
+      "url": "https://www.odoo.com/documentation/19.0/developer/reference/backend/testing.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ]
+    },
+    "odoo-json2": {
+      "id": "odoo-json2",
+      "title": "Odoo 19 External JSON-2 API",
+      "url": "https://www.odoo.com/documentation/19.0/developer/reference/external_api.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ]
+    },
+    "odoo20-docs": {
+      "id": "odoo20-docs",
+      "title": "Odoo 20 documentation",
+      "url": "https://www.odoo.com/documentation/20.0/",
+      "artifact_type": "documentation",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": null,
+      "source_revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ],
+      "verification_scope": "Pinned official source inspected for original guidance. No upstream code body bundled or native runtime run."
+    },
+    "odoo20-tests": {
+      "id": "odoo20-tests",
+      "title": "Odoo 20 testing",
+      "url": "https://www.odoo.com/documentation/20.0/developer/reference/backend/testing.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ]
+    },
+    "odoo-ai": {
+      "id": "odoo-ai",
+      "title": "Odoo 19 AI",
+      "url": "https://www.odoo.com/documentation/19.0/applications/productivity/ai.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ]
+    },
+    "odoo-ai-agents": {
+      "id": "odoo-ai-agents",
+      "title": "Odoo 19 AI agents",
+      "url": "https://www.odoo.com/documentation/19.0/applications/productivity/ai/agents.html",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ]
+    },
+    "odoo-module": {
+      "id": "odoo-module",
+      "title": "Odoo 19 module tutorial",
+      "url": "https://www.odoo.com/documentation/19.0/developer/tutorials/backend.html",
+      "artifact_type": "documentation",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": null,
+      "source_revision": "a157617c921669c5c036509b341be6a07ad1069d",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "19.0"
+      ],
+      "verification_scope": "Pinned official source inspected for original guidance. No upstream code body bundled or native runtime run."
+    },
+    "odoo-skills": {
+      "id": "odoo-skills",
+      "title": "mart337i/odoo-skills",
+      "url": "https://github.com/mart337i/odoo-skills",
+      "artifact_type": "instruction-skill",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": "634b2db69c0ffb9766a5d16cff09a81ff1df54f4",
+      "reviewed_version": "manifest 0.1.0",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "oca-hooks": {
+      "id": "oca-hooks",
+      "title": "OCA Odoo pre-commit hooks",
+      "url": "https://github.com/OCA/odoo-pre-commit-hooks",
+      "artifact_type": "cli",
+      "admission_status": "QA_CLI_ADMITTED",
+      "revision": "82a2e95fa8bbea73a02bc377980ef8bd10e40dfd",
+      "reviewed_version": "0.2.27",
+      "license_review": "AGPL-3.0 in actual LICENSE. LGPL metadata discrepancy retained.",
+      "versions": [],
+      "verification_scope": "Synthetic static checks and kit QA only. No native Odoo runtime or production verification."
+    },
+    "oca-pylint": {
+      "id": "oca-pylint",
+      "title": "OCA pylint-odoo",
+      "url": "https://github.com/OCA/pylint-odoo",
+      "artifact_type": "cli",
+      "admission_status": "QA_CLI_ADMITTED",
+      "revision": "30224d0a2ae20645b197776358a734d81197aafc",
+      "reviewed_version": "10.0.12",
+      "license_review": "AGPL-3.0 declared by upstream README. PyPI APGL3 typo and missing wheel license retained as caveats.",
+      "versions": [],
+      "verification_scope": "Synthetic static checks and kit QA only. No native Odoo runtime or production verification."
+    },
+    "oca-openupgrade": {
+      "id": "oca-openupgrade",
+      "title": "OCA OpenUpgrade",
+      "url": "https://github.com/OCA/OpenUpgrade",
+      "artifact_type": "cli",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "playwright-cli": {
+      "id": "playwright-cli",
+      "title": "Microsoft Playwright CLI",
+      "url": "https://github.com/microsoft/playwright-cli",
+      "artifact_type": "cli",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "playwright-mcp": {
+      "id": "playwright-mcp",
+      "title": "Microsoft Playwright MCP",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "artifact_type": "mcp-server",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "mcp-python": {
+      "id": "mcp-python",
+      "title": "Official MCP Python SDK",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "artifact_type": "library",
+      "admission_status": "LOCAL_FIXTURE_VERIFIED",
+      "revision": "PyPI mcp==2.3.0; exact wheel hashes in assets/contracts/provenance.json",
+      "license_review": "MIT package metadata; external dependency, no source redistributed",
+      "versions": [
+        "2.3.0"
+      ],
+      "verification_scope": "Official SDK initialize/list/call, typed input rejections and unknown-tool denial; synthetic fixed-company fixture only."
+    },
+    "mcp-security": {
+      "id": "mcp-security",
+      "title": "MCP security best practices (versioned)",
+      "url": "https://modelcontextprotocol.io/specification/latest/basic/security_best_practices",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "agents-guardrails": {
+      "id": "agents-guardrails",
+      "title": "OpenAI Agents SDK guardrails",
+      "url": "https://openai.github.io/openai-agents-python/guardrails/",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "owasp-asvs": {
+      "id": "owasp-asvs",
+      "title": "OWASP ASVS",
+      "url": "https://asvs.owasp.org/",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "owasp-agentic": {
+      "id": "owasp-agentic",
+      "title": "OWASP Agentic Applications Top 10",
+      "url": "https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "trailofbits": {
+      "id": "trailofbits",
+      "title": "Trail of Bits skills",
+      "url": "https://github.com/trailofbits/skills",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "gitleaks": {
+      "id": "gitleaks",
+      "title": "Gitleaks",
+      "url": "https://github.com/gitleaks/gitleaks",
+      "artifact_type": "cli",
+      "admission_status": "QA_CLI_ADMITTED",
+      "revision": null,
+      "reviewed_version": "8.30.1",
+      "license_review": "MIT",
+      "versions": [],
+      "verification_scope": "Synthetic static checks and kit QA only. No native Odoo runtime or production verification."
+    },
+    "pip-audit": {
+      "id": "pip-audit",
+      "title": "PyPA pip-audit",
+      "url": "https://github.com/pypa/pip-audit",
+      "artifact_type": "cli",
+      "admission_status": "QA_CLI_ADMITTED",
+      "revision": null,
+      "reviewed_version": "2.10.1",
+      "license_review": "Apache-2.0",
+      "versions": [],
+      "verification_scope": "Synthetic static checks and kit QA only. No native Odoo runtime or production verification."
+    },
+    "semgrep": {
+      "id": "semgrep",
+      "title": "Semgrep",
+      "url": "https://github.com/semgrep/semgrep",
+      "artifact_type": "cli",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "ruff": {
+      "id": "ruff",
+      "title": "Astral Ruff",
+      "url": "https://github.com/astral-sh/ruff",
+      "artifact_type": "cli",
+      "admission_status": "QA_CLI_ADMITTED",
+      "revision": null,
+      "reviewed_version": "0.17.5",
+      "license_review": "MIT",
+      "versions": [],
+      "verification_scope": "Synthetic static checks and kit QA only. No native Odoo runtime or production verification."
+    },
+    "uv": {
+      "id": "uv",
+      "title": "Astral uv",
+      "url": "https://github.com/astral-sh/uv",
+      "artifact_type": "cli",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "superpowers": {
+      "id": "superpowers",
+      "title": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "spec-kit": {
+      "id": "spec-kit",
+      "title": "GitHub Spec Kit",
+      "url": "https://github.com/github/spec-kit",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "context7": {
+      "id": "context7",
+      "title": "Upstash Context7",
+      "url": "https://github.com/upstash/context7",
+      "artifact_type": "mcp-server",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "promptfoo": {
+      "id": "promptfoo",
+      "title": "Promptfoo",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "artifact_type": "cli",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "rea": {
+      "id": "rea",
+      "title": "morluto/rea",
+      "url": "https://github.com/morluto/rea",
+      "artifact_type": "mcp-server",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": "d74549e495c58eb4a560279fd9f05508401ea0a0",
+      "reviewed_version": "6.9.0",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "rea-install": {
+      "id": "rea-install",
+      "title": "REA installation documentation",
+      "url": "https://github.com/morluto/rea/blob/main/docs/getting-started/installation.md",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "reverse-skill": {
+      "id": "reverse-skill",
+      "title": "zhaoxuya520/reverse-skill",
+      "url": "https://github.com/zhaoxuya520/reverse-skill",
+      "artifact_type": "instruction-skill",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": "9c28c6ca1062a1a076e28baf40f241dbb4cf5dc2",
+      "reviewed_version": "1.0.1",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "odoo-mcp-pro": {
+      "id": "odoo-mcp-pro",
+      "title": "pantalytics/odoo-mcp-pro",
+      "url": "https://github.com/pantalytics/odoo-mcp-pro",
+      "artifact_type": "mcp-server",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": "6af7f74470444ddd85a98e403fe1652770aa3859",
+      "reviewed_version": "4.1.2",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "ecc": {
+      "id": "ecc",
+      "title": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ecc",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "ponytail": {
+      "id": "ponytail",
+      "title": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pan-ai-pro": {
+      "id": "pan-ai-pro",
+      "title": "Pantalytics AI Pro application",
+      "url": "https://github.com/pantalytics/pan_ai_pro",
+      "artifact_type": "odoo-application",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pan-ai-pro-license": {
+      "id": "pan-ai-pro-license",
+      "title": "AI Pro license",
+      "url": "https://raw.githubusercontent.com/pantalytics/pan_ai_pro/main/LICENSE",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pan-ai-pro-protocol": {
+      "id": "pan-ai-pro-protocol",
+      "title": "AI Pro platform protocol",
+      "url": "https://raw.githubusercontent.com/pantalytics/pan_ai_pro/main/docs/protocol.md",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pan-ai-pro-architecture": {
+      "id": "pan-ai-pro-architecture",
+      "title": "AI Pro architecture",
+      "url": "https://raw.githubusercontent.com/pantalytics/pan_ai_pro/main/docs/architecture-20.md",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "fhidalgo-odoo": {
+      "id": "fhidalgo-odoo",
+      "title": "fhidalgodev/odoo-development-skill",
+      "url": "https://github.com/fhidalgodev/odoo-development-skill",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "atakh-odoo": {
+      "id": "atakh-odoo",
+      "title": "atakhadiviom/odoo-skill",
+      "url": "https://github.com/atakhadiviom/odoo-skill",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "clawic-odoo": {
+      "id": "clawic-odoo",
+      "title": "Clawic Odoo workflow",
+      "url": "https://github.com/clawic/skills/tree/main/skills/odoo",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "clawic-license": {
+      "id": "clawic-license",
+      "title": "Clawic root license",
+      "url": "https://raw.githubusercontent.com/clawic/skills/main/LICENSE",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "odoo20-house": {
+      "id": "odoo20-house",
+      "title": "Odoo official addon guidelines skill",
+      "url": "https://raw.githubusercontent.com/odoo/odoo/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-guidelines/SKILL.md",
+      "artifact_type": "instruction-skill",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": null,
+      "source_revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ],
+      "verification_scope": "Pinned official source inspected for original guidance. No upstream code body bundled or native runtime run."
+    },
+    "odoo20-web-house": {
+      "id": "odoo20-web-house",
+      "title": "Odoo official web guidelines skill",
+      "url": "https://raw.githubusercontent.com/odoo/odoo/d032c6dc504a24de4084783d8abb1b95896f1eda/skills/odoo-web-guidelines/SKILL.md",
+      "artifact_type": "instruction-skill",
+      "admission_status": "REVIEWED_REFERENCE",
+      "revision": null,
+      "source_revision": "d032c6dc504a24de4084783d8abb1b95896f1eda",
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ],
+      "verification_scope": "Pinned official source inspected for original guidance. No upstream code body bundled or native runtime run."
+    },
+    "odoo20-security-skill": {
+      "id": "odoo20-security-skill",
+      "title": "Odoo official security audit skill",
+      "url": "https://raw.githubusercontent.com/odoo/odoo/20.0/skills/odoo-security/SKILL.md",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ]
+    },
+    "odoo20-review-skill": {
+      "id": "odoo20-review-skill",
+      "title": "Odoo official review skill",
+      "url": "https://raw.githubusercontent.com/odoo/odoo/20.0/skills/odoo-review/SKILL.md",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": [
+        "20.0"
+      ]
+    },
+    "odoo-boost": {
+      "id": "odoo-boost",
+      "title": "havmedia/odoo-boost",
+      "url": "https://github.com/havmedia/odoo-boost",
+      "artifact_type": "mcp-server",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "psae-functional": {
+      "id": "psae-functional",
+      "title": "odoo-ps/psae-ai-infra",
+      "url": "https://github.com/odoo-ps/psae-ai-infra",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "omas-superpowers": {
+      "id": "omas-superpowers",
+      "title": "omas-odoo/odoo-superpowers",
+      "url": "https://github.com/omas-odoo/odoo-superpowers",
+      "artifact_type": "instruction-skill",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pydantic-skills": {
+      "id": "pydantic-skills",
+      "title": "Pydantic coding-agent skills",
+      "url": "https://pydantic.dev/docs/ai/overview/coding-agent-skills/",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "pydantic-ai": {
+      "id": "pydantic-ai",
+      "title": "Pydantic AI documentation",
+      "url": "https://pydantic.dev/docs/ai/overview/",
+      "artifact_type": "documentation",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    },
+    "github-odoo-search": {
+      "id": "github-odoo-search",
+      "title": "GitHub Odoo skill discovery query",
+      "url": "https://github.com/search?q=odoo+skill&type=repositories",
+      "artifact_type": "discovery-listing",
+      "admission_status": "CANDIDATE",
+      "revision": null,
+      "license_review": "USER_SUPPLIED_RESEARCH_UNVERIFIED",
+      "versions": []
+    }
+  },
+  "usage": "Load only selected route entries. Catalog presence grants no execution, copying or runtime permissions."
+}

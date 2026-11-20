@@ -1,0 +1,32 @@
+{
+  "name": "odoo_scaffold_module",
+  "description": "Scaffold a production-grade Odoo 19/20 addon module with models, views, security, and tests.\n\n    Args:\n        addon_name: Technical module name (e.g. 'custom_maintenance').\n        target_dir: Target directory where addon will be created (default: current directory).\n        odoo_version: Target Odoo version ('18.0', '19.0', '20.0', default: '19.0').\n        model_name: Technical model name (e.g. 'custom.maintenance.request'). If empty, derived from addon_name.\n\n    Returns:\n        Status message with list of generated files and next steps.\n    ",
+  "parameters": {
+    "properties": {
+      "addon_name": {
+        "title": "Addon Name",
+        "type": "string"
+      },
+      "target_dir": {
+        "default": ".",
+        "title": "Target Dir",
+        "type": "string"
+      },
+      "odoo_version": {
+        "default": "19.0",
+        "title": "Odoo Version",
+        "type": "string"
+      },
+      "model_name": {
+        "default": "",
+        "title": "Model Name",
+        "type": "string"
+      }
+    },
+    "required": [
+      "addon_name"
+    ],
+    "title": "odoo_scaffold_moduleArguments",
+    "type": "object"
+  }
+}

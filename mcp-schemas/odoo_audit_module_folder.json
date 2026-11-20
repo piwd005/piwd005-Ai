@@ -1,0 +1,17 @@
+{
+  "name": "odoo_audit_module_folder",
+  "description": "Audit an entire Odoo addon module folder or addons directory for architectural integrity.\n\n    Detects 'ghost files' (files on disk missing from __manifest__.py 'data' or 'assets'),\n    missing __init__.py cascade imports (orphaned Python models that will never load),\n    Git merge conflict remnants (<<<<<<<), and structural standard compliance.\n\n    Args:\n        path: Absolute path to module folder or addons directory.\n\n    Returns:\n        Structured audit report summarizing all detected architectural defects.\n    ",
+  "parameters": {
+    "properties": {
+      "path": {
+        "title": "Path",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "title": "odoo_audit_module_folderArguments",
+    "type": "object"
+  }
+}
