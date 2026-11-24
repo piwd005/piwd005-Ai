@@ -77,7 +77,24 @@ def super_doctor() -> str:
     else:
         report.append("ℹ npm: Not installed on host")
 
-    # 3. Go Language (Systems & Microservices)
+    # 3. PHP Runtime & Composer (Laravel & CodeIgniter Ecosystem)
+    php_bin = shutil.which("php")
+    if php_bin:
+        try:
+            php_ver_out = subprocess.check_output([php_bin, "-v"], text=True).split("\n")[0].strip()
+            report.append(f"✓ PHP Runtime: {php_ver_out} (Path: {php_bin})")
+        except Exception:
+            report.append(f"✓ PHP Runtime: Detected at {php_bin}")
+    else:
+        report.append("ℹ PHP: Not installed on host (Required for Laravel / CodeIgniter)")
+
+    composer_bin = shutil.which("composer")
+    if composer_bin:
+        report.append(f"✓ Composer Dependency Manager: Installed ({composer_bin})")
+    else:
+        report.append("ℹ Composer: Not installed on host")
+
+    # 4. Go Language (Systems & Microservices)
     go_bin = shutil.which("go")
     if go_bin:
         try:
@@ -257,7 +274,7 @@ def super_sec_audit(target_path: str) -> str:
             if any(skip in root for skip in (".git", "node_modules", ".venv", "__pycache__", "dist", "build")):
                 continue
             for f in files:
-                if f.endswith((".py", ".js", ".ts", ".jsx", ".tsx", ".go", ".sql", ".env", ".json", ".yaml", ".yml")):
+                if f.endswith((".py", ".js", ".ts", ".jsx", ".tsx", ".go", ".sql", ".php", ".phtml", ".env", ".json", ".yaml", ".yml")):
                     files_to_scan.append(os.path.join(root, f))
     else:
         files_to_scan.append(target_path)
@@ -279,6 +296,15 @@ def super_sec_audit(target_path: str) -> str:
         (re.compile(r"""\binnerHTML\s*=\s*`.*?\$\{.*?\}"""), "HIGH", "DOM XSS", "Dynamic template interpolation into innerHTML. Use textContent or React safe binding."),
     ]
 
+    # Regex patterns for PHP / Laravel / CodeIgniter vulnerabilities
+    PHP_VULN_PATTERNS = [
+        (re.compile(r"""\$this->db->query\s*\(\s*["'].*?\$[a-zA-Z_].*?["']\s*\)"""), "CRITICAL", "CodeIgniter SQL Injection", "Raw string interpolation in $this->db->query(). Use Query Builder or bound parameters: $this->db->query($sql, array($val))."),
+        (re.compile(r"""(?:DB::raw|whereRaw|havingRaw|orderByRaw|selectRaw)\s*\(\s*["'].*?\$[a-zA-Z_].*?["']\s*\)"""), "CRITICAL", "Laravel SQL Injection", "Raw variable interpolation in DB::raw() or whereRaw(). Use parameter bindings: whereRaw('... = ?', [$val])."),
+        (re.compile(r"""\{!!\s*\$[a-zA-Z_].*?\s*!!\}"""), "HIGH", "Blade XSS Vulnerability", "Unescaped output {!! $var !!} in Blade template. Use safe {{ $var }} or sanitize with HTMLPurifier."),
+        (re.compile(r"""\bunserialize\s*\(\s*\$[a-zA-Z_]"""), "CRITICAL", "Insecure PHP Deserialization", "Unsafe unserialize() on dynamic input allows Object Injection / RCE. Use json_decode() instead."),
+        (re.compile(r"""\$config\['csrf_protection'\]\s*=\s*(?:FALSE|false|0)\s*;"""), "HIGH", "CodeIgniter CSRF Disabled", "CSRF protection explicitly disabled in config.php. Set $config['csrf_protection'] = TRUE;"),
+    ]
+
     for file_path in files_to_scan:
         rel_path = os.path.relpath(file_path, target_path) if os.path.isdir(target_path) else os.path.basename(file_path)
         
@@ -297,7 +323,7 @@ def super_sec_audit(target_path: str) -> str:
             except Exception:
                 pass
 
-        # 2. Generic Text / Secret / JS Scan
+        # 2. Generic Text / Secret / JS / PHP Scan
         try:
             with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 lines = f.readlines()
@@ -312,6 +338,12 @@ def super_sec_audit(target_path: str) -> str:
                 # JS/TS checks
                 if file_path.endswith((".js", ".jsx", ".ts", ".tsx")):
                     for pat, sev, vtype, msg in JS_VULN_PATTERNS:
+                        if pat.search(line):
+                            findings.append(f"[{sev}] {rel_path}:{line_no} - {vtype}: {msg}")
+
+                # PHP / CodeIgniter / Laravel checks
+                if file_path.endswith((".php", ".phtml", ".blade.php")):
+                    for pat, sev, vtype, msg in PHP_VULN_PATTERNS:
                         if pat.search(line):
                             findings.append(f"[{sev}] {rel_path}:{line_no} - {vtype}: {msg}")
         except Exception:

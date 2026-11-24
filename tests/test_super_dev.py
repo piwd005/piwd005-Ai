@@ -75,6 +75,31 @@ def safe_func(cursor, user_id):
         result = super_engine.super_api_test("http://127.0.0.1:59999/unreachable-test")
         self.assertIn("API Request Failed", result)
 
+    def test_super_sec_audit_detects_php_vulnerabilities(self):
+        """Test that super_sec_audit() detects CodeIgniter and Laravel SQL injection and unescaped Blade."""
+        with tempfile.NamedTemporaryFile("w", suffix=".php", delete=False) as f:
+            f.write("""<?php
+// Vulnerable CodeIgniter Query
+$this->db->query("SELECT * FROM users WHERE email = '$email'");
+
+// Vulnerable Laravel Query
+User::whereRaw("status = '$status'")->get();
+
+// Insecure Deserialization
+$data = unserialize($userInput);
+""")
+            temp_path = f.name
+
+        try:
+            audit_result = super_engine.super_sec_audit(temp_path)
+            self.assertIn("CodeIgniter SQL Injection", audit_result)
+            self.assertIn("Laravel SQL Injection", audit_result)
+            self.assertIn("Insecure PHP Deserialization", audit_result)
+            self.assertIn("⛔ SECURITY VERDICT: ACTION REQUIRED", audit_result)
+        finally:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+
 
 if __name__ == "__main__":
     unittest.main()
