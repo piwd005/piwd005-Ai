@@ -100,6 +100,16 @@ $data = unserialize($userInput);
             if os.path.exists(temp_path):
                 os.remove(temp_path)
 
+    def test_super_php_scaffold_generates_laravel_and_ci(self):
+        """Test that super_php_scaffold() generates valid Laravel and CodeIgniter templates."""
+        laravel_action = super_engine.super_php_scaffold("laravel", "action", "CreateInvoice")
+        self.assertIn("class CreateInvoiceAction", laravel_action)
+        self.assertIn("DB::transaction", laravel_action)
+
+        ci_service = super_engine.super_php_scaffold("ci3", "service", "Invoice")
+        self.assertIn("class Invoice_service", ci_service)
+        self.assertIn("$this->CI->db->trans_start()", ci_service)
+
 
 if __name__ == "__main__":
     unittest.main()

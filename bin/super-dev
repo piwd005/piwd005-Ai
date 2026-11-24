@@ -17,7 +17,7 @@ engine_paths = [
     os.path.join(repo_root, "plugins", "super-dev"),
     os.path.expanduser("~/.gemini/config/plugins/super-dev"),
 ]
-for p in engine_paths:
+for p in reversed(engine_paths):
     if os.path.isdir(p) and p not in sys.path:
         sys.path.insert(0, p)
 
@@ -61,7 +61,20 @@ def main():
     p_bp.add_argument("--type", default="fullstack", choices=["fullstack", "microservice", "api", "system"], help="Architecture type")
     p_bp.add_argument("--stack", default="FastAPI + React + PostgreSQL", help="Technology stack summary")
 
-    # 6. odoo (Delegates to bin/odoo-dev)
+    # 6. php (Laravel & CodeIgniter Suite)
+    p_php = subparsers.add_parser("php", help="Laravel & CodeIgniter Super-Senior Suite (Scaffolding, SAST security audit)")
+    p_php_subs = p_php.add_subparsers(dest="php_action", required=True)
+    
+    p_php_audit = p_php_subs.add_parser("audit", help="Run SAST security audit on CodeIgniter or Laravel project")
+    p_php_audit.add_argument("path", default=".", nargs="?", help="Project or file path (default: .)")
+
+    p_php_scaf = p_php_subs.add_parser("scaffold", help="Scaffold production-grade Laravel or CodeIgniter component")
+    p_php_scaf.add_argument("framework", choices=["laravel", "ci3", "ci4"], help="Target framework")
+    p_php_scaf.add_argument("type", help="Component type (laravel: action, request, resource, model; ci3: service, repository, controller; ci4: model, controller)")
+    p_php_scaf.add_argument("name", help="Name of the component (e.g. CreateOrder, StoreUser)")
+    p_php_scaf.add_argument("--output", default=None, help="Destination directory to save file")
+
+    # 7. odoo (Delegates to bin/odoo-dev)
     p_odoo = subparsers.add_parser("odoo", help="Enterprise Odoo Developer Suite (Delegates to odoo-dev with all 16 subcommands)")
     p_odoo.add_argument("odoo_args", nargs=argparse.REMAINDER, help="Arguments passed directly to odoo-dev")
 
@@ -77,6 +90,11 @@ def main():
         print(super_engine.super_api_test(args.url, args.method, data=args.data))
     elif args.command == "blueprint":
         print(super_engine.super_blueprint(args.name, args.type, args.stack))
+    elif args.command == "php":
+        if args.php_action == "audit":
+            print(super_engine.super_sec_audit(os.path.abspath(args.path)))
+        elif args.php_action == "scaffold":
+            print(super_engine.super_php_scaffold(args.framework, args.type, args.name, args.output))
     elif args.command == "odoo":
         odoo_dev_bin = os.path.join(repo_root, "bin", "odoo-dev")
         if not os.path.exists(odoo_dev_bin):

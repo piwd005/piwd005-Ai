@@ -598,3 +598,342 @@ stateDiagram-v2
 4. **Input Validation**: Enforce strict schema validation (e.g. Pydantic v2 / Zod) before database operations.
 """
     return bp
+
+
+# ==============================================================================
+# 6. Universal PHP / Laravel / CodeIgniter Scaffolding Engine
+# ==============================================================================
+
+def super_php_scaffold(framework: str, component_type: str, name: str, output_dir: Optional[str] = None) -> str:
+    """Scaffold production-grade, super-senior PHP components for Laravel and CodeIgniter.
+
+    Args:
+        framework: 'laravel', 'ci3', 'ci4'.
+        component_type: 'action', 'request', 'resource', 'model', 'service', 'repository', 'controller'.
+        name: Name of the component (e.g. 'CreateOrder', 'StoreUser', 'PaymentService').
+        output_dir: Optional destination directory to write the generated file.
+
+    Returns:
+        Generated PHP code or summary of created file.
+    """
+    clean_name = re.sub(r"[^A-Za-z0-9_]", "", name)
+    framework = framework.lower()
+    component_type = component_type.lower()
+
+    content = ""
+    file_ext = ".php"
+    filename = f"{clean_name}{file_ext}"
+
+    if framework == "laravel":
+        if component_type == "action":
+            filename = f"{clean_name}Action.php"
+            content = f"""<?php
+
+namespace App\\Actions;
+
+use Illuminate\\Support\\Facades\\DB;
+use Illuminate\\Support\\Facades\\Log;
+use Throwable;
+
+/**
+ * {clean_name}Action
+ * Single-responsibility Action class for enterprise business workflows.
+ */
+class {clean_name}Action
+{{
+    /**
+     * Execute the domain action inside a database transaction with deadlock retries.
+     *
+     * @param array $payload
+     * @return mixed
+     * @throws Throwable
+     */
+    public function execute(array $payload): mixed
+    {{
+        return DB::transaction(function () use ($payload) {{
+            Log::info('{clean_name}Action initiated', ['payload' => $payload]);
+
+            // TODO: Implement domain logic with zero N+1 queries
+            $result = true;
+
+            Log::info('{clean_name}Action completed successfully');
+            return $result;
+        }}, 5); // 5 retry attempts on PostgreSQL/MySQL deadlock
+    }}
+}}
+"""
+        elif component_type == "request":
+            filename = f"{clean_name}Request.php"
+            content = f"""<?php
+
+namespace App\\Http\\Requests;
+
+use Illuminate\\Foundation\\Http\\FormRequest;
+
+/**
+ * {clean_name}Request
+ * Strictly validated form request with policy authorization and type casting.
+ */
+class {clean_name}Request extends FormRequest
+{{
+    public function authorize(): bool
+    {{
+        // Enforce server-side authorization:
+        return true;
+    }}
+
+    public function rules(): array
+    {{
+        return [
+            // 'title' => ['required', 'string', 'max:255'],
+            // 'amount' => ['required', 'numeric', 'min:0'],
+        ];
+    }}
+
+    public function messages(): array
+    {{
+        return [
+            // 'title.required' => 'The title field is mandatory.',
+        ];
+    }}
+}}
+"""
+        elif component_type == "resource":
+            filename = f"{clean_name}Resource.php"
+            content = f"""<?php
+
+namespace App\\Http\\Resources;
+
+use Illuminate\\Http\\Request;
+use Illuminate\\Http\\Resources\\Json\\JsonResource;
+
+/**
+ * {clean_name}Resource
+ * API serialization layer with defensive eager loading checks.
+ */
+class {clean_name}Resource extends JsonResource
+{{
+    public function toArray(Request $request): array
+    {{
+        return [
+            'id' => $this->id,
+            'created_at' => $this->created_at?->toIso8601String(),
+            'updated_at' => $this->updated_at?->toIso8601String(),
+            // Eager-loaded relationship defense:
+            // 'items' => ItemResource::collection($this->whenLoaded('items')),
+        ];
+    }}
+}}
+"""
+        elif component_type == "model":
+            filename = f"{clean_name}.php"
+            content = f"""<?php
+
+namespace App\\Models;
+
+use Illuminate\\Database\\Eloquent\\Model;
+use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;
+use Illuminate\\Database\\Eloquent\\SoftDeletes;
+
+/**
+ * {clean_name}
+ * Production Eloquent model with mass-assignment defense and strict casting.
+ */
+class {clean_name} extends Model
+{{
+    use HasFactory, SoftDeletes;
+
+    protected $table = '{clean_name.lower()}s';
+
+    protected $fillable = [
+        // 'title',
+        // 'status',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+
+    // Query Scopes
+    public function scopeActive($query)
+    {{
+        return $query->where('status', 'active');
+    }}
+}}
+"""
+        else:
+            return f"Error: Unknown Laravel component type '{component_type}'. Supported: action, request, resource, model."
+
+    elif framework in ("ci3", "codeigniter3", "codeigniter"):
+        if component_type == "service":
+            filename = f"{clean_name}_service.php"
+            content = f"""<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * {clean_name}_service
+ * Service layer for CodeIgniter 3 to decouple business logic from controllers.
+ */
+class {clean_name}_service {{
+
+    protected $CI;
+
+    public function __construct() {{
+        $this->CI =& get_instance();
+        $this->CI->load->database();
+    }}
+
+    /**
+     * Execute transactional operation with safe Query Builder bindings.
+     */
+    public function process(array $data) {{
+        $this->CI->db->trans_start();
+
+        // Safe parameterized insert
+        // $this->CI->db->insert('{clean_name.lower()}s', $data);
+
+        $this->CI->db->trans_complete();
+
+        if ($this->CI->db->trans_status() === FALSE) {{
+            log_message('error', '{clean_name}_service: Transaction rolled back');
+            return FALSE;
+        }}
+
+        return TRUE;
+    }}
+}}
+"""
+        elif component_type == "repository":
+            filename = f"{clean_name}_repository.php"
+            content = f"""<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * {clean_name}_repository
+ * Data access repository for CodeIgniter 3 eliminating raw SQL queries.
+ */
+class {clean_name}_repository {{
+
+    protected $CI;
+    protected $table = '{clean_name.lower()}s';
+
+    public function __construct() {{
+        $this->CI =& get_instance();
+        $this->CI->load->database();
+    }}
+
+    public function find_by_id($id) {{
+        return $this->CI->db->get_where($this->table, array('id' => $id))->row_array();
+    }}
+
+    public function get_active($limit = 50, $offset = 0) {{
+        return $this->CI->db->where('status', 'active')
+                            ->limit($limit, $offset)
+                            ->get($this->table)
+                            ->result_array();
+    }}
+}}
+"""
+        elif component_type == "controller":
+            filename = f"{clean_name}.php"
+            content = f"""<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * {clean_name}
+ * Thin REST-ready controller for CodeIgniter 3.
+ */
+class {clean_name} extends CI_Controller {{
+
+    public function __construct() {{
+        parent::__construct();
+        $this->load->library('form_validation');
+    }}
+
+    public function index() {{
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(array('status' => 'ok', 'service' => '{clean_name}')));
+    }}
+}}
+"""
+        else:
+            return f"Error: Unknown CodeIgniter component type '{component_type}'. Supported: service, repository, controller."
+
+    elif framework in ("ci4", "codeigniter4"):
+        if component_type == "model":
+            filename = f"{clean_name}Model.php"
+            content = f"""<?php
+
+namespace App\\Models;
+
+use CodeIgniter\\Model;
+
+/**
+ * {clean_name}Model
+ * Modern CodeIgniter 4 Model with automatic validation and timestamps.
+ */
+class {clean_name}Model extends Model
+{{
+    protected $table            = '{clean_name.lower()}s';
+    protected $primaryKey       = 'id';
+    protected $useAutoIncrement = true;
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
+    protected $allowedFields    = [];
+
+    // Dates
+    protected $useTimestamps = true;
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+
+    // Validation Rules
+    protected $validationRules      = [];
+    protected $validationMessages   = [];
+    protected $skipValidation       = false;
+    protected $cleanValidationRules = true;
+}}
+"""
+        elif component_type == "controller":
+            filename = f"{clean_name}.php"
+            content = f"""<?php
+
+namespace App\\Controllers;
+
+use App\\Controllers\\BaseController;
+use CodeIgniter\\HTTP\\ResponseInterface;
+
+/**
+ * {clean_name}
+ * CodeIgniter 4 Controller with JSON response helpers.
+ */
+class {clean_name} extends BaseController
+{{
+    public function index(): ResponseInterface
+    {{
+        return $this->response->setJSON([
+            'status'  => 'success',
+            'message' => '{clean_name} API ready',
+        ]);
+    }}
+}}
+"""
+        else:
+            return f"Error: Unknown CI4 component type '{component_type}'. Supported: model, controller."
+
+    else:
+        return f"Error: Unsupported framework '{framework}'. Supported: laravel, ci3, ci4."
+
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+        dest_path = os.path.join(output_dir, filename)
+        with open(dest_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        return f"✓ Successfully scaffolded {framework.upper()} {component_type} to: {dest_path}\n\n{content}"
+
+    return f"// Scaffolding: {framework.upper()} {component_type.upper()} ({filename})\n\n{content}"
+
