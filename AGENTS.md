@@ -161,6 +161,11 @@ On every task, think and execute simultaneously across four principal discipline
 - **Boundless Full-Height Geometry**: Never set arbitrary `max-height` (e.g. `calc(100vh - 60px)`) on `.o_app_menu_sidebar`. The drawer container must span the full viewport (`height: 100% !important; min-height: 100vh !important; height: 100dvh !important; top: 0 !important; bottom: 0 !important;`). Only the inner `.o_burger_menu_content` container must scroll with `-webkit-overflow-scrolling: touch !important; overflow-y: auto !important; padding-bottom: env(safe-area-inset-bottom, 24px) !important;`.
 - **Slide-In Coordinate Preservation**: Never set `left: 0 !important;` on `.o_app_menu_sidebar`. In standard Odoo, the sidebar uses `end-100` (`right: 100%`) with `transform: translateX(100%)`. Forcing `left: 0` causes a double translation offset, pushing the drawer off the right edge of the screen.
 
+### 19. Continuous Integration, Dependency Integrity & Portable Environment Law
+- **Declared Dependency Rigor**: Every library imported by core tools or plugins (`lxml`, `mcp`, `odoorpc`, `playwright`, `psycopg2-binary`, etc.) MUST be explicitly pinned and declared in `requirements.txt`. Never rely on unmanaged ambient system packages.
+- **Defensive Environment Fallbacks**: CLI tools and MCP servers must never assume hardcoded workstation paths like `~/.gemini/config/...`. Tools must automatically fallback to local repository root paths (`repo_root/plugins/...`, `repo_root/mcp_config.json`, `repo_root/skills`, `repo_root/AGENTS.md`) so that tests, diagnostics (`odoo-dev doctor`), and builds execute cleanly and autonomously in ephemeral CI runners (GitHub Actions, Docker, DevContainers) and fresh developer clones.
+- **Pre-Push CI Validation**: Every push that touches workflows or CLI execution paths must be monitored to green pipeline completion before declaring mission complete.
+
 ---
 
 ## 4. Senior Developer Efficiency (The Ponytail Ladder)
