@@ -60,20 +60,22 @@ echo ""
 echo "📁 Step 2: Preparing Target Directories..."
 mkdir -p "$HOME/.gemini/config/skills"
 mkdir -p "$HOME/.gemini/config/plugins/odoo-dev"
+mkdir -p "$HOME/.gemini/config/plugins/super-dev"
 mkdir -p "$HOME/.gemini/antigravity/mcp/odoo-dev"
 mkdir -p "$HOME/.gemini/antigravity/mcp/odoo-dev_odoo-dev"
 mkdir -p "$HOME/.local/bin"
 
 # 4. Copy Skills (Global)
-echo "📂 Step 3: Installing All Global Skills (32 Suite Skills + Primacy Engineering Kit)..."
+echo "📂 Step 3: Installing All Global Skills (Universal Suite + Primacy Engineering Kit)..."
 cp -r "$SCRIPT_DIR/skills/"* "$HOME/.gemini/config/skills/"
 echo "✓ Skills installed in ~/.gemini/config/skills/"
 
-# 5. Copy odoo-dev Plugin
-echo "🔌 Step 4: Installing odoo-dev Plugin & MCP Server..."
+# 5. Copy Plugins (odoo-dev and super-dev)
+echo "🔌 Step 4: Installing Plugins & MCP Servers..."
 cp -r "$SCRIPT_DIR/plugins/odoo-dev/"* "$HOME/.gemini/config/plugins/odoo-dev/"
 chmod +x "$HOME/.gemini/config/plugins/odoo-dev/mcp_server.py"
-echo "✓ Plugin installed in ~/.gemini/config/plugins/odoo-dev/"
+cp -r "$SCRIPT_DIR/plugins/super-dev/"* "$HOME/.gemini/config/plugins/super-dev/"
+echo "✓ Plugins installed in ~/.gemini/config/plugins/"
 
 # 6. Configure Global MCP Server
 echo "⚙️ Step 5: Registering MCP Server in ~/.gemini/config/mcp_config.json..."
@@ -97,8 +99,10 @@ with open(cfg_path, 'w') as f:
 "
 echo "✓ Global MCP server registered."
 
-# 7. Install CLI tool
-echo "🛠 Step 6: Installing odoo-dev CLI Utility to ~/.local/bin/odoo-dev..."
+# 7. Install CLI tools
+echo "🛠 Step 6: Installing super-dev & odoo-dev CLI Utilities to ~/.local/bin/..."
+cp "$SCRIPT_DIR/bin/super-dev" "$HOME/.local/bin/super-dev"
+chmod +x "$HOME/.local/bin/super-dev"
 cp "$SCRIPT_DIR/bin/odoo-dev" "$HOME/.local/bin/odoo-dev"
 chmod +x "$HOME/.local/bin/odoo-dev"
 

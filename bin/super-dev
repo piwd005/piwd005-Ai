@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""
+Universal Super-AI Developer CLI Utility (super-dev)
+Industry-wide polyglot developer assistant for all software engineering:
+Architectural blueprints, SAST security audits, web visual QA, API testing,
+and full enterprise Odoo ERP engineering.
+"""
+
+import argparse
+import os
+import subprocess
+import sys
+
+# Import universal super engine
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+engine_paths = [
+    os.path.join(repo_root, "plugins", "super-dev"),
+    os.path.expanduser("~/.gemini/config/plugins/super-dev"),
+]
+for p in engine_paths:
+    if os.path.isdir(p) and p not in sys.path:
+        sys.path.insert(0, p)
+
+try:
+    import super_engine
+except ImportError:
+    sys.path.insert(0, os.path.join(repo_root, "plugins", "super-dev"))
+    import super_engine
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="super-dev",
+        description="Universal Super-AI Developer Platform: Polyglot SAST, Web Inspection, API Testing, Architecture, and Odoo Suite."
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # 1. doctor
+    subparsers.add_parser("doctor", help="Run polyglot workstation diagnostic check (Python, Node, Go, Rust, Docker, Playwright, DB)")
+
+    # 2. sec
+    p_sec = subparsers.add_parser("sec", help="Run Universal SAST & Security Audit (OWASP Top 10, SQLi, Secrets, Dangerous Eval)")
+    p_sec.add_argument("path", default=".", nargs="?", help="Path to file or project directory to audit (default: .)")
+
+    # 3. web
+    p_web = subparsers.add_parser("web", help="Universal Web & UI Inspector (Playwright headless Chromium, WSOD detection, console logs)")
+    p_web.add_argument("url", help="URL to inspect (e.g. http://localhost:3000)")
+    p_web.add_argument("--viewport", choices=["desktop", "tablet", "mobile"], default="desktop", help="Viewport size (default: desktop)")
+    p_web.add_argument("--output", default=None, help="Screenshot destination path")
+    p_web.add_argument("--wait", type=int, default=3000, help="Wait time in ms after load (default: 3000)")
+
+    # 4. api
+    p_api = subparsers.add_parser("api", help="Universal API Contract & Endpoint Tester")
+    p_api.add_argument("url", help="Target API URL")
+    p_api.add_argument("--method", default="GET", choices=["GET", "POST", "PUT", "PATCH", "DELETE"], help="HTTP Method")
+    p_api.add_argument("--data", default=None, help="Request JSON or string body")
+
+    # 5. blueprint
+    p_bp = subparsers.add_parser("blueprint", help="Generate an Architectural Pre-Flight Blueprint (C4, ER model, state machine, API matrix)")
+    p_bp.add_argument("name", help="System or service name (e.g. 'OrderService' or 'PaymentGateway')")
+    p_bp.add_argument("--type", default="fullstack", choices=["fullstack", "microservice", "api", "system"], help="Architecture type")
+    p_bp.add_argument("--stack", default="FastAPI + React + PostgreSQL", help="Technology stack summary")
+
+    # 6. odoo (Delegates to bin/odoo-dev)
+    p_odoo = subparsers.add_parser("odoo", help="Enterprise Odoo Developer Suite (Delegates to odoo-dev with all 16 subcommands)")
+    p_odoo.add_argument("odoo_args", nargs=argparse.REMAINDER, help="Arguments passed directly to odoo-dev")
+
+    args = parser.parse_args()
+
+    if args.command == "doctor":
+        print(super_engine.super_doctor())
+    elif args.command == "sec":
+        print(super_engine.super_sec_audit(os.path.abspath(args.path)))
+    elif args.command == "web":
+        print(super_engine.super_web_capture(args.url, args.output, args.viewport, args.wait))
+    elif args.command == "api":
+        print(super_engine.super_api_test(args.url, args.method, data=args.data))
+    elif args.command == "blueprint":
+        print(super_engine.super_blueprint(args.name, args.type, args.stack))
+    elif args.command == "odoo":
+        odoo_dev_bin = os.path.join(repo_root, "bin", "odoo-dev")
+        if not os.path.exists(odoo_dev_bin):
+            odoo_dev_bin = os.path.expanduser("~/.local/bin/odoo-dev")
+        cmd = [sys.executable, odoo_dev_bin] + args.odoo_args
+        res = subprocess.run(cmd)
+        sys.exit(res.returncode)
+
+
+if __name__ == "__main__":
+    main()

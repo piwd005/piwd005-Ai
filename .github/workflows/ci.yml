@@ -43,6 +43,11 @@ jobs:
         run: |
           python3 bin/odoo-dev doctor
 
+      - name: Run Universal super-dev Self-Diagnostic & Security Check
+        run: |
+          python3 bin/super-dev doctor
+          python3 bin/super-dev sec bin/super-dev
+
       - name: Validate MCP JSON Schemas
         run: |
           python3 -c "import json, glob; [json.load(open(f)) for f in glob.glob('mcp-schemas/*.json')]; print('✓ All 15 MCP schemas are valid JSON.')"

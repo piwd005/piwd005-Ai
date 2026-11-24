@@ -1,10 +1,10 @@
-# piwd005-Ai: Global AI Developer Suite & Primacy Engineering Kit
+# piwd005-Ai: Universal Super-AI Developer Suite & Primacy Engineering Kit
 
 [![CI](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml/badge.svg)](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml)
 
-A unified, production-hardened AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Workstation Odoo Developer Suite**: **32+ specialized engineering skills**, **4 AI specialist subagent personas**, **18 Unbreakable Laws of Principal Odoo Engineering**, the **odoo-dev MCP Server with 15 tools**, and the **odoo-dev CLI**.
+A unified, production-hardened Universal Super-AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Universal Polyglot Super-AI Platform**: **38+ specialized engineering skills**, the **Hexa-Persona Mandate (Architect, Developer, DBA, Security, QA, DevOps)**, the **Universal 4-Stage Pre-Deploy Safety Gate**, the **super-dev polyglot CLI**, the **odoo-dev MCP Server with 15 tools**, and automated **Playwright visual inspection**.
 
-This repository integrates senior engineering standards with complete multi-PC portability.
+Covers all software engineering: Fullstack Web (React 19, Next.js), High-Performance Backend (FastAPI, Node, Go, Rust), Databases (PostgreSQL, Redis), Cloud & DevOps (Docker, K8s, CI/CD), AppSec (OWASP SAST), and Enterprise ERP (Odoo 19/20).
 
 ---
 
