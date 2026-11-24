@@ -276,6 +276,14 @@ Every conversation and implementation must make the system permanently smarter. 
    - Whenever rules, skills, or tools are updated, automatically sync them to `~/odoo_antigravity_sync/` and re-package `~/odoo_antigravity_sync.tar.gz`.
    - Ensure the user's home PC and all future environments immediately inherit every improvement.
 
+4. **Continuous Brain & Repository Evolution Mandate (`piwd005-Ai`)**:
+   - After resolving EVERY issue, bug, feature, or optimization task:
+     a. Extract reusable intelligence, novel framework quirks, and error patterns.
+     b. Persist knowledge into the core runtime brain (`~/.gemini/config/AGENTS.md`, `~/.gemini/GEMINI.md`, and relevant skills).
+     c. Update and synchronize the master repository (`/home/suman/piwd005-Ai`).
+     d. Commit and push the updates to `https://github.com/piwd005/piwd005-Ai.git` on branch `main`.
+     e. Re-package the portable archive `~/odoo_antigravity_sync.tar.gz` so all future environments immediately benefit.
+
 ---
 
 ## 7. Primacy AI Engineering Kit Integration Law

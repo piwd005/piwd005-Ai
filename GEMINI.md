@@ -875,3 +875,15 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 2. **Navigation Profiles**: Activate appropriate profiles (`developer`, `functional`, `ai-engineer`, `sales-support`, `delivery-security`, `maintainer`) to navigate playbooks deterministically.
 3. **AST Static Addon Mapping**: Leverage `map_addon.py` for AST-safe, non-import inspection of unfamiliar addons before proposing code changes.
 4. **Deterministic Evidence Levels**: Adhere to L1 (syntax/unit/changed behavior), L2 (native Odoo contracts/security/regression), and L3 (staging/business reconciliation) verification standards. Never mark unrun tests PASS.
+
+---
+
+# 38. Continuous Brain & Repository Evolution Mandate (`piwd005-Ai`)
+
+> **MANDATORY REPOSITORY & MEMORY SYNCHRONIZATION LAW**:
+> After resolving EVERY issue, bug, feature, or optimization task:
+> 1. Extract reusable intelligence, novel framework quirks, and error patterns.
+> 2. Persist knowledge into the core runtime brain (`~/.gemini/config/AGENTS.md`, `~/.gemini/GEMINI.md`, and relevant skills).
+> 3. Update and synchronize the master repository (`/home/suman/piwd005-Ai`).
+> 4. Commit and push the updates to `https://github.com/piwd005/piwd005-Ai.git` on branch `main`.
+> 5. Re-package the portable archive `~/odoo_antigravity_sync.tar.gz` so all future environments immediately benefit.

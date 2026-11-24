@@ -99,6 +99,16 @@ def main():
     p_bp = subparsers.add_parser("blueprint", help="Generate an Architectural Pre-Flight Blueprint template for a model")
     p_bp.add_argument("model", help="Technical model name (e.g. custom.maintenance or sale.order)")
 
+    # 15. doctor
+    p_doc = subparsers.add_parser("doctor", help="Run workstation self-diagnostic health check")
+    p_doc.add_argument("--host", default="localhost", help="Odoo host (default: localhost)")
+    p_doc.add_argument("--rpc-port", type=int, default=8069, help="Odoo JSON-RPC port (default: 8069)")
+
+    # 16. docgen
+    p_dg = subparsers.add_parser("docgen", help="Auto-generate technical markdown documentation (README.md) for a module")
+    p_dg.add_argument("path", help="Path to Odoo addon module directory")
+    p_dg.add_argument("--output", default=None, help="Output markdown path (default: <path>/README.md)")
+
     args = parser.parse_args()
 
     if args.command == "lint":
@@ -133,6 +143,10 @@ def main():
         print(res)
         if "⛔ PRE-UPGRADE VERDICT: BLOCKED" in res:
             sys.exit(1)
+    elif args.command == "doctor":
+        print(mcp_server.odoo_doctor(args.host, args.rpc_port))
+    elif args.command == "docgen":
+        print(mcp_server.odoo_docgen(os.path.abspath(args.path), os.path.abspath(args.output) if args.output else None))
     elif args.command == "blueprint":
         model_raw = args.model
         clean_model = model_raw.replace('.', '_')

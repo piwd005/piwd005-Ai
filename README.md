@@ -1,6 +1,8 @@
 # piwd005-Ai: Global AI Developer Suite & Primacy Engineering Kit
 
-A unified, production-hardened AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Workstation Odoo Developer Suite**: **32+ specialized engineering skills**, **4 AI specialist subagent personas**, **18 Unbreakable Laws of Principal Odoo Engineering**, the **odoo-dev MCP Server with 13 tools**, and the **odoo-dev CLI**.
+[![CI](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml/badge.svg)](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml)
+
+A unified, production-hardened AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Workstation Odoo Developer Suite**: **32+ specialized engineering skills**, **4 AI specialist subagent personas**, **18 Unbreakable Laws of Principal Odoo Engineering**, the **odoo-dev MCP Server with 15 tools**, and the **odoo-dev CLI**.
 
 This repository integrates senior engineering standards with complete multi-PC portability.
 
@@ -123,28 +125,34 @@ Enforces unconditionally across every chat turn on this workstation:
 ### 5. odoo-dev CLI Utility (`bin/odoo-dev`)
 Installed to `~/.local/bin/odoo-dev` for direct terminal execution:
 ```bash
-# 1. Pre-Upgrade Safety Gate (Stage 1 Audit)
+# 1. Workstation Self-Diagnostic Health Check
+odoo-dev doctor
+
+# 2. Module Technical Documentation Generator (README with Mermaid)
+odoo-dev docgen /path/to/addon
+
+# 3. Pre-Upgrade Safety Gate (Stage 1 Audit)
 odoo-dev pre-upgrade /path/to/addon
 
-# 2. Architectural Blueprint Generator
+# 4. Architectural Blueprint Generator
 odoo-dev blueprint custom.maintenance
 
-# 3. Headless Chromium Full-Page Screenshot & Crash Detector
+# 5. Headless Chromium Full-Page Screenshot & Crash Detector
 odoo-dev screenshot --url http://localhost:8069 --login admin --password admin --action-url "/odoo/action-123"
 
-# 4. PostgreSQL Database Health & Multi-Company Auditor
+# 6. PostgreSQL Database Health & Multi-Company Auditor
 odoo-dev db-audit <dbname> --user odoo --host localhost
 
-# 5. AST & File Security Auditor
+# 7. AST & File Security Auditor
 odoo-dev file-audit /path/to/file.py
 
-# 6. Ghost File & Cascade Import Auditor
+# 8. Ghost File & Cascade Import Auditor
 odoo-dev folder-audit /path/to/addons
 
-# 7. Production Addon Scaffolder
+# 9. Production Addon Scaffolder
 odoo-dev scaffold custom_module --version 19.0 --model custom.module
 
-# 8. Linting & Manifest / XML Validation
+# 10. Linting & Manifest / XML Validation
 odoo-dev lint /path/to/addon
 odoo-dev validate-manifest /path/to/addon
 odoo-dev validate-xml /path/to/addon/views
@@ -152,9 +160,20 @@ odoo-dev validate-xml /path/to/addon/views
 
 ---
 
-## 🔄 Development & Syncing Workflow
+## 🔄 Development, Syncing & Brain Evolution
 
-Whenever you improve your skills, directives, or tools:
+### 1. 1-Click Upstream Synchronization with Senior's Kit
+To sync the latest playbooks and canonical updates from `Primacy-AI-Engineering-Kit` while strictly preserving all your custom skills and tools:
+```bash
+bash scripts/sync_upstream.sh
+```
+
+### 2. Continuous Brain & Repository Evolution Mandate
+Every conversation and solved issue on this workstation follows a strict self-improvement cycle:
+1. **Extract Intelligence**: Distill novel framework quirks, bug fixes, or patterns.
+2. **Update Core Brain**: Permanently save into `AGENTS.md` and `GEMINI.md`.
+3. **Sync Repository**: Commit and push directly to `piwd005-Ai`.
+4. **Package Portable Bundle**: Re-generate `~/odoo_antigravity_sync.tar.gz`.
 
 ```bash
 # On your development PC:

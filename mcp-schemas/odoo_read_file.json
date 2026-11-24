@@ -1,1 +1,27 @@
-{"name":"odoo_read_file","description":"Read, parse, and summarize business files: PDF specs, Excel sheets, Word docs, CSVs, images, and mockups.\n\n    Args:\n        file_path: Absolute path to the file.\n        max_rows: Maximum rows to preview for tabular data (Excel/CSV).\n        max_pages: Maximum pages to extract for PDF documents.\n\n    Returns:\n        Structured text representation of the document contents, tables, and metadata.\n    ","parameters":{"properties":{"file_path":{"title":"File Path","type":"string"},"max_pages":{"default":15,"title":"Max Pages","type":"integer"},"max_rows":{"default":20,"title":"Max Rows","type":"integer"}},"required":["file_path"],"title":"odoo_read_fileArguments","type":"object"}}
+{
+  "name": "odoo_read_file",
+  "description": "Read, parse, and summarize business files: PDF specs, Excel sheets, Word docs, CSVs, images, and mockups.\n\n    Args:\n        file_path: Absolute path to the file.\n        max_rows: Maximum rows to preview for tabular data (Excel/CSV).\n        max_pages: Maximum pages to extract for PDF documents.\n\n    Returns:\n        Structured text representation of the document contents, tables, and metadata.\n    ",
+  "parameters": {
+    "properties": {
+      "file_path": {
+        "title": "File Path",
+        "type": "string"
+      },
+      "max_rows": {
+        "default": 20,
+        "title": "Max Rows",
+        "type": "integer"
+      },
+      "max_pages": {
+        "default": 15,
+        "title": "Max Pages",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "file_path"
+    ],
+    "title": "odoo_read_fileArguments",
+    "type": "object"
+  }
+}

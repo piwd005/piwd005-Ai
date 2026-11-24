@@ -1,0 +1,29 @@
+{
+  "name": "odoo_docgen",
+  "description": "Auto-generate comprehensive technical markdown documentation (README.md) for an Odoo module.\n    \n    Inspects __manifest__.py, parses Python models and fields via AST, extracts state transitions,\n    generates Mermaid state diagrams, and writes a professional module specification.\n\n    Args:\n        module_path: Path to the Odoo addon module directory.\n        output_path: Optional path to write README.md (defaults to <module_path>/README.md).\n\n    Returns:\n        Structured summary with path to generated documentation and preview of contents.\n    ",
+  "parameters": {
+    "properties": {
+      "module_path": {
+        "title": "Module Path",
+        "type": "string"
+      },
+      "output_path": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Output Path"
+      }
+    },
+    "required": [
+      "module_path"
+    ],
+    "title": "odoo_docgenArguments",
+    "type": "object"
+  }
+}

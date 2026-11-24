@@ -1,1 +1,17 @@
-{"name":"odoo_audit_file","description":"Perform deep static, AST, and semantic inspection of an individual Python, XML, or CSV file in an Odoo module.\n\n    Audits Python files for SQL injection, unparameterized queries, insecure sudo(), compute loops, and mutable defaults.\n    Audits ir.model.access.csv for missing headers, illogical permissions, and duplicate IDs.\n    Audits XML views for deprecated tags (\u003ctree\u003e, attrs, states), unescaped entities, and invalid priority types.\n\n    Args:\n        file_path: Absolute path to the file to inspect.\n\n    Returns:\n        Structured audit report with defect count, severity ratings, and actionable fixes.\n    ","parameters":{"properties":{"file_path":{"title":"File Path","type":"string"}},"required":["file_path"],"title":"odoo_audit_fileArguments","type":"object"}}
+{
+  "name": "odoo_audit_file",
+  "description": "Perform deep static, AST, and semantic inspection of an individual Python, XML, or CSV file in an Odoo module.\n\n    Audits Python files for SQL injection, unparameterized queries, insecure sudo(), compute loops, and mutable defaults.\n    Audits ir.model.access.csv for missing headers, illogical permissions, and duplicate IDs.\n    Audits XML views for deprecated tags (<tree>, attrs, states), unescaped entities, and invalid priority types.\n\n    Args:\n        file_path: Absolute path to the file to inspect.\n\n    Returns:\n        Structured audit report with defect count, severity ratings, and actionable fixes.\n    ",
+  "parameters": {
+    "properties": {
+      "file_path": {
+        "title": "File Path",
+        "type": "string"
+      }
+    },
+    "required": [
+      "file_path"
+    ],
+    "title": "odoo_audit_fileArguments",
+    "type": "object"
+  }
+}

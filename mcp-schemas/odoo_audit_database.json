@@ -1,1 +1,49 @@
-{"name":"odoo_audit_database","description":"Audit an Odoo PostgreSQL database for missing foreign key indexes, orphaned XML IDs, and financial balance.\n\n    Inspects:\n    1. Unindexed foreign keys causing slow queries and deadlocks.\n    2. Orphaned ir.model.data external IDs.\n    3. Double-entry financial balancing (sum(debit) == sum(credit)).\n    4. Active PostgreSQL transaction locks and blockers.\n\n    Args:\n        db: Odoo PostgreSQL database name.\n        host: Database host (default: localhost).\n        port: PostgreSQL port (default: 5432).\n        user: Database user (default: odoo).\n        password: Database password.\n        rpc_port: Odoo JSON-RPC port (default: 8069).\n\n    Returns:\n        Structured database health report.\n    ","parameters":{"properties":{"db":{"title":"Db","type":"string"},"host":{"default":"localhost","title":"Host","type":"string"},"password":{"anyOf":[{"type":"string"},{"type":"null"}],"default":null,"title":"Password"},"port":{"default":5432,"title":"Port","type":"integer"},"rpc_port":{"default":8069,"title":"Rpc Port","type":"integer"},"user":{"default":"odoo","title":"User","type":"string"}},"required":["db"],"title":"odoo_audit_databaseArguments","type":"object"}}
+{
+  "name": "odoo_audit_database",
+  "description": "Audit an Odoo PostgreSQL database for missing foreign key indexes, orphaned XML IDs, and financial balance.\n\n    Inspects:\n    1. Unindexed foreign keys causing slow queries and deadlocks.\n    2. Orphaned ir.model.data external IDs.\n    3. Double-entry financial balancing (sum(debit) == sum(credit)).\n    4. Active PostgreSQL transaction locks and blockers.\n\n    Args:\n        db: Odoo PostgreSQL database name.\n        host: Database host (default: localhost).\n        port: PostgreSQL port (default: 5432).\n        user: Database user (default: odoo).\n        password: Database password.\n        rpc_port: Odoo JSON-RPC port (default: 8069).\n\n    Returns:\n        Structured database health report.\n    ",
+  "parameters": {
+    "properties": {
+      "db": {
+        "title": "Db",
+        "type": "string"
+      },
+      "host": {
+        "default": "localhost",
+        "title": "Host",
+        "type": "string"
+      },
+      "port": {
+        "default": 5432,
+        "title": "Port",
+        "type": "integer"
+      },
+      "user": {
+        "default": "odoo",
+        "title": "User",
+        "type": "string"
+      },
+      "password": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Password"
+      },
+      "rpc_port": {
+        "default": 8069,
+        "title": "Rpc Port",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "db"
+    ],
+    "title": "odoo_audit_databaseArguments",
+    "type": "object"
+  }
+}

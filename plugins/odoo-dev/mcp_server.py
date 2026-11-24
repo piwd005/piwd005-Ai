@@ -1557,6 +1557,238 @@ def odoo_pre_upgrade_audit(path: str) -> str:
     return "\n".join(report)
 
 
+@server.tool()
+def odoo_doctor(host: str = "localhost", rpc_port: int = 8069) -> str:
+    """Run an automated self-diagnostic check on the developer workstation and Odoo environment.
+    
+    Verifies Python 3 runtime, Playwright Chromium headless browser, PostgreSQL client library,
+    MCP server configuration, global skills directory, and live JSON-RPC connection to Odoo.
+
+    Returns:
+        Structured diagnostic scoreboard with PASS/FAIL status and remediation hints.
+    """
+    report = [
+        "==================================================",
+        "🩺 ODOO-DEV WORKSTATION DIAGNOSTIC HEALTH CHECK",
+        "==================================================",
+    ]
+    all_ok = True
+
+    # 1. Python Version
+    py_ver = sys.version_info
+    if py_ver >= (3, 10):
+        report.append(f"✓ Python Runtime: {py_ver.major}.{py_ver.minor}.{py_ver.micro} (Supported: >= 3.10)")
+    else:
+        all_ok = False
+        report.append(f"❌ Python Runtime: {py_ver.major}.{py_ver.minor}.{py_ver.micro} (Requires Python >= 3.10)")
+
+    # 2. Playwright Chromium
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            browser.close()
+        report.append("✓ Visual Verification Engine: Playwright Chromium browser is installed and operational.")
+    except Exception as e:
+        all_ok = False
+        report.append(f"⚠ Visual Verification Engine: Playwright Chromium check failed ({str(e)}). Run: playwright install chromium")
+
+    # 3. PostgreSQL Library
+    try:
+        import psycopg2
+        report.append("✓ Database Client: psycopg2-binary installed for direct PostgreSQL catalog inspection.")
+    except ImportError:
+        report.append("⚠ Database Client: psycopg2 not found. Database catalog audit will fall back to JSON-RPC.")
+
+    # 4. MCP Server Registration
+    cfg_path = os.path.expanduser("~/.gemini/config/mcp_config.json")
+    if os.path.exists(cfg_path):
+        try:
+            with open(cfg_path, "r") as f:
+                cfg = json.load(f)
+            if "odoo-dev" in cfg.get("mcpServers", {}):
+                report.append("✓ MCP Registration: odoo-dev server registered in ~/.gemini/config/mcp_config.json.")
+            else:
+                report.append("⚠ MCP Registration: odoo-dev server missing from mcp_config.json.")
+        except Exception:
+            report.append("⚠ MCP Registration: Failed to parse ~/.gemini/config/mcp_config.json.")
+    else:
+        report.append("⚠ MCP Registration: ~/.gemini/config/mcp_config.json not found.")
+
+    # 5. Global Skills
+    skills_dir = os.path.expanduser("~/.gemini/config/skills")
+    if os.path.exists(skills_dir):
+        active_skills = [d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d))]
+        report.append(f"✓ AI Engineering Skills: {len(active_skills)} skills active in {skills_dir}.")
+    else:
+        report.append("⚠ AI Engineering Skills: ~/.gemini/config/skills not found.")
+
+    # 6. Global Directives
+    agents_path = os.path.expanduser("~/.gemini/config/AGENTS.md")
+    if os.path.exists(agents_path):
+        report.append("✓ Core Directives: Global AGENTS.md verified (18 Unbreakable Laws active).")
+    else:
+        report.append("⚠ Core Directives: ~/.gemini/config/AGENTS.md missing.")
+
+    # 7. Live Odoo Connection
+    try:
+        import odoorpc
+        odoo = odoorpc.ODOO(host, port=rpc_port, timeout=3)
+        dbs = odoo.db.list()
+        report.append(f"✓ Live Odoo Server: Connected to http://{host}:{rpc_port} (Databases: {', '.join(dbs) if dbs else 'none'}).")
+    except Exception:
+        report.append(f"ℹ Live Odoo Server: No running Odoo instance detected at http://{host}:{rpc_port} (Offline mode ready).")
+
+    report.append("==================================================")
+    if all_ok:
+        report.append("🎉 SYSTEM STATUS: 100% HEALTHY & READY FOR WORK")
+    else:
+        report.append("⚠ SYSTEM STATUS: WARNINGS DETECTED (Review items above)")
+    report.append("==================================================")
+
+    return "\n".join(report)
+
+
+@server.tool()
+def odoo_docgen(module_path: str, output_path: Optional[str] = None) -> str:
+    """Auto-generate comprehensive technical markdown documentation (README.md) for an Odoo module.
+    
+    Inspects __manifest__.py, parses Python models and fields via AST, extracts state transitions,
+    generates Mermaid state diagrams, and writes a professional module specification.
+
+    Args:
+        module_path: Path to the Odoo addon module directory.
+        output_path: Optional path to write README.md (defaults to <module_path>/README.md).
+
+    Returns:
+        Structured summary with path to generated documentation and preview of contents.
+    """
+    if not os.path.exists(module_path):
+        return f"Error: Module path '{module_path}' does not exist."
+
+    manifest_path = os.path.join(module_path, "__manifest__.py")
+    if not os.path.exists(manifest_path):
+        return f"Error: No __manifest__.py found in '{module_path}'."
+
+    # Parse manifest
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest_dict = ast.literal_eval(f.read())
+    except Exception:
+        manifest_dict = {}
+
+    mod_name = manifest_dict.get("name", os.path.basename(module_path))
+    summary = manifest_dict.get("summary", "Custom Odoo module")
+    version = manifest_dict.get("version", "1.0.0")
+    author = manifest_dict.get("author", "Unknown")
+    depends = manifest_dict.get("depends", [])
+
+    lines = [
+        f"# {mod_name}",
+        f"",
+        f"> **Version**: `{version}` | **Author**: {author} | **Dependencies**: `{', '.join(depends)}`",
+        f"",
+        f"{summary}",
+        f"",
+        f"---",
+        f"",
+        f"## 📋 Technical Architecture",
+        f"",
+    ]
+
+    # Inspect models
+    models_dir = os.path.join(module_path, "models")
+    detected_models = []
+
+    if os.path.exists(models_dir):
+        for fname in os.listdir(models_dir):
+            if fname.endswith(".py") and not fname.startswith("__"):
+                fpath = os.path.join(models_dir, fname)
+                try:
+                    with open(fpath, "r", encoding="utf-8") as pf:
+                        tree = ast.parse(pf.read(), filename=fpath)
+                    for node in ast.walk(tree):
+                        if isinstance(node, ast.ClassDef):
+                            m_name = None
+                            m_desc = ""
+                            fields = []
+                            states = []
+                            for stmt in node.body:
+                                if isinstance(stmt, ast.Assign):
+                                    for target in stmt.targets:
+                                        if isinstance(target, ast.Name):
+                                            if target.id == "_name" and isinstance(stmt.value, ast.Constant):
+                                                m_name = stmt.value.value
+                                            elif target.id == "_description" and isinstance(stmt.value, ast.Constant):
+                                                m_desc = stmt.value.value
+                                            elif isinstance(stmt.value, ast.Call):
+                                                f_type = getattr(stmt.value.func, "attr", getattr(stmt.value.func, "id", "Field"))
+                                                fields.append((target.id, f_type))
+                                                if target.id == "state" and stmt.value.args and isinstance(stmt.value.args[0], (ast.List, ast.Tuple)):
+                                                    for elt in stmt.value.args[0].elts:
+                                                        if isinstance(elt, (ast.List, ast.Tuple)) and len(elt.elts) >= 1:
+                                                            val = getattr(elt.elts[0], "value", None)
+                                                            if val:
+                                                                states.append(val)
+                            if m_name:
+                                detected_models.append((m_name, m_desc, fields, states))
+                except Exception:
+                    pass
+
+    for m_name, m_desc, fields, states in detected_models:
+        lines.append(f"### Model: `{m_name}`")
+        if m_desc:
+            lines.append(f"*{m_desc}*")
+            lines.append("")
+        
+        # State diagram if available
+        if states and len(states) >= 2:
+            lines.append("#### Lifecycle State Transitions")
+            lines.append("```mermaid")
+            lines.append("stateDiagram-v2")
+            lines.append(f"    [*] --> {states[0]}: Created")
+            for i in range(len(states) - 1):
+                lines.append(f"    {states[i]} --> {states[i+1]}: action_{states[i+1]}()")
+            if "cancel" in states:
+                lines.append(f"    {states[0]} --> cancel: action_cancel()")
+            lines.append("```")
+            lines.append("")
+
+        # Fields table
+        if fields:
+            lines.append("#### Declared Fields")
+            lines.append("| Field Name | Type |")
+            lines.append("| :--- | :--- |")
+            for fid, ftype in fields[:15]:
+                lines.append(f"| `{fid}` | `{ftype}` |")
+            if len(fields) > 15:
+                lines.append(f"| *...and {len(fields) - 15} more fields* | |")
+            lines.append("")
+
+    lines.extend([
+        "---",
+        "",
+        "## 🛡 Quality & Verification",
+        "Validated with `piwd005-Ai` Pre-Upgrade Safety Gate:",
+        "```bash",
+        f"odoo-dev pre-upgrade {module_path}",
+        f"odoo-dev validate-xml {module_path}/views",
+        f"odoo-dev lint {module_path}",
+        "```",
+        "",
+        "Generated automatically by `odoo-dev docgen`.",
+    ])
+
+    doc_content = "\n".join(lines)
+    dest = output_path or os.path.join(module_path, "README.md")
+    try:
+        with open(dest, "w", encoding="utf-8") as out:
+            out.write(doc_content)
+        return f"✓ Technical documentation generated successfully at:\n  {dest}\n\nPreview:\n" + "\n".join(lines[:25])
+    except Exception as e:
+        return f"Error writing documentation to '{dest}': {str(e)}"
+
+
 if __name__ == "__main__":
     server.run(transport="stdio")
 

@@ -1,0 +1,20 @@
+{
+  "name": "odoo_doctor",
+  "description": "Run an automated self-diagnostic check on the developer workstation and Odoo environment.\n    \n    Verifies Python 3 runtime, Playwright Chromium headless browser, PostgreSQL client library,\n    MCP server configuration, global skills directory, and live JSON-RPC connection to Odoo.\n\n    Returns:\n        Structured diagnostic scoreboard with PASS/FAIL status and remediation hints.\n    ",
+  "parameters": {
+    "properties": {
+      "host": {
+        "default": "localhost",
+        "title": "Host",
+        "type": "string"
+      },
+      "rpc_port": {
+        "default": 8069,
+        "title": "Rpc Port",
+        "type": "integer"
+      }
+    },
+    "title": "odoo_doctorArguments",
+    "type": "object"
+  }
+}

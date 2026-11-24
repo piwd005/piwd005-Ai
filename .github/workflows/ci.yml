@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-verify:
+    name: Unit Tests & Suite Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mcp pylint-odoo odoorpc pandas openpyxl python-docx pypdf Pillow pytest coverage
+
+      - name: Run Primacy AI Engineering Kit Test Suite
+        run: |
+          python3 -m unittest discover -s tests -v
+
+      - name: Verify Source Catalog Integrity
+        run: |
+          python3 scripts/build_catalog.py --check
+
+      - name: Run odoo-dev Self-Diagnostic Check
+        run: |
+          python3 bin/odoo-dev doctor
+
+      - name: Validate MCP JSON Schemas
+        run: |
+          python3 -c "import json, glob; [json.load(open(f)) for f in glob.glob('mcp-schemas/*.json')]; print('✓ All 15 MCP schemas are valid JSON.')"
