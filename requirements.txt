@@ -8,6 +8,7 @@ mcp>=1.0.0
 
 # Odoo Static Analysis & Linters
 pylint-odoo>=3.5.0
+lxml>=4.9.0
 
 # Odoo Remote Procedure Call (JSON-RPC)
 odoorpc>=0.10.1

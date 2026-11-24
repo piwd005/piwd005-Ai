@@ -9,8 +9,20 @@ import sys
 import os
 
 # Import tool functions from MCP server
-sys.path.insert(0, os.path.expanduser("~/.gemini/config/plugins/odoo-dev"))
-import mcp_server
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+plugin_paths = [
+    os.path.join(repo_root, "plugins", "odoo-dev"),
+    os.path.expanduser("~/.gemini/config/plugins/odoo-dev"),
+]
+for p in plugin_paths:
+    if os.path.isdir(p) and p not in sys.path:
+        sys.path.insert(0, p)
+
+try:
+    import mcp_server
+except ImportError:
+    sys.path.insert(0, os.path.join(repo_root, "plugins", "odoo-dev"))
+    import mcp_server
 
 def main():
     parser = argparse.ArgumentParser(
