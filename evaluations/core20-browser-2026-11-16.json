@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-16",
+  "release": "0.3.2",
+  "synthetic": true,
+  "core20": {
+    "status": "RESOLVED_LOCALLY",
+    "version": "20.0.1.0.19",
+    "revision": "dd055e7d1a7097f7cea877823ac912c0a590b679",
+    "tree": "7332166abfc0a1501765bd17d72fd4da033ac5ef",
+    "source_files_verified_unchanged": 140,
+    "licensing": "normal local trial; no bypass or registration"
+  },
+  "native20": {
+    "status": "PASS",
+    "tests": 108,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "classes": {
+      "execution": 41,
+      "functional": 24,
+      "security": 28,
+      "workflow": 12,
+      "business": 3
+    }
+  },
+  "network": {
+    "backend": "OS localhost-only profile",
+    "local_postgres": "ALLOWED",
+    "external_tcp": "DENIED_EPERM",
+    "browser": "fresh context, external routes blocked"
+  },
+  "business_browser": {
+    "19": {
+      "status": "PASS",
+      "series": 19,
+      "browser": "157.0.8103.51",
+      "core": null,
+      "core_status": null,
+      "manufacturing": {
+        "state": "done",
+        "consumed": 2,
+        "produced": 1,
+        "component_stock": 8,
+        "finished_stock": 1
+      },
+      "accounting": {
+        "bill": 100,
+        "credit": 100,
+        "bill_residual": 0,
+        "credit_residual": 0,
+        "balanced": true
+      },
+      "browser_errors": 0,
+      "ui_status_verified": true
+    },
+    "20": {
+      "status": "PASS",
+      "series": 20,
+      "browser": "157.0.8103.51",
+      "core": {
+        "id": 680,
+        "state": "installed",
+        "installed_version": "20.0.1.0.19"
+      },
+      "core_status": "trial",
+      "manufacturing": {
+        "state": "done",
+        "consumed": 2,
+        "produced": 1,
+        "component_stock": 8,
+        "finished_stock": 1
+      },
+      "accounting": {
+        "bill": 100,
+        "credit": 100,
+        "bill_residual": 0,
+        "credit_residual": 0,
+        "balanced": true
+      },
+      "browser_errors": 0,
+      "ui_status_verified": true
+    }
+  },
+  "primacy20_browser": {
+    "status": "PASS",
+    "native_ui": [
+      "receipt Validate and Create Backorder",
+      "contact edit/save and mobile reopen",
+      "Primacy manual inventory guidance"
+    ],
+    "received": 3,
+    "backorder": 2,
+    "browser": "157.0.8103.51"
+  },
+  "kit_tests": 20,
+  "private_code_published": false,
+  "antigravity_runs": 0,
+  "artifact_sha256": {
+    "evaluations/core20-browser-evidence/business-19-credit-posted.png": "ef7451131c9d657d85a0e72e7c125fe0901dbf0e0557e67a6761d2dc7db64ce3",
+    "evaluations/core20-browser-evidence/business-19-manufacturing-done.png": "152e6df8ba0f2dd62e5c271eaea75539d569cd14fb0e8fd66cd4ed125f77723f",
+    "evaluations/core20-browser-evidence/business-20-credit-posted.png": "23f6c553ea323d17c385c83910828107d8b2e7e470df783137e98d8020e261a4",
+    "evaluations/core20-browser-evidence/business-20-manufacturing-done.png": "626a9b65bad20d93a5184cd6baaf6f57365ebd5853da956903c6c8490e19c15c"
+  },
+  "not_run": [
+    "production deployment",
+    "live provider/MCP authorization",
+    "tax/localization/multicurrency",
+    "partial production browser flow",
+    "manufacturing lots/serials browser flow",
+    "concurrency/load"
+  ],
+  "seed_guards": {
+    "non_qa_database": "DENIED_BEFORE_MUTATION",
+    "existing_fixture_file": "DENIED_BEFORE_MUTATION"
+  },
+  "trigger_regressions": {
+    "owl2": "PASS",
+    "owl3": "PASS"
+  },
+  "final_ui_reopen": {
+    "19": {
+      "manufacturing": "Done",
+      "credit": "Posted"
+    },
+    "20": {
+      "manufacturing": "Done",
+      "credit": "Posted"
+    },
+    "screenshot_transitions": "disabled"
+  }
+}

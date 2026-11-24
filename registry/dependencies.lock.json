@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "runtime": "Python >=3.10 standard library",
+  "third_party_runtime_dependencies": [],
+  "vendored_upstream_code": [],
+  "auto_update": false,
+  "optional_qa": {
+    "auto_install": false,
+    "core_imports": "standard library only",
+    "python_tool_lock": "skills/primacy-engineering/assets/qa/requirements-macos-arm64-py312.lock",
+    "provenance": "skills/primacy-engineering/assets/qa/provenance.json",
+    "binary_provenance": "skills/primacy-engineering/assets/qa/gitleaks-provenance.json",
+    "tested_platform": "macOS arm64 CPython 3.12"
+  }
+}

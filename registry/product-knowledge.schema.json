@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "product",
+    "classification",
+    "owner",
+    "facts"
+  ],
+  "properties": {
+    "product": {
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "CUSTOMER",
+        "PRIMACY_INTERNAL",
+        "SECURITY_RESTRICTED"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "status",
+          "evidence"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "VERIFIED_IN_REPO",
+              "REPORTED_UNVERIFIED",
+              "PROPOSED",
+              "DEPRECATED"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

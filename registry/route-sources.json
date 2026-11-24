@@ -1,0 +1,163 @@
+{
+  "requirements": [
+    "spec-kit",
+    "superpowers",
+    "psae-functional",
+    "omas-superpowers",
+    "atakh-odoo"
+  ],
+  "functional": [
+    "clawic-odoo",
+    "clawic-license",
+    "odoo-module",
+    "psae-functional"
+  ],
+  "odoo-backend": [
+    "odoo-module",
+    "odoo-security",
+    "odoo-json2",
+    "odoo-skills",
+    "odoo20-house",
+    "fhidalgo-odoo",
+    "atakh-odoo",
+    "odoo-boost",
+    "oca-pylint",
+    "oca-hooks"
+  ],
+  "odoo-ui": [
+    "odoo20-web-house",
+    "odoo-skills",
+    "odoo20-docs",
+    "playwright-cli"
+  ],
+  "migration": [
+    "oca-openupgrade",
+    "odoo20-docs",
+    "odoo-skills",
+    "odoo20-tests"
+  ],
+  "python-api": [
+    "ruff",
+    "pip-audit",
+    "uv",
+    "owasp-asvs"
+  ],
+  "ai-rag": [
+    "odoo-ai",
+    "odoo-ai-agents",
+    "agents-guardrails",
+    "pydantic-skills",
+    "pydantic-ai",
+    "promptfoo",
+    "context7"
+  ],
+  "mcp": [
+    "mcp-python",
+    "mcp-security",
+    "odoo-mcp-pro",
+    "anthropic-skills"
+  ],
+  "security": [
+    "odoo-security",
+    "odoo20-security-skill",
+    "owasp-asvs",
+    "owasp-agentic",
+    "trailofbits",
+    "gitleaks",
+    "semgrep",
+    "codex-security",
+    "pip-audit"
+  ],
+  "testing": [
+    "odoo-testing",
+    "odoo20-tests",
+    "playwright-cli",
+    "playwright-mcp",
+    "oca-hooks",
+    "oca-pylint",
+    "anthropic-skills",
+    "promptfoo",
+    "ruff"
+  ],
+  "debugging": [
+    "superpowers",
+    "ponytail",
+    "fhidalgo-odoo"
+  ],
+  "reference-analysis": [
+    "rea",
+    "rea-install",
+    "reverse-skill",
+    "playwright-mcp"
+  ],
+  "release": [
+    "gitleaks",
+    "pip-audit",
+    "uv"
+  ],
+  "project-delivery": [
+    "spec-kit",
+    "psae-functional"
+  ],
+  "knowledge": [
+    "context7",
+    "odoo20-docs",
+    "odoo-module"
+  ],
+  "optimization": [
+    "ponytail",
+    "promptfoo",
+    "ecc"
+  ],
+  "codebase-map": [
+    "fhidalgo-odoo",
+    "odoo-skills",
+    "odoo-boost"
+  ],
+  "reuse-first": [
+    "fhidalgo-odoo",
+    "odoo-skills",
+    "clawic-odoo"
+  ],
+  "sales-presales": [
+    "odoo-ai",
+    "odoo-ai-agents",
+    "clawic-odoo"
+  ],
+  "customer-support": [
+    "clawic-odoo",
+    "owasp-agentic"
+  ],
+  "training-docs": [
+    "odoo-module",
+    "odoo20-docs"
+  ],
+  "performance": [
+    "odoo20-house",
+    "odoo-skills"
+  ],
+  "skill-maintenance": [
+    "agent-skills",
+    "codex-skills",
+    "codex-customization",
+    "codex-security",
+    "antigravity-skills",
+    "claude-skills",
+    "openai-plugins",
+    "openai-skills-legacy",
+    "anthropic-skills",
+    "github-odoo-search",
+    "ecc",
+    "ponytail"
+  ],
+  "agent-product-evaluation": [
+    "pan-ai-pro",
+    "pan-ai-pro-license",
+    "pan-ai-pro-protocol",
+    "pan-ai-pro-architecture",
+    "odoo-mcp-pro",
+    "pydantic-ai",
+    "odoo-boost",
+    "odoo20-review-skill"
+  ]
+}

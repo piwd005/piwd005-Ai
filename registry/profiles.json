@@ -1,0 +1,46 @@
+{
+  "developer": [
+    "requirements",
+    "codebase-map",
+    "reuse-first",
+    "odoo-backend",
+    "odoo-ui",
+    "python-api",
+    "testing",
+    "debugging",
+    "performance"
+  ],
+  "functional": [
+    "functional",
+    "requirements",
+    "migration",
+    "testing",
+    "training-docs"
+  ],
+  "ai-engineer": [
+    "ai-rag",
+    "mcp",
+    "security",
+    "agent-product-evaluation",
+    "testing",
+    "optimization"
+  ],
+  "sales-support": [
+    "sales-presales",
+    "customer-support",
+    "training-docs",
+    "functional"
+  ],
+  "delivery-security": [
+    "project-delivery",
+    "release",
+    "security",
+    "testing",
+    "performance"
+  ],
+  "maintainer": [
+    "skill-maintenance",
+    "knowledge",
+    "optimization"
+  ]
+}

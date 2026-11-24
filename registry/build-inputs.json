@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Primacy_Master_Build_Prompt.md",
+    "sha256": "5750f0b20b784aa18ea59d9f2cc945bed331da2c0c1447fffac153fb04a8c2de",
+    "role": "User design input; instructions applied within current request scope"
+  },
+  {
+    "name": "Primacy_Master_Build_Prompt_v2.md",
+    "sha256": "b478a23c174075a57eeae3152a07ec564832243ce63cb18455e54f8607882975",
+    "role": "User design input; instructions applied within current request scope"
+  },
+  {
+    "name": "Primacy_Skill_Catalog_v2.md",
+    "sha256": "3141d019fb53abc87a6a99971f16134dc7000516e7c556f916def5543aeb24cd",
+    "role": "User design input; instructions applied within current request scope"
+  }
+]

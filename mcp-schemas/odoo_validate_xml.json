@@ -1,17 +1,1 @@
-{
-  "name": "odoo_validate_xml",
-  "description": "Validate Odoo XML view/data files for XML well-formedness, root tags, and XPath validity.\n\n    Args:\n        xml_path: Absolute path to the XML file or directory containing XML views.\n\n    Returns:\n        Validation report of XML syntax, XPath expressions, and tag deprecations.\n    ",
-  "parameters": {
-    "properties": {
-      "xml_path": {
-        "title": "Xml Path",
-        "type": "string"
-      }
-    },
-    "required": [
-      "xml_path"
-    ],
-    "title": "odoo_validate_xmlArguments",
-    "type": "object"
-  }
-}
+{"name":"odoo_validate_xml","description":"Validate Odoo XML view/data files for XML well-formedness, root tags, and XPath validity.\n\n    Args:\n        xml_path: Absolute path to the XML file or directory containing XML views.\n\n    Returns:\n        Validation report of XML syntax, XPath expressions, and tag deprecations.\n    ","parameters":{"properties":{"xml_path":{"title":"Xml Path","type":"string"}},"required":["xml_path"],"title":"odoo_validate_xmlArguments","type":"object"}}

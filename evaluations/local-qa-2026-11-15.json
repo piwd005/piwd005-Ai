@@ -1,0 +1,59 @@
+{
+  "kit_version": "0.2.0",
+  "date": "2026-11-15",
+  "scope": "Deterministic local package/static QA. No model runs or native Odoo runtime.",
+  "unit_and_integration_tests": {
+    "count": 20,
+    "status": "PASS",
+    "exit_code": 0,
+    "real_tools_selected": true
+  },
+  "catalog": {
+    "sources": 62,
+    "routes": 24,
+    "portable_copy": "PASS",
+    "version_filter": "PASS"
+  },
+  "tools": {
+    "ruff": "0.17.5",
+    "pylint-odoo": "10.0.12",
+    "oca-odoo-pre-commit-hooks": "0.2.27",
+    "gitleaks": "8.30.1",
+    "pip-audit": "2.10.1"
+  },
+  "kit_static_checks": {
+    "ruff": "PASS",
+    "gitleaks": "PASS"
+  },
+  "synthetic_addons": {
+    "19.0": {
+      "clean_checks": "PASS",
+      "undefined_name_detected": true,
+      "manual_commit_detected": true
+    },
+    "20.0": {
+      "clean_checks": "PASS",
+      "undefined_name_detected": true,
+      "manual_commit_detected": true
+    }
+  },
+  "negative_cases": {
+    "duplicate_loaded_xml_id": "Detected",
+    "synthetic_credential": "Detected and value excluded from output",
+    "missing_tool": "NOT_RUN",
+    "disabled_network_audit": "NOT_RUN",
+    "invalid_lock": "ERROR",
+    "timeout": "ERROR",
+    "invalid_diagnostic_json": "ERROR"
+  },
+  "qa_toolchain_audit": {
+    "distribution_count": 50,
+    "known_vulnerabilities": 0,
+    "status": "PASS",
+    "scope": "Complete QA tool wheel lock only"
+  },
+  "native_odoo_tests": "NOT_RUN",
+  "browser_tests": "NOT_RUN",
+  "client_model_runs": "NOT_RUN",
+  "license_and_limitations": "See docs/STEPS_1_3_REPORT.md and packaged assets/qa/provenance.json."
+}

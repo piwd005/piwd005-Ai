@@ -1,0 +1,21 @@
+{
+  "product": "PriERP",
+  "version": null,
+  "edition": "REPORTED_UNVERIFIED",
+  "classification": "PRIMACY_INTERNAL",
+  "owner": "Primacy product owner",
+  "review_date": null,
+  "facts": [
+    {
+      "claim": "Community plus Primacy modules on customer-specific instances",
+      "status": "REPORTED_UNVERIFIED",
+      "evidence": "User-provided build brief",
+      "source_revision": null
+    }
+  ],
+  "prohibited_content": [
+    "credentials",
+    "customer transactions",
+    "personnel or health records"
+  ]
+}

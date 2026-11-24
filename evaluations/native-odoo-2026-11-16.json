@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-16",
+  "release": "0.3.1",
+  "synthetic": true,
+  "native19": {
+    "status": "PASS",
+    "tests": 104,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "classes": {
+      "execution": 39,
+      "functional": 22,
+      "security": 28,
+      "workflow": 12,
+      "business": 3
+    }
+  },
+  "native20": {
+    "status": "PASS",
+    "scope": "Community business reconciliation only",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "primacy20_ai": {
+    "status": "BLOCKED",
+    "reason": "Missing required prierp_core module in supplied 20-series addon set"
+  },
+  "browser19": {
+    "status": "PASS",
+    "native_ui": [
+      "receipt Validate and Create Backorder",
+      "contact edit/save and mobile reopen",
+      "Primacy manual inventory guidance"
+    ],
+    "received": 3,
+    "backorder": 2,
+    "browser": "157.0.8103.51"
+  },
+  "browser20": {
+    "status": "PASS",
+    "native_ui": [
+      "receipt Validate and Create Backorder",
+      "contact edit/save and mobile reopen"
+    ],
+    "received": 3,
+    "backorder": 2,
+    "browser": "157.0.8103.51"
+  },
+  "kit_tests": 20,
+  "source_revisions": {
+    "odoo19": "006220901d6b466fc296edbbcec962d2168a0782",
+    "odoo20": "50b51284b32960690293c5f9510e8ce6834664aa",
+    "primacy19_base": "3cd98c5dc022c7ff5dbf83f5be726dfb43493032",
+    "primacy20_candidate": "785673377a79516415af85b2fa6eb8722499f5d3"
+  },
+  "artifact_sha256": {
+    "evaluations/native-evidence/native-19-guidance.png": "ee2b460d527acd85709142bfd4e9ab5093acdf15d6f84ce0a1588626419355fc",
+    "evaluations/native-evidence/native-19-receipt-done.png": "acfb8e23ddef4d33f3d75249de958e9f0604f6421397975e9633d2c8e10cdefd",
+    "evaluations/native-evidence/native-20-receipt-done.png": "521706cfa89583597fc8b28e80de439ac15b88bf1566c1e62e525ac26b7a98f4"
+  },
+  "not_run": [
+    "Primacy AI addon on Odoo20",
+    "manufacturing/accounting browser completion",
+    "live MCP authorization",
+    "paid model cases",
+    "concurrent request/load testing"
+  ],
+  "application_fix_delivery": "Applied locally; private patch retained outside publication; separate application repository not pushed",
+  "final_runtime_summaries": {
+    "19": "0 failed, 0 error(s) of 104 tests when loading database 'primacy_native19_20261116' ",
+    "20": "0 failed, 0 error(s) of 3 tests when loading database 'primacy_native20_20261116'"
+  },
+  "primacy19_fixed_sha256": {
+    "pi_erp_agentic_ai/tests/__init__.py": "eab350e46cb2d55eb6cacd4cfed532fd1f880803a28b46ed12e5d170396e5298",
+    "pi_erp_agentic_ai/static/src/js/ai_chat_page.js": "d2e73f55d06f1568da3d77542b07c123f2f1b76604af99a587456d044d26df6d"
+  }
+}

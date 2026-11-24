@@ -149,6 +149,18 @@ On every task, think and execute simultaneously across four principal discipline
 - **Smart Button & Grid Optimization**: `.oe_button_box` must flex-wrap or display as a 2-column grid on mobile, collapsing to single-column on extra-narrow screens ($\le 360\text{px}$). Form groups (`.o_group`, `.o_inner_group`) must display in a single vertical column (`display: block !important; width: 100% !important;`).
 - **Strict Module Scoping**: SCSS rules inside individual modules MUST NEVER override global framework classes without scoped parent view containers. Global responsive behaviors belong exclusively in `prierp_core/static/src/scss/responsive_global.scss`.
 
+### 17. Manufacturing Scheduling & Interactive Gantt Timeline Law
+- **Odoo 19/20 Work Order State Integrity**: In `mrp.workorder`, valid lifecycle states are strictly `('blocked', 'ready', 'progress', 'done', 'cancel')`. Never query `('waiting', 'pending')` for work order states.
+- **Topological Slot Reservation & ORM Flush**: When auto-scheduling multi-operation sequences, sort operations topologically by predecessor dependencies. Because `mrp.workcenter._get_first_available_slot()` executes raw SQL against `resource_calendar_leaves`, you MUST call `self.env['resource.calendar.leaves'].flush_model()` before querying slot availability to prevent subsequent operations from calculating duplicate timestamps.
+- **Defensive Duration Calculations**: Never reference non-existent fields like `duration_remaining`. Always calculate dynamically: `max((wo.duration_expected or 0.0) - (wo.duration or 0.0), 10.0)`.
+- **Gantt Unscheduled Isolation**: Never plot unscheduled operations (`date_start = False`) at `start_date` (day 01) on Gantt canvases. Filter `date_start != False` from timeline lanes to prevent artificial zero-width multi-lane ladders at `left: 0%`. Always display unscheduled operations count as an action badge on the Auto-Schedule button.
+- **Responsive Timeline Cell Dimensions**: Enforce explicit minimum cell and canvas widths (`minCellWidth` and `minCanvasWidth`) with horizontal scroll containers (Day: 55px/h, Week: 140px/d, Month: 48px/d, Year: 95px/m) so timeline days never compress below legible touch boundaries. Render pixel-perfect alternating guide lane tracks (`.o_mrp_lane_tracks`) matching sidebar row heights.
+
+### 18. Mobile Navigation Drawer Z-Index & Full-Height Stacking Law
+- **Strict Stacking Order**: The mobile apps drawer (`.o_app_menu_sidebar`) MUST ALWAYS maintain `z-index: 1090 !important;` (standard Odoo `$zindex-tooltip + 10`), strictly ABOVE Bootstrap's `.modal-backdrop` (`z-index: 1050 !important;`). Never set `.o_app_menu_sidebar { z-index: 1050; }`, which causes the backdrop sibling to paint over the drawer and intercept 100% of pointer and tap events.
+- **Boundless Full-Height Geometry**: Never set arbitrary `max-height` (e.g. `calc(100vh - 60px)`) on `.o_app_menu_sidebar`. The drawer container must span the full viewport (`height: 100% !important; min-height: 100vh !important; height: 100dvh !important; top: 0 !important; bottom: 0 !important;`). Only the inner `.o_burger_menu_content` container must scroll with `-webkit-overflow-scrolling: touch !important; overflow-y: auto !important; padding-bottom: env(safe-area-inset-bottom, 24px) !important;`.
+- **Slide-In Coordinate Preservation**: Never set `left: 0 !important;` on `.o_app_menu_sidebar`. In standard Odoo, the sidebar uses `end-100` (`right: 100%`) with `transform: translateX(100%)`. Forcing `left: 0` causes a double translation offset, pushing the drawer off the right edge of the screen.
+
 ---
 
 ## 4. Senior Developer Efficiency (The Ponytail Ladder)

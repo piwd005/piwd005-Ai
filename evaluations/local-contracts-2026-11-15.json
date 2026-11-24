@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-15",
+  "release": "0.3.0",
+  "synthetic": true,
+  "core_tests": {
+    "status": "PASS",
+    "methods": 20
+  },
+  "primacy_contracts": {
+    "status": "PASS",
+    "methods": 4
+  },
+  "mcp_stdio": {
+    "status": "PASS",
+    "methods": 1,
+    "denied_query_cases": 7,
+    "unknown_mutation_tool": "DENIED"
+  },
+  "browser": {
+    "status": "PASS",
+    "version": "157.0.8103.51",
+    "widths": [
+      1280,
+      390
+    ]
+  },
+  "dependency_audits": {
+    "pip_packages": 28,
+    "known_vulnerabilities": 0,
+    "npm_known_vulnerabilities": 0
+  },
+  "not_run": [
+    "native Odoo 19/20 UI and transactions",
+    "live MCP authorization",
+    "paid Codex/Antigravity behavioral cases"
+  ],
+  "commands": [
+    "PRIMACY_QA_TOOLS_DIR=<tools> python3 -m unittest discover -s tests -v",
+    "PRIMACY_SOURCE_ROOT=<source> python3 skills/primacy-engineering/assets/contracts/test_primacy.py -v",
+    "<mcp-venv>/bin/python skills/primacy-engineering/assets/contracts/test_mcp.py -v",
+    "PRIMACY_SOURCE_ROOT=<source> PRIMACY_PLAYWRIGHT_MODULE=<playwright>/index.mjs node skills/primacy-engineering/assets/contracts/browser.mjs"
+  ]
+}

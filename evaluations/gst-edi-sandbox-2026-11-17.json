@@ -1,0 +1,39 @@
+{
+  "local_date": "2026-11-17",
+  "release": "0.3.4",
+  "odoo19": "006220901d6b466fc296edbbcec962d2168a0782",
+  "prierp_baseline": "0ee65fba1bb55c81bde9d61978b04e7ac8f9d4f2",
+  "runs": {
+    "baseline": {
+      "tests": 4,
+      "failures": 3,
+      "errors": 0,
+      "test_modules": {
+        "primacy_gst_edi_qa": 4
+      }
+    },
+    "verify": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "test_modules": {
+        "l10n_in_edi": 1,
+        "l10n_in_ewaybill": 6,
+        "l10n_in_ewaybill_irn": 1,
+        "primacy_gst_edi_qa": 4
+      }
+    },
+    "final": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "test_modules": {
+        "primacy_gst_edi_qa": 5
+      }
+    }
+  },
+  "unique_passed_cases": 13,
+  "provider_validation": "not_run",
+  "transport": "mocked locally with outbound network blocked",
+  "antigravity_runs": 0
+}

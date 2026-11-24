@@ -1,0 +1,43 @@
+{
+  "release": "0.3.3",
+  "local_date": "2026-11-16",
+  "synthetic": true,
+  "odoo": {
+    "19": {
+      "revision": "006220901d6b466fc296edbbcec962d2168a0782",
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "classes": {
+        "TestGstrSection": 1,
+        "TestL10nInHSNSummary": 13,
+        "TestFiscal": 6,
+        "TestPrimacyGST": 3
+      }
+    },
+    "20": {
+      "revision": "50b51284b32960690293c5f9510e8ce6834664aa",
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "classes": {
+        "TestGstrSection": 1,
+        "TestL10nInHSNSummary": 13,
+        "TestFiscal": 6,
+        "TestPrimacyGST": 3
+      }
+    }
+  },
+  "usd_invoice": 100,
+  "invoice_receivable_inr": 8000,
+  "receipt_inr": 10000,
+  "realized_gain_inr": 2000,
+  "residual": 0,
+  "rate_entry_day_conversion_inr": {
+    "19": 10000,
+    "20": 8000
+  },
+  "antigravity_runs": 0
+}

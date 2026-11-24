@@ -1,0 +1,170 @@
+[
+  {
+    "id": "requirements",
+    "intent": "Turn an ambiguous feature into an implementable fit-gap and task contract",
+    "required_context": "Goal, affected users, acceptance criteria, budget",
+    "playbook": "references/requirements.md",
+    "example": "Add a returns approval flow"
+  },
+  {
+    "id": "functional",
+    "intent": "Configure and validate Odoo business workflows",
+    "required_context": "Installed apps, company, role, warehouse, localization, currency",
+    "playbook": "references/functional.md",
+    "example": "Verify a purchase return and supplier credit"
+  },
+  {
+    "id": "odoo-backend",
+    "intent": "Change Odoo models, ORM, controllers and access behavior",
+    "required_context": "Addon, exact series/edition, callers, access rules",
+    "playbook": "references/odoo-backend.md",
+    "example": "Add a validated CRM field"
+  },
+  {
+    "id": "odoo-ui",
+    "intent": "Change OWL, XML views, portal and QWeb reports",
+    "required_context": "Version, asset bundle, component/view inheritance, user role",
+    "playbook": "references/odoo-ui.md",
+    "example": "Fix a portal report layout"
+  },
+  {
+    "id": "migration",
+    "intent": "Plan and execute approved data or addon migration",
+    "required_context": "Source/target versions, mapping, volume, backup, staging approval",
+    "playbook": "references/migration.md",
+    "example": "Plan an Odoo 19 addon upgrade"
+  },
+  {
+    "id": "python-api",
+    "intent": "Implement services, API contracts and background work",
+    "required_context": "Existing entrypoints, authentication, request/response contracts",
+    "playbook": "references/python-api.md",
+    "example": "Fix duplicate webhook delivery"
+  },
+  {
+    "id": "ai-rag",
+    "intent": "Build or evaluate agents, retrieval and fallback",
+    "required_context": "Existing gateway/RAG, user/tenant identity, dataset approval, budget",
+    "playbook": "references/ai-rag.md",
+    "example": "Evaluate tenant-scoped retrieval"
+  },
+  {
+    "id": "mcp",
+    "intent": "Design or review MCP tools and adapters",
+    "required_context": "Transport, negotiated protocol, identity, endpoint scope",
+    "playbook": "references/mcp.md",
+    "example": "Prepare staging metadata tools"
+  },
+  {
+    "id": "security",
+    "intent": "Review an authorized change or system for security",
+    "required_context": "Target authorization, threat model, data classes, affected surfaces",
+    "playbook": "references/security.md",
+    "example": "Review a public Odoo controller"
+  },
+  {
+    "id": "testing",
+    "intent": "Choose and run relevant automated and functional checks",
+    "required_context": "Changed behavior, runtime, test commands, isolated data",
+    "playbook": "references/testing.md",
+    "example": "Test the changed inventory workflow"
+  },
+  {
+    "id": "debugging",
+    "intent": "Reproduce and fix a confirmed bug",
+    "required_context": "Symptoms, logs with secrets removed, expected behavior, revision",
+    "playbook": "references/debugging.md",
+    "example": "A retry creates duplicate invoices"
+  },
+  {
+    "id": "reference-analysis",
+    "intent": "Analyze authorized applications into original requirements",
+    "required_context": "Ownership/permission, approved URLs or source, evidence scope",
+    "playbook": "references/reference-analysis.md",
+    "example": "Study our legacy quotation UI"
+  },
+  {
+    "id": "release",
+    "intent": "Prepare approved PiCloud or existing pipeline releases",
+    "required_context": "Verified interface, target, revision, approval, database/filestore backups",
+    "playbook": "references/release.md",
+    "example": "Prepare a PriERP release review"
+  },
+  {
+    "id": "project-delivery",
+    "intent": "Draft task handover and evidence-based delivery status",
+    "required_context": "Odoo task reference, owner, acceptance, PR and test evidence",
+    "playbook": "references/project-delivery.md",
+    "example": "Prepare a delivery handover"
+  },
+  {
+    "id": "knowledge",
+    "intent": "Maintain scoped product context and reusable evidence",
+    "required_context": "Source revision, owner, classification, expiry/review date",
+    "playbook": "references/knowledge.md",
+    "example": "Refresh the product knowledge map"
+  },
+  {
+    "id": "optimization",
+    "intent": "Measure delivery and model cost per accepted task",
+    "required_context": "Representative baseline, accepted-task criteria, usage/time records",
+    "playbook": "references/optimization.md",
+    "example": "Measure the cost of fixing five bugs"
+  },
+  {
+    "id": "codebase-map",
+    "intent": "Orient an unfamiliar Odoo addon and trace impact",
+    "required_context": "Authorized source root, relevant addon and revision",
+    "playbook": "references/codebase-map.md",
+    "example": "Map the sales addon before editing"
+  },
+  {
+    "id": "reuse-first",
+    "intent": "Choose the smallest complete solution",
+    "required_context": "Task contract, affected module map and existing candidates",
+    "playbook": "references/reuse-first.md",
+    "example": "Choose reuse for an approval button"
+  },
+  {
+    "id": "sales-presales",
+    "intent": "Draft discovery, fit-gap, synthetic demo and proposal scope",
+    "required_context": "Authorized notes, approved product facts, current pricing source",
+    "playbook": "references/sales-presales.md",
+    "example": "Prepare a manufacturing discovery demo"
+  },
+  {
+    "id": "customer-support",
+    "intent": "Triage support and draft verified customer updates",
+    "required_context": "Impact, entitlement/resource assignment, approved fresh logs",
+    "playbook": "references/customer-support.md",
+    "example": "Triage a staging connector outage"
+  },
+  {
+    "id": "training-docs",
+    "intent": "Write role- and version-specific operating guidance",
+    "required_context": "Verified workflow, role, edition, branding and audience",
+    "playbook": "references/training-docs.md",
+    "example": "Write warehouse return training"
+  },
+  {
+    "id": "performance",
+    "intent": "Profile and improve measured latency or resource use",
+    "required_context": "Reproducible workload, authorized target, latency/query baseline",
+    "playbook": "references/performance.md",
+    "example": "Reduce a slow stock report query"
+  },
+  {
+    "id": "skill-maintenance",
+    "intent": "Review and update skill candidates and trusted knowledge",
+    "required_context": "Requested scope, pinned source, license, owner and evaluation",
+    "playbook": "references/skill-maintenance.md",
+    "example": "Review a candidate Odoo skill update"
+  },
+  {
+    "id": "agent-product-evaluation",
+    "intent": "Compare licensed AI products with original Primacy development",
+    "required_context": "Approved functional requirements, exact product and license sources",
+    "playbook": "references/agent-product-evaluation.md",
+    "example": "Evaluate agents inside PriERP"
+  }
+]
