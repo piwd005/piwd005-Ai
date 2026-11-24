@@ -1,0 +1,30 @@
+# ==============================================================================
+# Private-Ai AI Developer Suite & Primacy AI Engineering Kit
+# Core Python Runtime Dependencies
+# ==============================================================================
+
+# Fast MCP Server Framework
+mcp>=1.0.0
+
+# Odoo Static Analysis & Linters
+pylint-odoo>=3.5.0
+
+# Odoo Remote Procedure Call (JSON-RPC)
+odoorpc>=0.10.1
+
+# Document Parsers & Data Handlers
+pandas>=2.0.0
+openpyxl>=3.1.5
+python-docx>=1.1.0
+pypdf>=4.0.0
+Pillow>=10.0.0
+
+# Automated Testing & Coverage
+pytest>=8.0.0
+coverage>=7.0.0
+
+# Browser Automation & Visual QA Inspector
+playwright>=1.40.0
+
+# PostgreSQL Database Client
+psycopg2-binary>=2.9.0

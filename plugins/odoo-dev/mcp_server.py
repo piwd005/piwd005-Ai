@@ -1602,6 +1602,7 @@ def odoo_doctor(host: str = "localhost", rpc_port: int = 8069) -> str:
 
     # 4. MCP Server Registration
     cfg_path = os.path.expanduser("~/.gemini/config/mcp_config.json")
+    repo_cfg = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "mcp_config.json")
     if os.path.exists(cfg_path):
         try:
             with open(cfg_path, "r") as f:
@@ -1612,23 +1613,40 @@ def odoo_doctor(host: str = "localhost", rpc_port: int = 8069) -> str:
                 report.append("⚠ MCP Registration: odoo-dev server missing from mcp_config.json.")
         except Exception:
             report.append("⚠ MCP Registration: Failed to parse ~/.gemini/config/mcp_config.json.")
+    elif os.path.exists(repo_cfg):
+        try:
+            with open(repo_cfg, "r") as f:
+                cfg = json.load(f)
+            if "odoo-dev" in cfg.get("mcpServers", {}):
+                report.append("✓ MCP Registration: Repository mcp_config.json verified.")
+            else:
+                report.append("⚠ MCP Registration: odoo-dev server missing from repo mcp_config.json.")
+        except Exception:
+            report.append("⚠ MCP Registration: Failed to parse repository mcp_config.json.")
     else:
-        report.append("⚠ MCP Registration: ~/.gemini/config/mcp_config.json not found.")
+        report.append("⚠ MCP Registration: mcp_config.json not found.")
 
     # 5. Global Skills
     skills_dir = os.path.expanduser("~/.gemini/config/skills")
-    if os.path.exists(skills_dir):
+    repo_skills = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "skills")
+    if os.path.exists(skills_dir) and os.listdir(skills_dir):
         active_skills = [d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d))]
         report.append(f"✓ AI Engineering Skills: {len(active_skills)} skills active in {skills_dir}.")
+    elif os.path.exists(repo_skills):
+        active_skills = [d for d in os.listdir(repo_skills) if os.path.isdir(os.path.join(repo_skills, d))]
+        report.append(f"✓ AI Engineering Skills: {len(active_skills)} skills active in repository.")
     else:
-        report.append("⚠ AI Engineering Skills: ~/.gemini/config/skills not found.")
+        report.append("⚠ AI Engineering Skills: skills directory not found.")
 
     # 6. Global Directives
     agents_path = os.path.expanduser("~/.gemini/config/AGENTS.md")
+    repo_agents = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "AGENTS.md")
     if os.path.exists(agents_path):
         report.append("✓ Core Directives: Global AGENTS.md verified (18 Unbreakable Laws active).")
+    elif os.path.exists(repo_agents):
+        report.append("✓ Core Directives: Repository AGENTS.md verified (18 Unbreakable Laws active).")
     else:
-        report.append("⚠ Core Directives: ~/.gemini/config/AGENTS.md missing.")
+        report.append("⚠ Core Directives: AGENTS.md missing.")
 
     # 7. Live Odoo Connection
     try:
