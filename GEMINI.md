@@ -885,9 +885,24 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 # 38. Continuous Brain & Repository Evolution Mandate (`piwd005-Ai`)
 
 > **MANDATORY REPOSITORY & MEMORY SYNCHRONIZATION LAW**:
-> After resolving EVERY issue, bug, feature, or optimization task:
+> After resolving EVERY issue, bug, feature, or optimization task in EACH AND EVERY conversation and chat:
 > 1. Extract reusable intelligence, novel framework quirks, and error patterns.
 > 2. Persist knowledge into the core runtime brain (`~/.gemini/config/AGENTS.md`, `~/.gemini/GEMINI.md`, and relevant skills).
 > 3. Update and synchronize the master repository (`/home/suman/piwd005-Ai`).
-> 4. Commit and push the updates to `https://github.com/piwd005/piwd005-Ai.git` on branch `main`.
-> 5. Re-package the portable archive `~/odoo_antigravity_sync.tar.gz` so all future environments immediately benefit.
+> 4. **ALWAYS automatically commit and push updates to `https://github.com/piwd005/piwd005-Ai.git` on branch `main` (and `backup`)** so the AI developer suite and disaster recovery backup remain fresh in the cloud.
+> 5. Re-package the portable archive `~/odoo_antigravity_sync.tar.gz` and update `backup/workstation_full_backup.tar.gz`.
+> 6. Monitor and verify that GitHub Actions CI pipeline remains 100% green.
+
+---
+
+# 39. Strict Prohibition on Unapproved Git Commits & Pushes to Project / Server Repositories
+
+> **MANDATORY INVARIANCE LAW - PROJECT & SERVER CODE PROTECTION**:
+> 1. **Zero Unapproved Commits / Pushes on Project Repositories**: NEVER execute `git commit` or `git push` on any project, client, or server-related code repository (e.g. custom Odoo addons, Laravel/CodeIgniter projects, Android projects, staging/production Git remotes) WITHOUT EXPLICIT PERMISSION from the user in the active chat.
+> 2. **Situation-Based Push Holding**: The user frequently stages, tests, reviews, or holds Git pushes for client/server repositories due to release schedules, staging freezes, client meetings, or deliberate deployment timing. Never presume solving a code issue means permission to push server-related code.
+> 3. **Protocol for Project Code**:
+>    - Perform all local file edits, tests, and verifications.
+>    - Review changes locally (`git status`, `git diff`).
+>    - Report results clearly to the user and ask: *"Project code changes are tested and ready locally. Would you like me to commit and push to [remote/branch], or keep them held locally for now?"*
+>    - Wait for direct confirmation before executing any git commit or push on that project repository.
+> *(Note: This restriction applies exclusively to project and server-related code repositories — it does NOT restrict the mandatory automatic updates and pushes to `piwd005-Ai`).*
