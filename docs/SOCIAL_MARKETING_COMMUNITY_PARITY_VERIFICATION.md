@@ -54,3 +54,10 @@
   - Multi-network live previews before split verified.
   - Split Per Media notebook tabs (`Facebook`, `X (Twitter)`) verified.
 - **Evidence Screenshots**: Preserved in `social_marketing_evidence/` (32 visual proofs).
+
+## Fresh Installation & Manifest Load Order Law
+- **Issue**: On a completely new installation (`ecommerce.getpicloud.com`), installing `pi_social_marketing` failed with:
+  `ValueError: External ID not found in the system: pi_social_marketing.social_post_template_action` while parsing `views/social_menu_views.xml`.
+- **Root Cause**: In `__manifest__.py`, `views/social_menu_views.xml` was loaded at line 42, before `views/social_post_template_views.xml` (line 46). In `social_menu_views.xml`, `<menuitem id="menu_social_post_template" action="social_post_template_action"/>` directly referenced the action before it was loaded.
+- **Solution**: Follow standard Odoo menu architecture. In `social_menu_views.xml`, declare `<menuitem id="menu_social_post_template" .../>` without the `action` attribute. In `social_post_template_views.xml`, attach the action via `<record id="menu_social_post_template" model="ir.ui.menu"><field name="action" ref="social_post_template_action"/></record>`. This guarantees 100% clean installation on fresh databases.
+
