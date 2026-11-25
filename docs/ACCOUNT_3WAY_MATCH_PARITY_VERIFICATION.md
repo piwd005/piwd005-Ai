@@ -41,7 +41,22 @@ Executed live on database `acc_sh20261023` at `http://localhost:9094`:
      - "Late"
    - Direct clickable drilldown into filtered Vendor Bills list view verified.
 
-## 4. Visual Evidence Artifacts
+## 4. Automated Test Suite Results
+- Executed official test suite via Odoo test runner (`--test-enable --test-tags=/account_3way_match`):
+  - `AccountJournalDashboard3WayWatchTest.test_customer_invoice_dashboard` -> **PASSED**
+  - `AccountJournalDashboard3WayWatchTest.test_purchase_journal_numbers_and_sums` -> **PASSED**
+  - `AccountJournalDashboard3WayWatchTest.test_purchase_journal_numbers_and_sums_to_validate` -> **PASSED**
+  - `AccountJournalDashboard3WayWatchTest.test_sale_purchase_journal_for_multi_currency_sale` -> **PASSED**
+  - `AccountJournalDashboard3WayWatchTest.test_sale_purchase_journal_for_purchase` -> **PASSED**
+  - `TestReleaseToPayInvoice.test_3_way_match` (12 purchase order, invoice, and receipt policy scenarios) -> **PASSED**
+  - `TestReleaseToPayInvoice.test_amount_currency_edit` -> **PASSED**
+- **Test Summary**: `11 tests, 0 failed, 0 error(s)` (100% pass rate).
+
+## 5. Architectural Root Cause & Resolution for `test_amount_currency_edit`
+- **Root Cause**: Upstream Odoo 19 commit `b26818db6d` (`[REV] account: hide sections and notes in journal items tab`) replaced deprecated `journal_line_ids` back to standard `line_ids` inside `<page id="aml_tab">`. The test database had an outdated view 709 (`account.view_move_form`) that still used `journal_line_ids`, causing `Form(account.move)` to treat `line_ids` as an invisible/readonly field outside `aml_tab`.
+- **Resolution**: Upgraded module `account` to synchronize `account.view_move_form` with the current Odoo 19 core XML definition. Synchronized `tests/test_release_to_pay_invoice.py` and `tests/test_account_journal_dashboard.py` to match Enterprise byte-for-byte.
+
+## 6. Visual Evidence Artifacts
 - `01_purchase_settings_3way_match.png`
 - `02_vendor_bills_search_filters.png`
 - `03_filter_bills_to_validate.png`
@@ -51,3 +66,4 @@ Executed live on database `acc_sh20261023` at `http://localhost:9094`:
 - `07_accounting_dashboard.png`
 - `08_dashboard_drilldown_to_validate.png`
 - `09_dashboard_drilldown_to_pay.png`
+
