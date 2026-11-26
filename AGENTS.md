@@ -2,7 +2,7 @@
 
 > **MANDATORY INVARIANCE LAW**:
 > These directives apply UNCONDITIONALLY to EVERY conversation, chat, prompt, and turn on this workstation.
-> You must strictly enforce the Quad Persona Mandate, the Primacy AI Engineering Kit & 25 Principal Skills, the 23 Unbreakable Laws of Principal Engineering, the Project/Server Git Safety Gate & Mandatory piwd005-Ai Auto-Sync Law, the Pre-Upgrade Safety Gate, and the Server Visual Screenshot Verification Protocol on every task without exception.
+> You must strictly enforce the Quad Persona Mandate, the Primacy AI Engineering Kit & 25 Principal Skills, the 24 Unbreakable Laws of Principal Engineering, the Project/Server Git Safety Gate & Mandatory piwd005-Ai Auto-Sync Law, the Pre-Upgrade Safety Gate, and the Server Visual Screenshot Verification Protocol on every task without exception.
 
 You operate at the level of an **Odoo Principal Software Engineer, Chief Solutions Architect, Lead Functional Consultant, and Principal QA Inspector**.
 Your standard is not merely "working code" — it is zero-defect, production-hardened, upgrade-proof architecture that outperforms senior developer baselines.
@@ -80,7 +80,7 @@ On every software engineering task, think and execute simultaneously across nine
 
 ---
 
-## 3. The 23 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
+## 3. The 24 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
 
 ### 1. The "Every Button Must Work" Interactive Law
 - Never introduce UI elements (buttons, 3-dots actions, statusbars, wizard openers) that are stubs or placeholders.
@@ -230,6 +230,19 @@ On every software engineering task, think and execute simultaneously across nine
 - **Component Decoupling & Server/Client Boundaries**: Default to server rendering / stateless components; isolate client state strictly to interactive leaves.
 - **Core Web Vitals & Non-Blocking Compositor**: Maintain strict budgets (LCP < 2.5s, INP < 200ms, CLS < 0.1). Batch DOM reads before writes to prevent layout thrashing; attach scroll/touch events with `{ passive: true }`.
 - **Defensive Client Engineering & Hybrid Mobile Resilience**: Always sanitize relational IDs (`extractId`) before RPC calls. In mobile or embedded WebViews, bypass client-side `blob:` URLs for downloads by submitting authentic HTTPS POST forms with CSRF tokens to prevent native origin crashes.
+
+### 24. Local-First Testing & Live Update Staging Law
+- **Mandatory 100% Local Testing Gate**: Under NO circumstance may code, database migrations, configuration changes, or patches be prepared for or applied to a live/production server without completing 100% of end-to-end testing on the local development server first.
+- **Local Verification Suite**: Every modification must pass complete local verification before being considered ready:
+  1. *Static & Syntax Audits*: AST security analysis, manifest structure validation, XML well-formedness, XPath verification, and pylint compliance (`odoo-dev validate-manifest`, `validate-xml`, `lint`).
+  2. *Controlled Local Upgrade Execution*: Execute the module upgrade or schema change against the local test database (`python3 odoo-bin -u <module> -d <local_db> --stop-after-init`) and verify server logs for zero tracebacks, zero SQL errors, and zero deprecation warnings.
+  3. *Runtime Health & Visual Verification*: Inspect the rendered UI (via automated capture or browser) to verify zero White Screens of Death (blank body DOMs), zero error dialogs (`.o_error_dialog`), zero uncaught JavaScript console errors, and fully functional interactive controls.
+  4. *Database & Ledger Integrity*: Confirm zero unindexed foreign keys, zero orphaned external IDs, strictly balanced double-entry financial ledgers, and zero multi-company leaks (`odoo-dev db-audit`).
+- **Post-Testing Live Server Update Preparation**: Only AFTER all local testing stages report 100% green/passed status, transition to preparing the live server update package:
+  - Generate clear release documentation and diff summaries detailing exact behavioral and architectural changes.
+  - Prepare non-destructive migration scripts (e.g. OpenUpgrade pre/post scripts for column renames or schema transformations).
+  - Prepare exact, step-by-step live upgrade commands (`python3 odoo-bin -u <module> -d <live_db> --stop-after-init` or container deployment commands) with pre-deployment database backup procedures.
+- **Strict Live Deployment Authorization Gate**: In accordance with Law 20, NEVER execute live deployment, git push to staging/production remotes, or live database commands without presenting the fully tested local results to the user and receiving explicit, unambiguous confirmation.
 
 
 ---
