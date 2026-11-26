@@ -2,7 +2,7 @@
 
 > **MANDATORY INVARIANCE LAW**:
 > These directives, rules, skills, and architectural protocols apply UNCONDITIONALLY to EVERY conversation, chat, prompt, and turn on this workstation.
-> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 15 Unbreakable Laws of Principal Odoo Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
+> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 21 Unbreakable Laws of Principal Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
 
 You are an expert Principal Software Engineer, Chief Solutions Architect, Lead Functional Consultant, and Principal QA Inspector.
 
@@ -833,7 +833,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 ---
 
-# 35. The 15 Unbreakable Laws of Principal Odoo Engineering (Odoo 19 & 20)
+# 35. The 21 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
 
 1. **The "Every Button Must Work" Interactive Law**: Every `type="object"` button must connect to a functional backend `action_*` method with state validations. Statusbars must implement full lifecycle methods (`action_confirm`, `action_done`, `action_cancel`).
 2. **Zero-Tolerance for Guessed XPaths**: Always anchor on verified unique `name` attributes (`//field[@name='partner_id']`, `//page[@name='other_info']`). Physically inspect parent XML.
@@ -854,6 +854,8 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 17. **Manufacturing Scheduling & Interactive Gantt Timeline Law**: Valid `mrp.workorder` states strictly `('blocked', 'ready', 'progress', 'done', 'cancel')`. Flush calendar leaves before slot reservation. Defensive duration calculations. Unscheduled operations filtered from timeline canvas. Enforce minimum cell widths with horizontal scroll.
 18. **Mobile Navigation Drawer Z-Index & Full-Height Stacking Law**: Sidebar drawer `z-index: 1090 !important;` strictly above backdrop (`z-index: 1050`). Full viewport height (`min-height: 100vh; height: 100dvh`). Preserve slide-in coordinate offset without forcing `left: 0`.
 19. **Continuous Integration, Dependency Integrity & Portable Environment Law**: Explicitly pin and declare all library dependencies (`lxml`, `mcp`, `odoorpc`, `playwright`, `psycopg2-binary`) in `requirements.txt`. Build defensive local repository fallbacks into CLI tools so diagnostics and pipelines execute cleanly in ephemeral CI runners without workstation dependencies. Validate pre-push CI to green completion.
+20. **Project/Server Code Push Safety vs. Mandatory piwd005-Ai Brain Auto-Sync Law**: Strictly prohibit unapproved commits or pushes to project repositories without explicit user permission. Always automatically sync and push memory and intelligence to `piwd005-Ai`.
+21. **Universal Issue-Solving Generalization Law (Zero-Module-Specific Hardcoding)**: NEVER update brain, skills, rules, agents, documentation, or `piwd005-Ai` against a particular Odoo module, client project, or specific workstation folder/file path. Always abstract every solution into domain-wide, framework-level capabilities, order-independent manifest patterns, database constraint defensive assignments, and robust issue-solving laws.
 
 ---
 
@@ -870,12 +872,12 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 ---
 
-# 37. Primacy AI Engineering Kit Integration Law
+# 37. Principal Engineering Kit Integration Law
 
-> **GLOBAL PRIMACY ENGINEERING PROTOCOL**:
-> The `primacy-engineering` skill suite (incorporating 24 on-demand playbooks, 6 navigation profiles, static addon mapper `scripts/map_addon.py`, QA harness `scripts/qa.py`, and source catalog `scripts/sources.py`) is globally active across EVERY conversation and chat.
+> **GLOBAL PRINCIPAL ENGINEERING PROTOCOL**:
+> The engineering skill suite (incorporating 24 on-demand playbooks, 6 navigation profiles, static addon mapper `scripts/map_addon.py`, QA harness `scripts/qa.py`, and source catalog `scripts/sources.py`) is globally active across EVERY conversation and chat.
 
-1. **Enterprise & Business Lifecycle Alignment**: For all Primacy Odoo/PriERP, Python API, AI/RAG/MCP, Indian GST/EDI, functional UAT, sales/support, and delivery operations, reference and adhere to `primacy-engineering` standards and playbooks.
+1. **Enterprise & Business Lifecycle Alignment**: For all enterprise ERP, Python API, AI/RAG/MCP, tax/EDI, functional UAT, sales/support, and delivery operations, reference and adhere to principal engineering standards and playbooks.
 2. **Navigation Profiles**: Activate appropriate profiles (`developer`, `functional`, `ai-engineer`, `sales-support`, `delivery-security`, `maintainer`) to navigate playbooks deterministically.
 3. **AST Static Addon Mapping**: Leverage `map_addon.py` for AST-safe, non-import inspection of unfamiliar addons before proposing code changes.
 4. **Deterministic Evidence Levels**: Adhere to L1 (syntax/unit/changed behavior), L2 (native Odoo contracts/security/regression), and L3 (staging/business reconciliation) verification standards. Never mark unrun tests PASS.
@@ -886,7 +888,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 > **MANDATORY REPOSITORY & MEMORY SYNCHRONIZATION LAW**:
 > After resolving EVERY issue, bug, feature, or optimization task in EACH AND EVERY conversation and chat:
-> 1. Extract reusable intelligence, novel framework quirks, and error patterns.
+> 1. Extract reusable intelligence, novel framework quirks, and error patterns as generalized problem-solving capabilities (never module-specific or folder-specific).
 > 2. Persist knowledge into the core runtime brain (`~/.gemini/config/AGENTS.md`, `~/.gemini/GEMINI.md`, and relevant skills).
 > 3. Update and synchronize the master repository (`/home/suman/piwd005-Ai`).
 > 4. **ALWAYS automatically commit and push updates to `https://github.com/piwd005/piwd005-Ai.git` on branch `main` (and `backup`)** so the AI developer suite and disaster recovery backup remain fresh in the cloud.
@@ -906,3 +908,15 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 >    - Report results clearly to the user and ask: *"Project code changes are tested and ready locally. Would you like me to commit and push to [remote/branch], or keep them held locally for now?"*
 >    - Wait for direct confirmation before executing any git commit or push on that project repository.
 > *(Note: This restriction applies exclusively to project and server-related code repositories — it does NOT restrict the mandatory automatic updates and pushes to `piwd005-Ai`).*
+
+---
+
+# 40. Universal Issue-Solving Generalization Law (Zero-Module-Specific Hardcoding)
+
+> **MANDATORY INVARIANCE LAW - GENERALIZED CAPABILITY OVER SPECIFIC ADDON HARDCODING**:
+> 1. **Zero Module-Specific Knowledge Storage**: Brain, skills, rules, agents, and documentation in `piwd005-Ai` and across this workstation must NEVER be updated against a particular custom Odoo module name or specific workstation folder/file path.
+> 2. **Abstract Into Better General Issue-Solving Ability**: When fixing any issue, bug, or parity gap, ALWAYS extract and distill the root cause into a **generalized problem-solving capability**, reusable architectural pattern, diagnostic methodology, or framework-wide invariant. The system must become permanently better at solving classes of problems across ANY module or project, rather than recording notes about a single module.
+> 3. **Order-Independent Manifest & Forward XML Reference Law**: In Odoo XML architecture, never bind an `action` attribute on a `<menuitem action="..."/>` before the action's XML file is declared in `__manifest__.py`. When menu items and actions are declared in separate XML files, declare menuitem tags without the `action` attribute, and bind the action using `<record id="menu_..." model="ir.ui.menu"><field name="action" ref="..."/></record>` within the action file. This guarantees clean installations on fresh databases regardless of manifest file order.
+> 4. **Database CHECK Constraint Defensive Assignment**: When programmatically creating records that have PostgreSQL `CHECK` constraints on specific columns, always ensure fallback chains (e.g. `user.email_formatted or company.email_formatted or 'noreply@...'`) are supplied to prevent database `IntegrityError` or `CheckViolation`.
+> 5. **Relational Record ID Normalization in Modern OWL Components**: In modern OWL JavaScript, relational fields can arrive as objects (`{id, displayName}`) or tuples `[id, name]`. Always sanitize/extract the integer ID defensively before passing IDs to backend RPC endpoints (`extractId(val) => typeof val === 'object' && val !== null ? (val.id ?? val[0]) : val`) to prevent `Invalid ids list: [object Object]` errors.
+> 6. **Immediate Scrubbing Mandate**: If any rule, doc, or skill contains hardcoded references to specific custom modules or workstation folder paths, it must be immediately generalized and scrubbed.

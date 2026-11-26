@@ -6,7 +6,11 @@
   `['base']` injected, and upgrading `base` upgrades every installed module
   whether or not it lists it.
 - `data` files are always installed/updated; `demo` files load only in demo
-  mode. Keep load order correct (a record's dependencies first).
+  mode. Keep load order correct (a record's dependencies first). Never reference an
+  action on a `<menuitem action="..."/>` before that action's XML file is declared in
+  `data`. Prefer the decoupled pattern: define menu hierarchy in menu XML files without
+  `action=`, and bind actions to menus via `<record id="menu_..." model="ir.ui.menu"><field name="action" ref="..."/></record>`
+  inside the action view file to guarantee clean installations on fresh databases regardless of manifest order.
 - `license` defaults to `LGPL-3`; set it deliberately and correctly.
 - `auto_install` is only for "link" modules (installed automatically when their
   dependencies are); it can also be a *subset* of `depends` that triggers the
