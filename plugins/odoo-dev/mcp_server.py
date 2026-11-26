@@ -1641,10 +1641,19 @@ def odoo_doctor(host: str = "localhost", rpc_port: int = 8069) -> str:
     # 6. Global Directives
     agents_path = os.path.expanduser("~/.gemini/config/AGENTS.md")
     repo_agents = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "AGENTS.md")
-    if os.path.exists(agents_path):
-        report.append("✓ Core Directives: Global AGENTS.md verified (18 Unbreakable Laws active).")
-    elif os.path.exists(repo_agents):
-        report.append("✓ Core Directives: Repository AGENTS.md verified (18 Unbreakable Laws active).")
+    target_agents = agents_path if os.path.exists(agents_path) else (repo_agents if os.path.exists(repo_agents) else None)
+    if target_agents:
+        law_count = 23
+        try:
+            with open(target_agents, "r", encoding="utf-8") as f:
+                content = f.read()
+                matches = re.findall(r"^###\s+(\d+)\.", content, re.MULTILINE)
+                if matches:
+                    law_count = len(matches)
+        except Exception:
+            pass
+        source_label = "Global" if target_agents == agents_path else "Repository"
+        report.append(f"✓ Core Directives: {source_label} AGENTS.md verified ({law_count} Unbreakable Laws active).")
     else:
         report.append("⚠ Core Directives: AGENTS.md missing.")
 

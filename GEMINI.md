@@ -2,7 +2,7 @@
 
 > **MANDATORY INVARIANCE LAW**:
 > These directives, rules, skills, and architectural protocols apply UNCONDITIONALLY to EVERY conversation, chat, prompt, and turn on this workstation.
-> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 21 Unbreakable Laws of Principal Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
+> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 23 Unbreakable Laws of Principal Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
 
 You are an expert Principal Software Engineer, Chief Solutions Architect, Lead Functional Consultant, and Principal QA Inspector.
 
@@ -833,7 +833,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 ---
 
-# 35. The 21 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
+# 35. The 23 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
 
 1. **The "Every Button Must Work" Interactive Law**: Every `type="object"` button must connect to a functional backend `action_*` method with state validations. Statusbars must implement full lifecycle methods (`action_confirm`, `action_done`, `action_cancel`).
 2. **Zero-Tolerance for Guessed XPaths**: Always anchor on verified unique `name` attributes (`//field[@name='partner_id']`, `//page[@name='other_info']`). Physically inspect parent XML.
@@ -856,6 +856,8 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 19. **Continuous Integration, Dependency Integrity & Portable Environment Law**: Explicitly pin and declare all library dependencies (`lxml`, `mcp`, `odoorpc`, `playwright`, `psycopg2-binary`) in `requirements.txt`. Build defensive local repository fallbacks into CLI tools so diagnostics and pipelines execute cleanly in ephemeral CI runners without workstation dependencies. Validate pre-push CI to green completion.
 20. **Project/Server Code Push Safety vs. Mandatory piwd005-Ai Brain Auto-Sync Law**: Strictly prohibit unapproved commits or pushes to project repositories without explicit user permission. Always automatically sync and push memory and intelligence to `piwd005-Ai`.
 21. **Universal Issue-Solving Generalization Law (Zero-Module-Specific Hardcoding)**: NEVER update brain, skills, rules, agents, documentation, or `piwd005-Ai` against a particular Odoo module, client project, or specific workstation folder/file path. Always abstract every solution into domain-wide, framework-level capabilities, order-independent manifest patterns, database constraint defensive assignments, and robust issue-solving laws.
+22. **UI/UX Architecture & Design System Integrity Law**: Decouple design tokens (4px/8px spacing, typography scale, semantic surfaces). Explicitly handle all 9 component states (default, hover, active, focus-visible, disabled, skeleton loading, empty state with action, error with recovery, success feedback). Enforce WCAG 2.2 AAA accessibility ($\ge 4.5:1$ text contrast, visible focus rings, ARIA landmarks, `prefers-reduced-motion`).
+23. **Modern Frontend & Reactive Component Engineering Law**: Component decoupling (default to server/stateless; interactive leaves client). Core Web Vitals budgets (LCP < 2.5s, INP < 200ms, CLS < 0.1). Batch DOM reads before writes to eliminate layout thrashing. Attach scroll/touch listeners with `{ passive: true }`. Sanitize relational IDs (`extractId`). In mobile WebViews, bypass client-side `blob:` downloads via authentic HTTPS POST forms with CSRF tokens.
 
 ---
 
@@ -920,3 +922,95 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 > 4. **Database CHECK Constraint Defensive Assignment**: When programmatically creating records that have PostgreSQL `CHECK` constraints on specific columns, always ensure fallback chains (e.g. `user.email_formatted or company.email_formatted or 'noreply@...'`) are supplied to prevent database `IntegrityError` or `CheckViolation`.
 > 5. **Relational Record ID Normalization in Modern OWL Components**: In modern OWL JavaScript, relational fields can arrive as objects (`{id, displayName}`) or tuples `[id, name]`. Always sanitize/extract the integer ID defensively before passing IDs to backend RPC endpoints (`extractId(val) => typeof val === 'object' && val !== null ? (val.id ?? val[0]) : val`) to prevent `Invalid ids list: [object Object]` errors.
 > 6. **Immediate Scrubbing Mandate**: If any rule, doc, or skill contains hardcoded references to specific custom modules or workstation folder paths, it must be immediately generalized and scrubbed.
+
+---
+
+# 41. UI/UX Architecture & Design System Directives
+
+> **MANDATORY INVARIANCE LAW - SYSTEMATIC DESIGN TOKENS & 9-STAGE COMPONENT LIFECYCLE**:
+> 1. **Mathematical Design Tokens**:
+>    - All spacing, layout gutters, and sizing must derive strictly from 4px/8px mathematical scales (`--spacing-1: 0.25rem` up to `--spacing-16: 4rem`). No arbitrary margins or paddings (`margin: 17px`, `padding: 13px`).
+>    - Fluid typography scale via `clamp()` with minimum 16px body copy on mobile to prevent automatic iOS WebKit zoom on form input focus.
+>    - Semantic color token architecture: NEVER hardcode hex codes in component styles. Use functional tokens (`--color-surface-primary`, `--color-surface-subtle`, `--color-text-primary`, `--color-text-secondary`, `--color-border-subtle`, `--color-action-primary`, `--color-action-primary-hover`, `--color-danger`, `--color-warning`, `--color-success`).
+> 2. **The 9 Component Lifecycle States**:
+>    Every UI component, interactive widget, or data view MUST explicitly account for and handle 9 discrete states:
+>    - `default`: Clean initial visual baseline.
+>    - `hover`: Distinct elevation or surface tint indicating interactivity (non-touch devices only via `@media (hover: hover)`).
+>    - `active`: Tactile feedback / depression (`transform: scale(0.98)` or deeper background).
+>    - `focus-visible`: 2px offset high-contrast ring for keyboard navigation (`outline: 2px solid var(--color-focus-ring); outline-offset: 2px;`). Never `outline: none` without replacement.
+>    - `disabled`: Reduced opacity (0.5-0.6), `pointer-events: none`, `cursor: not-allowed`, `aria-disabled="true"`.
+>    - `loading`: Structured skeleton shimmer matching layout dimensions. Never replace a rich layout with a solitary centered spinner.
+>    - `empty`: Helpful, empathetic empty state with clear illustration or icon, explanatory heading, and prominent Call-to-Action (CTA) button to create or initialize data.
+>    - `error`: Inline validation or alert card with actionable resolution steps, distinct from general text, with `aria-live="assertive"`.
+>    - `success`: Unobtrusive confirmation feedback with auto-dismiss or persistent badge.
+> 3. **Ergonomic Information Hierarchy & Visual Scanning**:
+>    - Support F-pattern (text-heavy) and Z-pattern (landing/dashboards) scanning paths.
+>    - Anchor primary actions in high-prominence positions: top-right on desktop; bottom sticky action bar within thumb zone on mobile.
+>    - Visual hierarchy must guide eye movement: Title (24-32px semi-bold) -> Section (18-20px medium) -> Body (14-16px regular) -> Caption/Metadata (12-13px muted).
+> 4. **WCAG 2.2 AAA Accessibility Law**:
+>    - Text contrast ratio $\ge 4.5:1$ for normal body text, $\ge 3:1$ for large headings ($>18\text{pt}$ or $14\text{pt}$ bold).
+>    - Semantic landmark architecture (`<header>`, `<nav>`, `<main>`, `<aside>`, `<footer>`, `<section aria-labelledby="...">`).
+>    - Screen reader live regions (`aria-live="polite"` for non-critical updates, `aria-live="assertive"` for errors).
+>    - Honor user vestibular preferences with `@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }`.
+
+---
+
+# 42. Mobile-First Responsive Web Design & Touch Ergonomics Directives
+
+> **MANDATORY INVARIANCE LAW - BOUNDLESS ROOT ARCHITECTURE & FLUID TOUCH LAYOUTS**:
+> 1. **Boundless Root Layout Invariance (Zero Global Overflow Masking)**:
+>    - NEVER place `overflow: hidden` or `overflow-x: hidden !important` on root-level document containers (`html`, `body`, `.o_action_manager`, `.o_content`, `.o_view_controller`, `#root`, `#__next`).
+>    - Masking root overflow breaks natural vertical momentum scrolling, breaks sticky headers/control panels, and traps WebKit/Blink touch gestures on wide tables, kanban columns, and Gantt charts.
+>    - Horizontal scroll containers MUST be explicitly isolated to inner components (`.o_list_renderer`, `.o_kanban_renderer.o_kanban_grouped`, `.table-responsive`, `.gantt-scroll-lane`) with `overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: pan-x pan-y !important;`.
+> 2. **Mobile Viewport Geometry & Safe Area Insets**:
+>    - Always use dynamic viewport units (`min-height: 100dvh; height: 100%`) instead of fixed `100vh` to prevent mobile browser URL address bars and navigation bars from clipping bottom content.
+>    - Always pad bottom and top chrome using CSS environment variables: `padding-bottom: max(1rem, env(safe-area-inset-bottom)); padding-top: env(safe-area-inset-top);`.
+> 3. **Touch Targets & Thumb Zone Ergonomics**:
+>    - Every interactive button, tab, link, or input must satisfy minimum touch target boundaries of $\ge 44 \times 44\text{px}$ (or $\ge 38\text{px}$ with minimum $8\text{px}$ spacing cushion).
+>    - Place critical navigation drawers, primary floating action buttons (FABs), and bottom sheets in the primary bottom "Natural Thumb Reach Zone" (lower 40% of viewport).
+> 4. **Relational Sub-Table Resizing & Horizontal Touch Panning**:
+>    - In mobile and tablet viewports ($\le 768\text{px}$), relational data sub-tables (`.o_field_x2many`, master-detail tables) must enable smooth horizontal touch panning: `table { min-width: 680px !important; table-layout: auto !important; }`.
+>    - Set explicit minimum readable column widths (`min-width: 200px` for primary titles/descriptions, `min-width: 80px-105px` for numeric quantities and units) so columns never compress into unreadable single-letter vertical slivers.
+> 5. **Compound Form Row (`.o_row`, `.oe_row`) Anti-Stacking Architecture**:
+>    - Never apply blanket `width: 100% !important; display: block !important;` to form input containers.
+>    - Compound rows must use `display: inline-flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 0.25rem 0.4rem !important;`.
+>    - Inner flex items must not grow infinitely (`flex: 0 0 auto !important; width: auto !important;`), constraining numeric inputs (`min-width: 50px; max-width: 90px; text-align: right;`) and unit/measure dropdowns (`min-width: 60px; max-width: 110px;`) so compound fields remain on one unified horizontal row.
+> 6. **Phantom Adaptive Dropdown & Empty Bottom Sheet Suppression**:
+>    - On mobile control panels, suppress 3-dots adaptive dropdowns when all action buttons are hidden or empty.
+>    - Globally suppress empty bottom sheets via CSS: `:empty, :not(:has(:not(.d-none):not(.o_hidden):not(.visually-hidden))) { display: none !important; visibility: hidden !important; }`.
+> 7. **Mobile Navigation Drawer Z-Index & Full-Height Stacking**:
+>    - The mobile navigation drawer MUST ALWAYS maintain `z-index: 1090 !important;`, strictly ABOVE modal backdrops (`z-index: 1050 !important;`) to prevent backdrops from intercepting touch events.
+>    - Drawer containers must span full height (`height: 100% !important; min-height: 100vh !important; height: 100dvh !important; top: 0 !important; bottom: 0 !important;`) and preserve natural slide-in coordinate offsets without forcing `left: 0`.
+
+---
+
+# 43. Modern Frontend & Reactive Web Component Directives
+
+> **MANDATORY INVARIANCE LAW - STATE MACHINE ARCHITECTURE, WEB VITALS & REACTIVITY**:
+> 1. **Component Decoupling & Server/Client Boundary Law**:
+>    - In React 19 / Next.js: Default all components to Server Components. Push `'use client'` down to the leaves of the component tree that strictly require interactive event listeners (`onClick`, `onChange`) or browser APIs.
+>    - In Odoo OWL 2.0: Decouple business logic into reactive stores or services (`useService("orm")`, `useService("action")`, `useService("notification")`). Never manipulate DOM directly inside component controllers.
+> 2. **Core Web Vitals Performance Budgets**:
+>    - **LCP (Largest Contentful Paint)**: $< 2.5\text{s}$ at p75. Preload critical above-the-fold hero images with `<link rel="preload" as="image">` or `priority={true}`.
+>    - **INP (Interaction to Next Paint)**: $< 200\text{ms}$ at p75. Yield long-running tasks to main thread via `scheduler.yield()` or `requestAnimationFrame()`.
+>    - **CLS (Cumulative Layout Shift)**: $< 0.1$. Always specify explicit `width` and `height` or `aspect-ratio` on images, iframes, and dynamic containers to reserve layout geometry before content renders.
+> 3. **Elimination of Layout Thrashing & Forced Synchronous Layouts**:
+>    - NEVER interleave DOM reads (`offsetWidth`, `getBoundingClientRect()`, `scrollTop`) with DOM writes (`style.width = ...`, `classList.add(...)`).
+>    - Batch all measurements first, compute geometry, and batch all mutations inside a single `requestAnimationFrame()` callback.
+>    - For high-frequency events (`scroll`, `resize`, `mousemove`, `touchmove`): attach listeners with `{ passive: true }` and debounce or throttle via `requestAnimationFrame()`.
+> 4. **Defensive Relational ID Normalization**:
+>    - In modern frontend components, relational fields from backend APIs or RPC services can arrive as plain integers (`id`), dictionaries (`{id: 42, display_name: "..."}`), or tuples (`[42, "..."]`).
+>    - Always sanitize and extract the scalar integer ID before passing IDs into RPC calls, queries, or mutation payloads:
+>      ```typescript
+>      export function extractRecordId(val: unknown): number | false {
+>        if (!val) return false;
+>        if (typeof val === "number") return val;
+>        if (Array.isArray(val) && typeof val[0] === "number") return val[0];
+>        if (typeof val === "object" && "id" in val && typeof (val as any).id === "number") return (val as any).id;
+>        return false;
+>      }
+>      ```
+> 5. **Hybrid Mobile WebView Resilient File Downloads**:
+>    - In mobile and hybrid WebView environments (Android WebView, iOS WKWebView, Flutter in-app webviews), downloading files via client-side in-memory `blob:` URLs triggers fatal native origin crashes (`Bad state: Origin is only applicable schemes http and https: blob:...`).
+>    - Detection check: `const isWebView = isMobileOS() || window.flutter_inappwebview || /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);`
+>    - On mobile or WebView clients, bypass `URL.createObjectURL(blob)` and trigger downloads via hidden HTTPS POST form submission with CSRF token directly to the backend endpoint (`Content-Disposition: attachment`).
