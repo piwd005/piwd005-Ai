@@ -21,3 +21,7 @@ outside of Odoo. A patch makes the code hard to reason about, since reading a sn
 no longer tells you what will run, and harder to maintain, since the patch and the code
 it targets drift apart. Usually there is a better solution: design a proper extension
 point.
+
+# Mobile WebView Safe File Downloads
+
+When serving file or report downloads to mobile or embedded WebView wrappers (Android WebView, iOS WKWebView, Flutter in-app webviews), avoid generating client-side in-memory `blob:` URLs (`URL.createObjectURL(blob)`). Native WebView URI origin parsers reject `blob:` URLs (`Bad state: Origin is only applicable schemes http and https: blob:...`). On mobile or hybrid WebView user agents (`isMobileOS` or native bridge present), trigger downloads using standard HTTP POST form submissions (`<form method="POST" action="...">`) with CSRF tokens directly against the download endpoint to receive an authentic HTTPS response with `Content-Disposition: attachment; filename=...`.
