@@ -148,3 +148,47 @@ Eliminate jerky breakpoint jumps by calculating continuous fluid dimensions base
        visibility: hidden !important;
      }
      ```
+4. **Operational Sub-Table Responsive Cards Architecture**:
+   - For mission-critical operational line items (e.g. BOM components, work order routing, inventory move lines), simple horizontal table panning degrades user comprehension. Transform sub-tables into responsive cards on mobile viewports ($\le 768\text{px}$):
+     ```scss
+     .o_field_x2many[name="operational_lines"] {
+       .o_list_renderer {
+         border: none !important;
+         background: transparent !important;
+         overflow-x: visible !important;
+
+         table.o_list_table {
+           display: block !important;
+           width: 100% !important;
+           min-width: 0 !important;
+
+           th, td { min-width: 0 !important; max-width: none !important; }
+           thead { display: none !important; }
+
+           tbody {
+             display: flex !important;
+             flex-direction: column !important;
+             gap: 0.75rem !important;
+
+             tr.o_data_row {
+               display: grid !important;
+               grid-template-columns: repeat(3, 1fr) !important;
+               grid-template-areas:
+                 "title title trash"
+                 "status . details"
+                 "metric1 metric2 metric3" !important;
+               row-gap: 0.6rem !important;
+               column-gap: 0.5rem !important;
+               padding: 0.85rem !important;
+               background: #ffffff !important;
+               border: 1px solid #e2e8f0 !important;
+               border-radius: 12px !important;
+               box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+             }
+           }
+         }
+       }
+     }
+     ```
+   - Reset cell dimensions (`min-width: 0 !important; max-width: none !important;`) across all card children to eliminate unintended horizontal scroll overflows caused by conflicting table column definitions.
+
