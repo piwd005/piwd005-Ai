@@ -854,7 +854,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 17. **Manufacturing Scheduling & Interactive Gantt Timeline Law**: Valid `mrp.workorder` states strictly `('blocked', 'ready', 'progress', 'done', 'cancel')`. Flush calendar leaves before slot reservation. Defensive duration calculations. Unscheduled operations filtered from timeline canvas. Enforce minimum cell widths with horizontal scroll.
 18. **Mobile Navigation Drawer Z-Index & Full-Height Stacking Law**: Sidebar drawer `z-index: 1090 !important;` strictly above backdrop (`z-index: 1050`). Full viewport height (`min-height: 100vh; height: 100dvh`). Preserve slide-in coordinate offset without forcing `left: 0`.
 19. **Continuous Integration, Dependency Integrity & Portable Environment Law**: Explicitly pin and declare all library dependencies (`lxml`, `mcp`, `odoorpc`, `playwright`, `psycopg2-binary`) in `requirements.txt`. Build defensive local repository fallbacks into CLI tools so diagnostics and pipelines execute cleanly in ephemeral CI runners without workstation dependencies. Validate pre-push CI to green completion.
-20. **Project/Server Code Push Safety vs. Mandatory piwd005-Ai Brain Auto-Sync Law**: Strictly prohibit unapproved commits or pushes to project repositories without explicit user permission. Always automatically sync and push memory and intelligence to `piwd005-Ai`.
+20. **Project/Server Code Push Safety vs. Mandatory piwd005-Ai Brain Auto-Sync Law**: Strictly prohibit unapproved commits or pushes to project repositories without explicit user permission. The AI is hard-blocked from running `git commit`, `git push`, `git merge`, or `git rebase` on any repository other than `piwd005-Ai`. After local testing, stop at `git status`/`git diff --stat` and leave changes unstaged for the user. Only `piwd005-Ai` auto-syncs.
 21. **Universal Issue-Solving Generalization Law (Zero-Module-Specific Hardcoding)**: NEVER update brain, skills, rules, agents, documentation, or `piwd005-Ai` against a particular Odoo module, client project, or specific workstation folder/file path. Always abstract every solution into domain-wide, framework-level capabilities, order-independent manifest patterns, database constraint defensive assignments, and robust issue-solving laws.
 22. **UI/UX Architecture & Design System Integrity Law**: Decouple design tokens (4px/8px spacing, typography scale, semantic surfaces). Explicitly handle all 9 component states (default, hover, active, focus-visible, disabled, skeleton loading, empty state with action, error with recovery, success feedback). Enforce WCAG 2.2 AAA accessibility ($\ge 4.5:1$ text contrast, visible focus rings, ARIA landmarks, `prefers-reduced-motion`).
 23. **Modern Frontend & Reactive Component Engineering Law**: Component decoupling (default to server/stateless; interactive leaves client). Core Web Vitals budgets (LCP < 2.5s, INP < 200ms, CLS < 0.1). Batch DOM reads before writes to eliminate layout thrashing. Attach scroll/touch listeners with `{ passive: true }`. Sanitize relational IDs (`extractId`). In mobile WebViews, bypass client-side `blob:` downloads via authentic HTTPS POST forms with CSRF tokens.
@@ -902,14 +902,15 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 # 39. Strict Prohibition on Unapproved Git Commits & Pushes to Project / Server Repositories
 
-> **MANDATORY INVARIANCE LAW - PROJECT & SERVER CODE PROTECTION**:
-> 1. **Zero Unapproved Commits / Pushes on Project Repositories**: NEVER execute `git commit` or `git push` on any project, client, or server-related code repository (e.g. custom Odoo addons, Laravel/CodeIgniter projects, Android projects, staging/production Git remotes) WITHOUT EXPLICIT PERMISSION from the user in the active chat.
-> 2. **Situation-Based Push Holding**: The user frequently stages, tests, reviews, or holds Git pushes for client/server repositories due to release schedules, staging freezes, client meetings, or deliberate deployment timing. Never presume solving a code issue means permission to push server-related code.
-> 3. **Protocol for Project Code**:
+> **MANDATORY INVARIANCE LAW - ABSOLUTE ZERO-COMMIT / ZERO-PUSH BLOCK ON PROTECTED REPOSITORIES**:
+> 1. **Protected Repository Classification**: Every repository on this workstation that is NOT `piwd005-Ai` (including `/home/suman/prierp-acc`, `/home/suman/Documents/antigravity/elegant-hertz`, and all client, ERP, or server-related codebases) is a **PROTECTED PRODUCTION REPOSITORY**.
+> 2. **Absolute Hard Ban on Automated Commits & Pushes**: The AI is **STRICTLY PROHIBITED** from executing `git commit`, `git push`, `git merge`, `git cherry-pick`, or `git rebase` on any protected repository unless the user's prompt explicitly contains a direct instruction such as *"commit these changes"* or *"push to [branch]"*.
+> 3. **The Developer Inspection Gate**: The user must ALWAYS retain full autonomy to inspect diffs file-by-file and write their own commit messages with proper descriptions. Committing automatically robs the developer of this critical quality gate and causes git mismatches with live servers.
+> 4. **Strict Protocol for Project Code**:
 >    - Perform all local file edits, tests, and verifications.
->    - Review changes locally (`git status`, `git diff`).
->    - Report results clearly to the user and ask: *"Project code changes are tested and ready locally. Would you like me to commit and push to [remote/branch], or keep them held locally for now?"*
->    - Wait for direct confirmation before executing any git commit or push on that project repository.
+>    - Display `git status` and `git diff --stat` for the user's review.
+>    - Update brain/memory files and auto-sync `piwd005-Ai` in the background.
+>    - **STOP IMMEDIATELY**. Do NOT stage, do NOT commit, and do NOT push. Leave files cleanly in the working directory for the user.
 > *(Note: This restriction applies exclusively to project and server-related code repositories — it does NOT restrict the mandatory automatic updates and pushes to `piwd005-Ai`).*
 
 ---

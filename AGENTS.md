@@ -204,14 +204,16 @@ On every software engineering task, think and execute simultaneously across nine
 - **Pre-Push CI Validation**: Every push that touches workflows or CLI execution paths must be monitored to green pipeline completion before declaring mission complete.
 
 ### 20. Project/Server Code Push Safety vs. Mandatory piwd005-Ai Brain Auto-Sync Law
-- **STRICT PROHIBITION ON UNAPPROVED COMMITS & PUSHES TO PROJECT/SERVER REPOSITORIES**: NEVER execute `git commit` or `git push` to any project, client, or server-related code repository (e.g., Odoo modules, client repos, staging/production Git remotes) WITHOUT EXPLICIT PERMISSION AND DIRECT CONFIRMATION FROM THE USER. The user frequently stages, tests, reviews, or holds Git pushes due to release schedules, client staging environments, code freeze periods, or deliberate operational situations.
-- **MANDATORY AUTO-UPDATE & PUSH FOR piwd005-Ai & WORKSTATION BRAIN**: In sharp contrast to project/server code repositories, the AI's own knowledge repository (`piwd005-Ai`) and the workstation brain MUST ALWAYS be updated, committed, and pushed automatically after resolving issues in each and every conversation and chat, without waiting or asking. This ensures intelligence, skills, and fixes are continuously preserved in the cloud and accessible anywhere.
-- **Pre-Commit Verification for Project Repositories**:
-  1. Complete all coding, refactoring, linting, and local testing.
-  2. Prepare and review changes locally (`git status`, `git diff`).
-  3. Update brain/memory files and sync `piwd005-Ai` automatically.
-  4. For the project/server code, explicitly ask the user: *"Project changes are tested and verified locally. Would you like me to commit and push to [branch/remote], or keep them held locally for now?"*
-  5. Wait for direct, unambiguous confirmation before running any `git commit` or `git push` commands on project repositories.
+- **ABSOLUTE HARD BAN ON UNAPPROVED COMMITS & PUSHES TO PROJECT/SERVER REPOSITORIES**:
+  - Any repository on this workstation that is NOT `piwd005-Ai` (including `/home/suman/prierp-acc`, `/home/suman/Documents/antigravity/elegant-hertz`, and all client/production repositories) is classified as a **PROTECTED PRODUCTION REPOSITORY**.
+  - On protected repositories, the AI is **STRICTLY PROHIBITED** from executing `git commit`, `git push`, `git merge`, or `git rebase` under ANY circumstance unless the user explicitly types a direct command such as *"commit these changes"* or *"push to [branch]"*.
+  - **Why this is critical**: The user frequently stages, tests, reviews, and manually inspects code changes file-by-file before writing deliberate, production-ready commit messages. Committing automatically robs the developer of their inspection gate and creates git mismatches with live servers.
+  - **MANDATORY AUTO-UPDATE & PUSH IS EXCLUSIVELY FOR piwd005-Ai**: The mandatory auto-sync rule applies SOLELY AND EXCLUSIVELY to `piwd005-Ai` (the AI knowledge repository). Conflating `piwd005-Ai` auto-sync with project/server repositories is a fatal protocol violation.
+  - **The Strict 4-Step Boundary for Project Code**:
+    1. Complete all coding, refactoring, and local testing.
+    2. Run `git status` and `git diff --stat` to display modified files clearly to the user.
+    3. Update memory/brain files and auto-sync `piwd005-Ai` in the background.
+    4. **STOP IMMEDIATELY**. Leave all project files unstaged/uncommitted in the working tree for the user to inspect, review, and commit in their own time. NEVER run `git commit` or `git push` on the project repository.
 
 ### 21. Universal Issue-Solving Generalization Law (Zero-Module-Specific Hardcoding)
 - **Strict Prohibition on Module-Specific, App-Specific, or File-Specific Brain Updates**: NEVER update brain, skills, rules, agents, documentation, or the `piwd005-Ai` master repository with files, reports, or rules tied to a particular Odoo module name (e.g. custom or client addons), specific project folders, app wrappers, or local file paths. Creating documentation or markdown files in `docs/` or `skills/` targeting specific custom modules or apps is strictly forbidden.
