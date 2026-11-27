@@ -121,6 +121,11 @@ def main():
     p_dg.add_argument("path", help="Path to Odoo addon module directory")
     p_dg.add_argument("--output", default=None, help="Output markdown path (default: <path>/README.md)")
 
+    # 17. test-gen
+    p_tg = subparsers.add_parser("test-gen", help="Auto-generate production-grade TransactionCase unit tests for a model")
+    p_tg.add_argument("path", help="Path to Python model file")
+    p_tg.add_argument("--output", default=None, help="Output test file path (default: tests/test_<model>.py)")
+
     args = parser.parse_args()
 
     if args.command == "lint":
@@ -159,6 +164,8 @@ def main():
         print(mcp_server.odoo_doctor(args.host, args.rpc_port))
     elif args.command == "docgen":
         print(mcp_server.odoo_docgen(os.path.abspath(args.path), os.path.abspath(args.output) if args.output else None))
+    elif args.command == "test-gen":
+        print(mcp_server.odoo_generate_tests(os.path.abspath(args.path), os.path.abspath(args.output) if args.output else None))
     elif args.command == "blueprint":
         model_raw = args.model
         clean_model = model_raw.replace('.', '_')

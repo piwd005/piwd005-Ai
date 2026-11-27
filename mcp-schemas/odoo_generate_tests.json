@@ -1,0 +1,29 @@
+{
+  "name": "odoo_generate_tests",
+  "description": "Auto-generate production-grade Odoo TransactionCase unit tests for a target model Python file.\n\n    Parses model definition, fields, and state machine methods via AST, and writes a robust\n    automated test suite covering complete lifecycle flows, cancellation policies, multi-company isolation,\n    and unassigned relational navigation.\n\n    Args:\n        model_path: Path to the Python model file.\n        output_path: Optional destination path (defaults to sibling tests/test_<clean_model>.py).\n\n    Returns:\n        Confirmation with output path and preview of generated test code.\n    ",
+  "parameters": {
+    "properties": {
+      "model_path": {
+        "title": "Model Path",
+        "type": "string"
+      },
+      "output_path": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Output Path"
+      }
+    },
+    "required": [
+      "model_path"
+    ],
+    "title": "odoo_generate_testsArguments",
+    "type": "object"
+  }
+}

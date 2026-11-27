@@ -110,6 +110,46 @@ $data = unserialize($userInput);
         self.assertIn("class Invoice_service", ci_service)
         self.assertIn("$this->CI->db->trans_start()", ci_service)
 
+    def test_odoo_generate_tests_produces_transaction_case(self):
+        """Test that odoo_generate_tests() parses model and outputs production TransactionCase test."""
+        sys.path.insert(0, os.path.join(repo_root, "plugins", "odoo-dev"))
+        import mcp_server
+
+        with tempfile.NamedTemporaryFile("w", suffix=".py", delete=False) as f:
+            f.write("""
+from odoo import models, fields
+
+class TestOrder(models.Model):
+    _name = 'test.order'
+    _description = 'Test Order Model'
+
+    name = fields.Char(string='Name', required=True)
+    state = fields.Selection([('draft', 'Draft'), ('confirmed', 'Confirmed'), ('done', 'Done')], default='draft')
+
+    def action_confirm(self):
+        self.state = 'confirmed'
+
+    def action_done(self):
+        self.state = 'done'
+""")
+            temp_model = f.name
+
+        out_test = temp_model.replace(".py", "_test.py")
+        try:
+            result = mcp_server.odoo_generate_tests(temp_model, out_test)
+            self.assertIn("✓ Production-grade test suite generated successfully", result)
+            self.assertTrue(os.path.exists(out_test))
+            with open(out_test, "r") as tf:
+                content = tf.read()
+            self.assertIn("class TestTestOrder(TransactionCase):", content)
+            self.assertIn("def test_01_lifecycle_flow(self):", content)
+            self.assertIn("action_confirm()", content)
+        finally:
+            if os.path.exists(temp_model):
+                os.remove(temp_model)
+            if os.path.exists(out_test):
+                os.remove(out_test)
+
 
 if __name__ == "__main__":
     unittest.main()

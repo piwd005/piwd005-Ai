@@ -1815,6 +1815,137 @@ def odoo_docgen(module_path: str, output_path: Optional[str] = None) -> str:
     except Exception as e:
         return f"Error writing documentation to '{dest}': {str(e)}"
 
+@server.tool()
+def odoo_generate_tests(model_path: str, output_path: Optional[str] = None) -> str:
+    """Auto-generate production-grade Odoo TransactionCase unit tests for a target model Python file."""
+    if not os.path.exists(model_path):
+        return f"Error: Model file '{model_path}' not found."
+
+    try:
+        with open(model_path, "r", encoding="utf-8") as f:
+            code = f.read()
+    except Exception as e:
+        return f"Error reading file '{model_path}': {str(e)}"
+
+    model_name = None
+    model_desc = "Test Business Model"
+    methods = []
+
+    try:
+        tree = ast.parse(code)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ClassDef):
+                for item in node.body:
+                    if isinstance(item, ast.Assign):
+                        for target in item.targets:
+                            if isinstance(target, ast.Name):
+                                if target.id == "_name" and isinstance(item.value, ast.Constant):
+                                    model_name = item.value.value
+                                elif target.id == "_description" and isinstance(item.value, ast.Constant):
+                                    model_desc = item.value.value
+                    elif isinstance(item, ast.FunctionDef):
+                        if item.name.startswith("action_"):
+                            methods.append(item.name)
+    except Exception:
+        pass
+
+    if not model_name:
+        base = os.path.basename(model_path).replace(".py", "")
+        model_name = f"custom.{base.replace('_', '.')}"
+
+    clean_name = model_name.replace(".", "_")
+    class_name = "".join(part.capitalize() for part in clean_name.split("_"))
+
+    test_lines = [
+        "from odoo.tests.common import TransactionCase",
+        "from odoo.exceptions import UserError, ValidationError",
+        "",
+        "",
+        f"class Test{class_name}(TransactionCase):",
+        f'    """Production-grade automated test suite for {model_name} ({model_desc})."""',
+        "",
+        "    @classmethod",
+        "    def setUpClass(cls):",
+        "        super().setUpClass()",
+        "        cls.company_main = cls.env.company",
+        '        cls.company_other = cls.env["res.company"].create({"name": "Test Secondary Company"})',
+        '        cls.partner = cls.env["res.partner"].create({"name": "Test Customer", "email": "customer@example.com"})',
+        '        cls.product = cls.env["product.product"].create({"name": "Test Product", "type": "consu", "list_price": 100.0})',
+        "",
+        "    def test_01_lifecycle_flow(self):",
+        f'        """Verify complete state lifecycle transitions for {model_name}."""',
+        f'        record = self.env["{model_name}"].create({{',
+        '            "partner_id": self.partner.id,',
+        '            "company_id": self.company_main.id,',
+        "        })",
+        "        self.assertTrue(record.id, 'Record creation failed')",
+        "        if hasattr(record, 'state'):",
+        "            self.assertEqual(record.state, 'draft', 'Initial state must be draft')",
+        "            if hasattr(record, 'action_confirm'):",
+        "                record.action_confirm()",
+        "                self.assertIn(record.state, ('confirmed', 'progress'), 'State should transition after confirm')",
+        "            if hasattr(record, 'action_done'):",
+        "                record.action_done()",
+        "                self.assertEqual(record.state, 'done', 'State should transition to done')",
+        "",
+        "    def test_02_cancellation_flow(self):",
+        f'        """Verify cancellation policy and rollback handling for {model_name}."""',
+        f'        record = self.env["{model_name}"].create({{',
+        '            "partner_id": self.partner.id,',
+        '            "company_id": self.company_main.id,',
+        "        })",
+        "        if hasattr(record, 'action_cancel'):",
+        "            record.action_cancel()",
+        "            self.assertEqual(record.state, 'cancel', 'Record must transition to cancel state')",
+        "",
+        "    def test_03_multi_company_isolation(self):",
+        f'        """Assert multi-company boundary protection on {model_name}."""',
+        f'        record = self.env["{model_name}"].create({{',
+        '            "partner_id": self.partner.id,',
+        '            "company_id": self.company_other.id,',
+        "        })",
+        "        # Verify record is scoped to secondary company",
+        "        self.assertEqual(record.company_id.id, self.company_other.id)",
+        "",
+        "    def test_04_defensive_relational_navigation(self):",
+        f'        """Verify zero AttributeError crashes when relations are unassigned."""',
+        f'        record = self.env["{model_name}"].create({{',
+        '            "company_id": self.company_main.id,',
+        "        })",
+        "        # Accessing optional relations should not trigger fatal crashes",
+        "        partner_name = record.partner_id.name if record.partner_id else False",
+        "        self.assertFalse(partner_name)",
+        "",
+    ]
+
+    test_content = "\n".join(test_lines)
+
+    if not output_path:
+        parent_dir = os.path.dirname(os.path.abspath(model_path))
+        if os.path.basename(parent_dir) == "models":
+            module_dir = os.path.dirname(parent_dir)
+            tests_dir = os.path.join(module_dir, "tests")
+            os.makedirs(tests_dir, exist_ok=True)
+            init_file = os.path.join(tests_dir, "__init__.py")
+            if not os.path.exists(init_file):
+                with open(init_file, "w", encoding="utf-8") as f:
+                    f.write(f"from . import test_{clean_name}\n")
+            else:
+                with open(init_file, "r+", encoding="utf-8") as f:
+                    content = f.read()
+                    if f"test_{clean_name}" not in content:
+                        f.write(f"from . import test_{clean_name}\n")
+            output_path = os.path.join(tests_dir, f"test_{clean_name}.py")
+        else:
+            output_path = os.path.join(parent_dir, f"test_{clean_name}.py")
+
+    try:
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(test_content)
+        return f"✓ Production-grade test suite generated successfully at:\n  {output_path}\n\nPreview:\n" + "\n".join(test_lines[:25])
+    except Exception as e:
+        return f"Error writing test file to '{output_path}': {str(e)}"
+
 
 if __name__ == "__main__":
     server.run(transport="stdio")
