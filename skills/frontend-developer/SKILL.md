@@ -130,3 +130,19 @@ When serving PDF, CSV, or binary reports to embedded WebViews (Android WebView, 
    - Write unit tests under `static/tests/` verifying mounting, reactivity, and user interaction.
 2. **Component Isolation Testing**:
    - Assert accessibility compliance (`axe-core`), keyboard focus states, and zero console errors.
+
+---
+
+## 6. Dual Pointer Event Architecture & Responsive Canvas Interaction
+
+1. **Unified Pointer Events**:
+   - Modern browsers support the Pointer Events API (`pointerdown`, `pointermove`, `pointerup`, `pointercancel`).
+   - For draggable widgets, signature fields, or visual canvas designers, always bind unified pointer events rather than separate mouse events. Set `touch-action: none;` on the draggable container so touch interactions don't trigger browser scrolling.
+   - For legacy or fallback compatibility:
+     ```javascript
+     const startEvent = window.PointerEvent ? "pointerdown" : "touchstart mousedown";
+     ```
+2. **Accessible Canvas Controls**:
+   - Touchscreen devices do not have scroll wheels for zooming.
+   - Any coordinate or canvas visual editor must provide dedicated, accessible buttons: Zoom In (+), Zoom Out (-), Reset (100%), and Fit-to-Width.
+

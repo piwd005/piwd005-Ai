@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml/badge.svg)](https://github.com/piwd005/piwd005-Ai/actions/workflows/ci.yml)
 
-A unified, production-hardened Universal Super-AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Universal Polyglot Super-AI Platform**: **56+ specialized engineering skills**, the **Universal Nona-Persona Mandate (9 Principal Disciplines)**, the **24 Unbreakable Laws of Principal Engineering**, the **Universal 4-Stage Pre-Deploy Safety Gate**, the **super-dev polyglot CLI**, the **odoo-dev MCP Server with 16 automated tools**, and automated **Playwright visual inspection**.
+A unified, production-hardened Universal Super-AI developer environment combining the official **Primacy AI Engineering Kit v0.3.5** with the **Universal Polyglot Super-AI Platform**: **56+ specialized engineering skills**, the **Universal Nona-Persona Mandate (9 Principal Disciplines)**, the **25 Unbreakable Laws of Principal Engineering**, the **Universal 4-Stage Pre-Deploy Safety Gate**, the **super-dev polyglot CLI**, the **odoo-dev MCP Server with 16 automated tools**, and automated **Playwright visual inspection**.
 
 Covers all software engineering: Enterprise ERP (Odoo 18, 19, 20), Mobile Engineering (Android Kotlin, Jetpack Compose, MVVM/Clean Architecture), Enterprise PHP (Laravel since 2023, CodeIgniter since 2021, Core PHP/MySQL), Fullstack Web (React 19, Next.js), Distributed Systems & APIs (FastAPI, Webhooks, OAuth2, Microservices EDA), Databases (PostgreSQL DBA, Redis), Cloud & DevOps (Docker, CI/CD), AppSec (OWASP SAST), and Design Systems (WCAG 2.2 AAA, Boundless Layouts).
 

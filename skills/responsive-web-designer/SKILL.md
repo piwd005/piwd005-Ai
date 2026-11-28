@@ -192,3 +192,42 @@ Eliminate jerky breakpoint jumps by calculating continuous fluid dimensions base
      ```
    - Reset cell dimensions (`min-width: 0 !important; max-width: none !important;`) across all card children to eliminate unintended horizontal scroll overflows caused by conflicting table column definitions.
 
+5. **Sticky Sub-Table Action Row Left-Pinning (`.o_field_x2many`)**:
+   - In relational tables that scroll horizontally (`min-width: 650px+`), action rows containing "Add a line", "Add a section", or "Add a note" must never scroll off-screen to the right.
+   - Enforce sticky left pinning:
+     ```scss
+     .o_field_x2many .o_field_x2many_list_row_add,
+     .o_field_x2many .o_list_table tr:last-child td:first-child,
+     .o_field_x2many tfoot tr td:first-child {
+       position: sticky !important;
+       left: 0 !important;
+       z-index: 2 !important;
+       width: fit-content !important;
+     }
+     ```
+   - On mobile/tablet viewports ($\le 768\text{px}$), the action row stays fixed at the left edge of the scroll container so users can tap "Add a line" immediately without horizontal panning.
+
+6. **Dialog & Wizard Multi-Button Footer Parity**:
+   - In modal dialogs and wizard popups (`.modal-dialog`, `.o_dialog`, `.modal-footer`), mobile viewports must never clip or hide footer buttons.
+   - Desktop button count must strictly equal mobile button count:
+     ```scss
+     .modal-footer,
+     .o_dialog footer {
+       display: flex !important;
+       flex-wrap: wrap !important;
+       gap: 0.5rem !important;
+       justify-content: flex-end !important;
+
+       .btn {
+         flex: 1 1 auto !important;
+         min-width: 80px !important;
+         max-width: 100% !important;
+       }
+     }
+     ```
+
+7. **Touch Gesture Isolation & Swipe Bleed Containment**:
+   - Inner scrollable elements (tables, kanban columns, signature pads, slider widgets) must isolate touch panning using `touch-action: pan-x pan-y !important;` or `touch-action: none;` on drag canvases.
+   - Notebook tab transitions (e.g. settings pages, chatter tabs) must require explicit, deliberate tap/click events; accidental horizontal swipes within inner content areas must NEVER cause spontaneous tab navigation.
+
+

@@ -102,3 +102,25 @@ Never deliver a UI component that only handles the ideal "sunny day" scenario. E
    - Exit transitions: Ease-in (`cubic-bezier(0.4, 0.0, 1, 1)`) for swift dismissal ($100\text{ms}-150\text{ms}$).
 2. **Optimistic Feedback**:
    - When a user performs an action (e.g. toggles a favorite, likes a post, or changes a status), immediately reflect the change in the UI before waiting for the network round-trip. Revert gracefully with an error toast only if the server rejects the mutation.
+
+---
+
+## 6. The Turn 1 360° Interactive Journey Verification Checklist
+
+Never conclude an interface task merely because the DOM loaded without errors. Actively verify the complete user journey:
+1. **Relational AutoComplete Dropdown Parity**:
+   - AutoComplete and Many2one fields must render inline floating dropdowns.
+   - Never pop up a full-screen search dialog unless "Search More..." is explicitly clicked.
+2. **Modal Wizard Footer Multi-Button Parity**:
+   - Dialog footer actions must wrap gracefully without clipping any buttons on mobile.
+   - Desktop button count must equal mobile button count.
+3. **Sticky Sub-Table Add Row Pinning**:
+   - Action rows ("Add a line") on horizontal scrolling tables must be pinned to `left: 0` so they are immediately reachable without scrolling across columns.
+4. **Touch & Mouse Pointer Parity**:
+   - All interactive draggable badges and canvases must support both touch and mouse events (`pointerdown`, `pointermove`, `pointerup`).
+   - Coordinate canvases must include accessible Zoom In, Zoom Out, and Fit-to-Width controls.
+5. **Swipe Bleed Isolation**:
+   - Prevent horizontal swipe gestures within inner widgets from triggering accidental tab bar transitions.
+6. **Phantom Trigger Suppression**:
+   - Suppress empty adaptive 3-dots menus and empty bottom sheets when all actions are hidden.
+

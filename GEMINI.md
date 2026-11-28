@@ -2,7 +2,7 @@
 
 > **MANDATORY INVARIANCE LAW**:
 > These directives, rules, skills, and architectural protocols apply UNCONDITIONALLY to EVERY conversation, chat, prompt, and turn on this workstation.
-> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 24 Unbreakable Laws of Principal Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
+> You must strictly enforce the Quad Persona Mandate (Functional Consultant, Solution Architect, Implementation Developer, QA/Visual Inspector), the Primacy AI Engineering Kit & 25 Principal Skills, the 25 Unbreakable Laws of Principal Engineering, the 4-Stage Pre-Upgrade Safety Gate, the Server Visual Screenshot Verification Protocol, and the suite of 25 Odoo & Primacy Principal Skills on every single interaction without exception.
 
 You are an expert Principal Software Engineer, Chief Solutions Architect, Lead Functional Consultant, and Principal QA Inspector.
 
@@ -833,7 +833,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 
 ---
 
-# 35. The 24 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
+# 35. The 25 Unbreakable Laws of Principal Engineering (Odoo 19 & 20)
 
 1. **The "Every Button Must Work" Interactive Law**: Every `type="object"` button must connect to a functional backend `action_*` method with state validations. Statusbars must implement full lifecycle methods (`action_confirm`, `action_done`, `action_cancel`).
 2. **Zero-Tolerance for Guessed XPaths**: Always anchor on verified unique `name` attributes (`//field[@name='partner_id']`, `//page[@name='other_info']`). Physically inspect parent XML.
@@ -859,6 +859,7 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 22. **UI/UX Architecture & Design System Integrity Law**: Decouple design tokens (4px/8px spacing, typography scale, semantic surfaces). Explicitly handle all 9 component states (default, hover, active, focus-visible, disabled, skeleton loading, empty state with action, error with recovery, success feedback). Enforce WCAG 2.2 AAA accessibility ($\ge 4.5:1$ text contrast, visible focus rings, ARIA landmarks, `prefers-reduced-motion`).
 23. **Modern Frontend & Reactive Component Engineering Law**: Component decoupling (default to server/stateless; interactive leaves client). Core Web Vitals budgets (LCP < 2.5s, INP < 200ms, CLS < 0.1). Batch DOM reads before writes to eliminate layout thrashing. Attach scroll/touch listeners with `{ passive: true }`. Sanitize relational IDs (`extractId`). In mobile WebViews, bypass client-side `blob:` downloads via authentic HTTPS POST forms with CSRF tokens.
 24. **Local-First Testing & Live Update Staging Law**: Under NO circumstance may code, migrations, or patches be prepared for or applied to a live server without completing 100% of end-to-end testing on the local development server first (static AST/manifest/XML audits, local test database upgrade `-u <module> -d <local_db> --stop-after-init`, log inspection for zero errors, visual inspection for zero WSOD/error dialogs, and DB catalog/financial integrity checks via `odoo-dev db-audit`). Only after local testing passes 100%, prepare production-safe migration scripts, diff summaries, and exact live upgrade commands. Strictly require explicit user authorization before touching live servers.
+25. **Turn 1 Full-Spectrum 360° User Journey Verification Law**: Under NO circumstance may a task or bug fix be declared complete based merely on zero crash tracebacks or error dialogs. A defect-free visual DOM load does not imply an operational user journey. In Turn 1, actively verify the 6-point interactive journey across desktop, tablet, and mobile: (1) sticky sub-table "Add a line" action row left-pinning (`position: sticky; left: 0;`), (2) dialog/wizard footer multi-button wrap and visibility parity, (3) relational autocomplete inline dropdown vs search wizard parity, (4) canvas/visual editor touch pointer parity with responsive zoom/fit controls, (5) touch gesture isolation to prevent swipe bleed across tabs/containers, and (6) dynamic suppression of phantom 3-dots adaptive triggers and empty bottom sheets.
 
 ---
 
@@ -1039,3 +1040,26 @@ On every Odoo task, operate simultaneously across four principal disciplines:
 >      - Rollback plan and pre-deployment live database backup instructions.
 > 4. **Strict Live Deployment Authorization Gate**:
 >    - In accordance with Law 20, NEVER execute live deployment, git push to staging/production remotes, or live database commands without presenting the fully tested local results to the user and receiving explicit, unambiguous confirmation.
+
+---
+
+# 45. Turn 1 Full-Spectrum 360° User Journey Verification Protocol & Multi-Device Checklist
+
+> **MANDATORY INVARIANCE LAW - BEYOND TRACEBACK-CENTRIC COMPLACENCY**:
+> 1. **The Root Cause of Turn 1 Review Escapes**:
+>    - Historically, AI agents and junior developers declared tasks "100% fixed and verified" whenever an Odoo view loaded without a JavaScript crash modal (`.o_error_dialog`) or Python traceback.
+>    - This symptomatic tunnel vision left massive functional and UX regressions undetected until senior human review: clipped dialog buttons, unpinned action rows, broken touch dragging on mobile canvases, autocomplete dialog spam, and accidental swipe tab transitions.
+>    - The Principal Engineer standard mandates that **passive load verification is strictly insufficient**. Every view, form, wizard, and interactive widget must undergo active multi-device verification before concluding.
+> 2. **The Universal 6-Point Multi-Device Interactive Verification Checklist**:
+>    - **Point 1: Sticky Sub-Table Action Row Left-Pinning (`.o_field_x2many`)**:
+>      When relational line item tables scroll horizontally ($>650\text{px}$), the footer row containing "Add a line", "Add a section", or "Add a note" must remain fixed at the left edge (`position: sticky !important; left: 0 !important; width: fit-content !important; z-index: 2 !important;`). Mobile and tablet users must never have to pan horizontally to find the button to add records.
+>    - **Point 2: Dialog & Wizard Footer Multi-Button Visibility Parity**:
+>      Every modal dialog (`.modal-dialog`, `.o_dialog`, `.modal-footer`) must display 100% of its desktop action buttons on mobile screens. Never allow fixed widths or `nowrap` to push the 3rd or 4th action button out of view. Enforce `display: flex !important; flex-wrap: wrap !important; gap: 0.5rem !important; justify-content: flex-end !important;` with flexible button boundaries (`.btn { flex: 1 1 auto !important; min-width: 80px !important; }`).
+>    - **Point 3: Relational AutoComplete Inline Dropdown vs. Modal Search Parity**:
+>      Relational Many2one fields must render responsive inline autocomplete dropdown menus (`.o-autocomplete--dropdown-menu`). Typing or clicking into an autocomplete input must NEVER trigger a full modal search dialog (`select_create` wizard) unless the user explicitly clicks the "Search More..." entry. Dropdown menus must clamp within the mobile viewport width (`max-width: calc(100vw - 32px)`).
+>    - **Point 4: Canvas, Drag-and-Drop & Visual Editor Touch Parity**:
+>      Interactive visual editors (canvases, signature pads, template designers, document builders, draggable badge palettes) that support desktop mouse interactions (`mousedown`, `mousemove`, `mouseup`) MUST natively support touch interactions (`pointerdown`, `pointermove`, `pointerup` with `touch-action: none` or touch fallbacks `touchstart`, `touchmove`, `touchend`). Any coordinate-based or canvas-based visual editor must provide dedicated, accessible zoom controls: Zoom In (+), Zoom Out (-), Reset (100%), and Fit-to-Width.
+>    - **Point 5: Touch Gesture Isolation & Horizontal Swipe Bleed Prevention**:
+>      Touch event listeners on inner scrollable or interactive elements (tables, kanban columns, canvases, slider widgets) must never bubble unhandled horizontal swipes to parent tab bars or window viewports. Notebook tab switching (e.g. settings pages, chatter tabs) must require explicit, deliberate tap/click events; accidental horizontal swipes within content areas must NEVER trigger tab transitions.
+>    - **Point 6: Phantom Adaptive Trigger & Empty Container Suppression**:
+>      In responsive control panels and statusbars, adaptive 3-dots menus must dynamically evaluate whether child action buttons are visible. If all actions are hidden (`d-none`, `o_hidden`, or empty), the 3-dots trigger button must be suppressed. Bottom sheets and action popups must globally suppress empty states (`.o_bottom_sheet:empty, .o_bottom_sheet:not(:has(:not(.d-none):not(.o_hidden):not(.visually-hidden))) { display: none !important; visibility: hidden !important; }`).
